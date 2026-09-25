@@ -67,13 +67,19 @@ def stage_c_points():
     return pts
 
 
-def stage_b_points(a_path):
-    recs = [json.loads(l) for l in open(a_path)]
+def stage_b_points(src):
+    """src: Stage A jsonl, optionally followed by ',<Stage C jsonl>'.
+    Triggers (fixed in PROTOCOL.md): adjacent Stage A points with different status or
+    >25% overhead change for any policy; and (amendment) any Stage C point whose status
+    differs from BOTH neighbouring Stage A points for that policy."""
+    paths = src.split(',')
+    recs = [json.loads(l) for l in open(paths[0])]
     by = {}
     for r in recs:
         if r['repeat'] == 0:
             by[(r['model'], r['heuristic'], r['ratio'])] = r
-    pts = []
+    cpts = [json.loads(l) for l in open(paths[1])] if len(paths) > 1 and os.path.exists(paths[1]) else []
+    pts, seen = [], set()
     for tr in TRACES:
         ratios = sorted({k[2] for k in by if k[0] == tr})
         for lo, hi in zip(ratios, ratios[1:]):
@@ -87,11 +93,17 @@ def stage_b_points(a_path):
                 elif a['overhead'] and b['overhead'] and \
                         abs(b['overhead'] / a['overhead'] - 1) > 0.25:
                     trigger = True
+                for c in cpts:
+                    if c['model'] == tr and c['heuristic'] == p and lo < c['ratio'] < hi \
+                            and c['status'] not in ('timeout', 'deferred', 'error') \
+                            and c['status'] != a['status'] and c['status'] != b['status']:
+                        trigger = True
             if trigger:
                 for i in range(1, 10):
                     r = round(lo + 0.001 * i, 4)
                     for p in POLICIES:
-                        pts.append((tr, p, r, 0))
+                        if (tr, p, r) not in seen:
+                            seen.add((tr, p, r)); pts.append((tr, p, r, 0))
     return pts
 
 
@@ -124,7 +136,16 @@ def keyset(path):
     return out
 
 
+def keep_awake():
+    """Windows only: stop the machine sleeping while this process runs; Windows
+    drops the request automatically when the process exits."""
+    if sys.platform == 'win32':
+        import ctypes
+        ctypes.windll.kernel32.SetThreadExecutionState(0x80000000 | 0x00000001)
+
+
 def main():
+    keep_awake()
     ap = argparse.ArgumentParser()
     ap.add_argument('--stage', choices=['A', 'B', 'C'], required=True)
     ap.add_argument('--from', dest='src')
