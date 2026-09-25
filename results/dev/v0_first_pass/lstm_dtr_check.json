@@ -1,0 +1,18 @@
+[
+ {
+  "model": "lstm",
+  "ratio": 0.264,
+  "heuristic": "DTR",
+  "status": "ok",
+  "overhead": 8.778919359029569,
+  "wall_s": 423.53
+ },
+ {
+  "model": "lstm",
+  "ratio": 0.262,
+  "heuristic": "DTR",
+  "status": "ok",
+  "overhead": 1.3871414079926483,
+  "wall_s": 27.94
+ }
+]

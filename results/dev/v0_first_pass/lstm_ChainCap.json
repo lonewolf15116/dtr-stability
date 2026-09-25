@@ -1,0 +1,38 @@
+[
+ {
+  "model": "lstm",
+  "ratio": 0.266,
+  "heuristic": "ChainCap",
+  "status": "ok",
+  "overhead": 1.306565935542389,
+  "evictions": 6644,
+  "wall_s": 23.04
+ },
+ {
+  "model": "lstm",
+  "ratio": 0.265,
+  "heuristic": "ChainCap",
+  "status": "ok",
+  "overhead": 2.8872155061738045,
+  "evictions": 14037,
+  "wall_s": 121.27
+ },
+ {
+  "model": "lstm",
+  "ratio": 0.264,
+  "heuristic": "ChainCap",
+  "status": "ok",
+  "overhead": 1.3087924068317245,
+  "evictions": 6650,
+  "wall_s": 23.38
+ },
+ {
+  "model": "lstm",
+  "ratio": 0.262,
+  "heuristic": "ChainCap",
+  "status": "ok",
+  "overhead": 2.9325641154866045,
+  "evictions": 14205,
+  "wall_s": 126.56
+ }
+]

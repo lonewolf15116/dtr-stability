@@ -1,0 +1,15 @@
+[
+ {
+  "model": "lstm",
+  "ratio": 0.266,
+  "budget": 1488303977,
+  "heuristic": "TwoPhase",
+  "repeat": 0,
+  "overhead_limit": 60.0,
+  "status": "ok",
+  "overhead": 1.4759841037525656,
+  "evictions": 7244,
+  "max_depth": 240,
+  "wall_s": 12.8
+ }
+]

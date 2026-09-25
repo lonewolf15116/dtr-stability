@@ -1,0 +1,4 @@
+resnet NbhdPenalty      0.094 rep0 ok          2.195 depth=38 locked=754.9MB (1.7s)
+resnet NbhdPenalty      0.101 rep0 ok          2.224 depth=38 locked=754.9MB (1.68s)
+resnet NbhdPenalty      0.104 rep0 ok          2.331 depth=52 locked=575.1MB (1.54s)
+resnet NbhdPenalty      0.107 rep0 ok          2.429 depth=73 locked=575.1MB (1.11s)

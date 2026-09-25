@@ -1,0 +1,38 @@
+[
+ {
+  "model": "lstm",
+  "ratio": 0.266,
+  "heuristic": "TieAware",
+  "status": "ok",
+  "overhead": 10.099834153180746,
+  "evictions": 50535,
+  "wall_s": 457.75
+ },
+ {
+  "model": "lstm",
+  "ratio": 0.265,
+  "heuristic": "TieAware",
+  "status": "ok",
+  "overhead": 1.3826015341875997,
+  "evictions": 6958,
+  "wall_s": 29.09
+ },
+ {
+  "model": "lstm",
+  "ratio": 0.264,
+  "heuristic": "TieAware",
+  "status": "ok",
+  "overhead": 8.778919359029569,
+  "evictions": 43292,
+  "wall_s": 456.79
+ },
+ {
+  "model": "lstm",
+  "ratio": 0.262,
+  "heuristic": "TieAware",
+  "status": "ok",
+  "overhead": 1.3871414079926483,
+  "evictions": 6979,
+  "wall_s": 29.29
+ }
+]

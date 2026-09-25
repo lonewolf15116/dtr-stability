@@ -1,0 +1,641 @@
+[
+ {
+  "model": "resnet",
+  "ratio": 0.08,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 629,
+  "wall_s": 0.64
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.081,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 629,
+  "wall_s": 0.53
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.082,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 629,
+  "wall_s": 0.59
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.083,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 629,
+  "wall_s": 0.53
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.084,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1429,
+  "wall_s": 3.1
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.085,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1427,
+  "wall_s": 3.19
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.086,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1427,
+  "wall_s": 3.35
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.087,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1427,
+  "wall_s": 3.23
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.088,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1427,
+  "wall_s": 3.24
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.089,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1407,
+  "wall_s": 2.99
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.09,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1407,
+  "wall_s": 2.9
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.091,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1407,
+  "wall_s": 3.03
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.092,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1407,
+  "wall_s": 3.02
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.093,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1192,
+  "wall_s": 2.33
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.094,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.1600857574835515,
+  "evictions": 631,
+  "wall_s": 1.75
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.095,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.1600857574835515,
+  "evictions": 631,
+  "wall_s": 1.75
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.096,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.1600857574835515,
+  "evictions": 631,
+  "wall_s": 1.76
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.097,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.1600857574835515,
+  "evictions": 631,
+  "wall_s": 1.77
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.098,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.1523413158725586,
+  "evictions": 625,
+  "wall_s": 1.79
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.099,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.1523413158725586,
+  "evictions": 625,
+  "wall_s": 1.69
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.1,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.1523413158725586,
+  "evictions": 625,
+  "wall_s": 1.72
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.101,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.1523413158725586,
+  "evictions": 625,
+  "wall_s": 1.72
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.102,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.3374290528495614,
+  "evictions": 688,
+  "wall_s": 1.72
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.103,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.3374290528495614,
+  "evictions": 687,
+  "wall_s": 1.52
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.104,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.3374290528495614,
+  "evictions": 687,
+  "wall_s": 1.4
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.105,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.3374290528495614,
+  "evictions": 687,
+  "wall_s": 1.53
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.106,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.3374290528495614,
+  "evictions": 687,
+  "wall_s": 1.53
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.107,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.188394834798018,
+  "evictions": 646,
+  "wall_s": 1.87
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.108,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.188394834798018,
+  "evictions": 646,
+  "wall_s": 1.84
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.109,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.188394834798018,
+  "evictions": 646,
+  "wall_s": 1.72
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.11,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.188394834798018,
+  "evictions": 646,
+  "wall_s": 1.69
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.111,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.887788286076308,
+  "evictions": 953,
+  "wall_s": 2.06
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.112,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.887788286076308,
+  "evictions": 953,
+  "wall_s": 2.05
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.113,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.887788286076308,
+  "evictions": 953,
+  "wall_s": 2.04
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.114,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.887788286076308,
+  "evictions": 953,
+  "wall_s": 2.16
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.115,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.887788286076308,
+  "evictions": 953,
+  "wall_s": 2.05
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.116,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.0102003324110176,
+  "evictions": 620,
+  "wall_s": 0.79
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.117,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.0102003324110176,
+  "evictions": 620,
+  "wall_s": 0.77
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.118,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.0102003324110176,
+  "evictions": 620,
+  "wall_s": 0.79
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.119,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.0102003324110176,
+  "evictions": 620,
+  "wall_s": 0.76
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.12,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 1.94378946360813,
+  "evictions": 581,
+  "wall_s": 1.45
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.121,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 1.94378946360813,
+  "evictions": 581,
+  "wall_s": 1.52
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.122,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 1.94378946360813,
+  "evictions": 581,
+  "wall_s": 1.5
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.123,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 1.94378946360813,
+  "evictions": 581,
+  "wall_s": 1.52
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.124,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 1.94378946360813,
+  "evictions": 581,
+  "wall_s": 1.48
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.125,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 1.9312910825824936,
+  "evictions": 577,
+  "wall_s": 0.7
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.126,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 1.9312910825824936,
+  "evictions": 577,
+  "wall_s": 0.7
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.127,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 1.9312910825824936,
+  "evictions": 577,
+  "wall_s": 0.75
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.128,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 1.9312910825824936,
+  "evictions": 577,
+  "wall_s": 0.68
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.129,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.656396592503929,
+  "evictions": 822,
+  "wall_s": 1.11
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.13,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.656396592503929,
+  "evictions": 822,
+  "wall_s": 1.09
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.131,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.656396592503929,
+  "evictions": 822,
+  "wall_s": 1.09
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.132,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.656396592503929,
+  "evictions": 822,
+  "wall_s": 1.16
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.133,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.656396592503929,
+  "evictions": 822,
+  "wall_s": 1.13
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.134,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.6967494927561946,
+  "evictions": 837,
+  "wall_s": 1.01
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.135,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.6967494927561946,
+  "evictions": 837,
+  "wall_s": 0.98
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.136,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.6967494927561946,
+  "evictions": 837,
+  "wall_s": 1.01
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.137,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.6967494927561946,
+  "evictions": 837,
+  "wall_s": 1.02
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.138,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.6120421059436953,
+  "evictions": 811,
+  "wall_s": 1.02
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.139,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.6120421059436953,
+  "evictions": 811,
+  "wall_s": 1.02
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.14,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.6120421059436953,
+  "evictions": 811,
+  "wall_s": 1.06
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.141,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.6120421059436953,
+  "evictions": 811,
+  "wall_s": 1.07
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.142,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.6120421059436953,
+  "evictions": 811,
+  "wall_s": 1.08
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.143,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.713348437331704,
+  "evictions": 830,
+  "wall_s": 1.09
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.144,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.713348437331704,
+  "evictions": 830,
+  "wall_s": 1.03
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.145,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.713348437331704,
+  "evictions": 830,
+  "wall_s": 1.07
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.146,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.713348437331704,
+  "evictions": 830,
+  "wall_s": 1.09
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.147,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.313761262048493,
+  "evictions": 737,
+  "wall_s": 0.82
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.148,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.313761262048493,
+  "evictions": 737,
+  "wall_s": 0.91
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.149,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.313761262048493,
+  "evictions": 737,
+  "wall_s": 0.89
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.15,
+  "heuristic": "ChainCap@b=0.5",
+  "status": "ok",
+  "overhead": 2.313761262048493,
+  "evictions": 737,
+  "wall_s": 0.94
+ }
+]

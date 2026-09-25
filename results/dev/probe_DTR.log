@@ -1,0 +1,3 @@
+resnet DTR              0.101 rep0 ok          2.223 depth=38 locked=754.9MB (1.73s)
+resnet DTR              0.104 rep0 oom         0.000 depth=124 locked=889.8MB (0.64s)
+resnet DTR              0.107 rep0 ok          2.077 depth=38 locked=575.1MB (1.7s)

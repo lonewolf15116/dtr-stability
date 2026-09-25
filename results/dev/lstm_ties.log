@@ -1,0 +1,2 @@
+lstm DTRProbe         0.265 rep0 ok          1.383 depth=219 ties={'decisions': 1726, 'exact_ties': 0, 'band_ties': 0, 'inf_ties': 0, 'changed': 0} (28.27s)
+lstm DTRProbe         0.264 rep0 ok          8.779 depth=893 ties={'decisions': 38059, 'exact_ties': 18, 'band_ties': 19, 'inf_ties': 0, 'changed': 0} (476.91s)

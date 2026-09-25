@@ -1,0 +1,641 @@
+[
+ {
+  "model": "resnet",
+  "ratio": 0.08,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 947,
+  "wall_s": 2.08
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.081,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 947,
+  "wall_s": 2.02
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.082,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 947,
+  "wall_s": 1.96
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.083,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 947,
+  "wall_s": 2.02
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.084,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 544,
+  "wall_s": 0.5
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.085,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 544,
+  "wall_s": 0.49
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.086,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 544,
+  "wall_s": 0.52
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.087,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 544,
+  "wall_s": 0.52
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.088,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 544,
+  "wall_s": 0.51
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.089,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 534,
+  "wall_s": 0.6
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.09,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 534,
+  "wall_s": 0.58
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.091,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 534,
+  "wall_s": 0.6
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.092,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 534,
+  "wall_s": 0.61
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.093,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 556,
+  "wall_s": 0.68
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.094,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 538,
+  "wall_s": 0.62
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.095,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 538,
+  "wall_s": 0.63
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.096,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 538,
+  "wall_s": 0.66
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.097,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 538,
+  "wall_s": 0.64
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.098,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1050,
+  "wall_s": 1.34
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.099,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1050,
+  "wall_s": 1.37
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.1,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1050,
+  "wall_s": 1.34
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.101,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "oom",
+  "overhead": null,
+  "evictions": 1050,
+  "wall_s": 1.37
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.102,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.2902533997245484,
+  "evictions": 657,
+  "wall_s": 1.73
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.103,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.2902533997245484,
+  "evictions": 656,
+  "wall_s": 1.67
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.104,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.2902533997245484,
+  "evictions": 656,
+  "wall_s": 1.65
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.105,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.2902533997245484,
+  "evictions": 656,
+  "wall_s": 1.73
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.106,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.2902533997245484,
+  "evictions": 656,
+  "wall_s": 1.66
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.107,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.139641414140324,
+  "evictions": 615,
+  "wall_s": 1.55
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.108,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.139641414140324,
+  "evictions": 615,
+  "wall_s": 1.53
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.109,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.139641414140324,
+  "evictions": 615,
+  "wall_s": 1.46
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.11,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.139641414140324,
+  "evictions": 615,
+  "wall_s": 1.47
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.111,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 3.1081215098913164,
+  "evictions": 962,
+  "wall_s": 1.42
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.112,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 3.1081215098913164,
+  "evictions": 962,
+  "wall_s": 1.42
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.113,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 3.1081215098913164,
+  "evictions": 962,
+  "wall_s": 1.37
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.114,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 3.1081215098913164,
+  "evictions": 962,
+  "wall_s": 1.39
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.115,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 3.1081215098913164,
+  "evictions": 962,
+  "wall_s": 1.44
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.116,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 3.1251719841771934,
+  "evictions": 951,
+  "wall_s": 1.54
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.117,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 3.1251719841771934,
+  "evictions": 951,
+  "wall_s": 1.5
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.118,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 3.1251719841771934,
+  "evictions": 951,
+  "wall_s": 1.52
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.119,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 3.1251719841771934,
+  "evictions": 951,
+  "wall_s": 1.47
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.12,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.0626427450471323,
+  "evictions": 601,
+  "wall_s": 1.65
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.121,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.0626427450471323,
+  "evictions": 601,
+  "wall_s": 1.56
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.122,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.0626427450471323,
+  "evictions": 601,
+  "wall_s": 1.66
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.123,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.0626427450471323,
+  "evictions": 601,
+  "wall_s": 1.56
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.124,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.0626427450471323,
+  "evictions": 601,
+  "wall_s": 1.63
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.125,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.0466585713751932,
+  "evictions": 594,
+  "wall_s": 1.52
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.126,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.0466585713751932,
+  "evictions": 594,
+  "wall_s": 1.55
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.127,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.0466585713751932,
+  "evictions": 594,
+  "wall_s": 1.58
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.128,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.0466585713751932,
+  "evictions": 594,
+  "wall_s": 1.56
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.129,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.5703901482331504,
+  "evictions": 803,
+  "wall_s": 1.22
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.13,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.5703901482331504,
+  "evictions": 803,
+  "wall_s": 1.33
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.131,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.5703901482331504,
+  "evictions": 803,
+  "wall_s": 1.27
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.132,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.5703901482331504,
+  "evictions": 803,
+  "wall_s": 1.3
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.133,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.5703901482331504,
+  "evictions": 803,
+  "wall_s": 1.29
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.134,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.478385248715794,
+  "evictions": 783,
+  "wall_s": 1.15
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.135,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.478385248715794,
+  "evictions": 783,
+  "wall_s": 1.14
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.136,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.478385248715794,
+  "evictions": 783,
+  "wall_s": 1.22
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.137,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.478385248715794,
+  "evictions": 783,
+  "wall_s": 1.15
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.138,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.5346060966644317,
+  "evictions": 784,
+  "wall_s": 1.12
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.139,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.5346060966644317,
+  "evictions": 784,
+  "wall_s": 1.06
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.14,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.5346060966644317,
+  "evictions": 784,
+  "wall_s": 1.11
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.141,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.5346060966644317,
+  "evictions": 784,
+  "wall_s": 1.06
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.142,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 2.5346060966644317,
+  "evictions": 784,
+  "wall_s": 1.09
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.143,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 1.739836709544278,
+  "evictions": 522,
+  "wall_s": 1.15
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.144,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 1.739836709544278,
+  "evictions": 522,
+  "wall_s": 1.09
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.145,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 1.739836709544278,
+  "evictions": 522,
+  "wall_s": 1.15
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.146,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 1.739836709544278,
+  "evictions": 522,
+  "wall_s": 1.14
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.147,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 1.6406367037561032,
+  "evictions": 494,
+  "wall_s": 0.99
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.148,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 1.6406367037561032,
+  "evictions": 494,
+  "wall_s": 1.0
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.149,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 1.6406367037561032,
+  "evictions": 494,
+  "wall_s": 1.03
+ },
+ {
+  "model": "resnet",
+  "ratio": 0.15,
+  "heuristic": "ChainCap@b=0.05",
+  "status": "ok",
+  "overhead": 1.6406367037561032,
+  "evictions": 494,
+  "wall_s": 1.0
+ }
+]

@@ -1,0 +1,42 @@
+[
+ {
+  "model": "lstm",
+  "ratio": 0.265,
+  "budget": 1482708850,
+  "heuristic": "DTRProbe",
+  "repeat": 0,
+  "overhead_limit": 60.0,
+  "status": "ok",
+  "overhead": 1.3826015341875997,
+  "evictions": 6958,
+  "max_depth": 219,
+  "wall_s": 28.27,
+  "tie_stats": {
+   "decisions": 1726,
+   "exact_ties": 0,
+   "band_ties": 0,
+   "inf_ties": 0,
+   "changed": 0
+  }
+ },
+ {
+  "model": "lstm",
+  "ratio": 0.264,
+  "budget": 1477113722,
+  "heuristic": "DTRProbe",
+  "repeat": 0,
+  "overhead_limit": 60.0,
+  "status": "ok",
+  "overhead": 8.778919359029569,
+  "evictions": 43292,
+  "max_depth": 893,
+  "wall_s": 476.91,
+  "tie_stats": {
+   "decisions": 38059,
+   "exact_ties": 18,
+   "band_ties": 19,
+   "inf_ties": 0,
+   "changed": 0
+  }
+ }
+]
