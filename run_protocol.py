@@ -31,7 +31,7 @@ out = {}
 def go():
     out['r'] = harness.run_point(%r, %r, %r, %r, %r)
 sys.setrecursionlimit(1_000_000)
-threading.stack_size(512 * 1024 * 1024)
+threading.stack_size((64 if sys.platform == 'win32' else 512) * 1024 * 1024)
 t = threading.Thread(target=go); t.start(); t.join()
 print(json.dumps(out['r']))
 '''

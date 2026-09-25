@@ -124,7 +124,7 @@ if __name__ == '__main__':
     ap.add_argument('--out')
     a = ap.parse_args()
     sys.setrecursionlimit(1_000_000)
-    threading.stack_size(512 * 1024 * 1024)
+    threading.stack_size((64 if sys.platform == 'win32' else 512) * 1024 * 1024)
     t = threading.Thread(target=main, args=(a,))
     t.start()
     t.join()
