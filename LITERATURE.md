@@ -25,23 +25,44 @@ Read on 2026-09-26. "Verified" = read in the primary source; "unverified" = not 
   minimum budgets than DTR on eight models, no feasibility inversions.
 - Cites DTE (MegTaiChi), which adds adjacent free-block information to DTR's score.
 
-## T-Control (Wang et al., ASPLOS 2026) — unverified
-- Full text not reachable from here (ACM 403). Earlier notes say it protects
-  topologically central tensors (betweenness centrality) before cost-based eviction
-  and uses coarse budget steps; this must be checked in the paper itself.
+## T-Control (Wang et al., ASPLOS 2026) — UNRESOLVED
+- Publication confirmed (ASPLOS 2026 programme; doi:10.1145/3779212.3790230); full
+  text not obtained (ACM 403, no author manuscript found).
+- **No claim about its method, budgets or findings is made here.** Earlier statements in
+  our notes and the PhD-proposal draft ("10% budget steps", "locks hub tensors",
+  "betweenness centrality", "targets a different failure mode") were never verified
+  against the paper and must not be used until checked.
+- Questions to answer from the PDF: (1) does it evaluate performance and OOM at many
+  budgets; (2) does it report success → OOM → success as budget increases; (3) does its
+  policy use neighbourhood size, dependency structure or selective pinning (if so, an
+  equation-level comparison and possibly a T-Control baseline are needed); (4) does it
+  measure fine-grained transitions and their allocation-level causes.
 
 ## What the variants add (honest positioning)
-- **NbhdPenalty** = h_DTR × (1 + b · |e*(t)|). Both ingredients are in DTR: summed
-  e* cost in h_DTR, and |e*| in h_e*. The variant is a *blend* of DTR's practical
-  heuristic and its proof heuristic. Any contribution must be empirical: that adding
-  the cardinality term back to h_DTR changes budget-wise reliability, and the
-  measured trade-off. It is not a new scoring idea.
-- **TwoPhase** ranks by c(e*) / staleness — Coop's score without its contiguity
-  search — after a size filter on the current shortfall. It should be presented as a
-  Coop-like, size-decoupled baseline, not as a new method.
+- **NbhdPenalty** = h_DTR × (1 + b · n), n = |e*(t)| as simrd's regions compute it
+  (interior of forward plus reverse region). Relationship to DTR's two heuristics:
+  * b = 0 gives h_DTR exactly.
+  * For two candidates with n1 < n2, NbhdPenalty prefers the n1 candidate iff
+    h_DTR(t1)/h_DTR(t2) < (1 + b·n2)/(1 + b·n1). As b → ∞ the right side → n2/n1 when
+    n1 ≥ 1, and → ∞ when n1 = 0. So the b → ∞ limit is: prefer any candidate with
+    |e*| = 0; among the rest rank by h_DTR · |e*|. It is lexicographic only in the
+    split |e*| = 0 vs > 0, never in |e*| itself, so NbhdPenalty never reduces to h_e*
+    (which ranks by |e*| alone) for any b.
+  * Consequently **h_e*'s guarantee (Theorem 3.1) does not transfer**: that proof is for
+    h_e* alone on linear feedforward networks, and NbhdPenalty is not h_e* for any b.
+  * Both ingredients come from DTR (summed e* cost in h_DTR; |e*| in h_e*), so the
+    variant is not a new scoring idea; any contribution is empirical.
+- **h_e\* baseline (HEStar)**: minimal |e*|, with simrd's tie rule because DTR App. A.3
+  does not specify one; label as "h_e*-style".
+- **TwoPhase** ranks by c(e*) / staleness after a size filter on the current shortfall.
+  The ranking is Coop's score; the rest of Coop (contiguous-block search, memory-layout
+  model) is absent. Present as a size-decoupled variant related to Coop's score, not as
+  Coop and not as a new method. **CostStale** = the score alone: a *Coop-inspired score
+  baseline*.
 - **Open novelty question**: whether budget-wise reliability (no feasibility
-  inversions on a fine grid) has been evaluated as an objective. Neither DTR nor Coop
-  reports it; T-Control must be checked before any claim.
+  inversions on a fine grid) has been evaluated as an objective. DTR and Coop do not
+  report it in the parts read; T-Control is unresolved, and coarse plots elsewhere do
+  not show that authors overlooked it. No novelty claim until T-Control is read.
 
 ## To do
 - Obtain T-Control full text (Aston library / ACM DL) and check scoring, budgets, failures.

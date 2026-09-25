@@ -50,6 +50,23 @@ def stage_a_points():
     return pts
 
 
+def stage_c_points():
+    """Amendment 2026-09-26 (PROTOCOL.md): seeded interior samples inside every
+    0.01 Stage A interval, independent of any result. 2 per interval below 0.30,
+    1 per interval from 0.30 to 0.60. The three frozen policies only."""
+    pts = []
+    for ti, tr in enumerate(TRACES):
+        rng = random.Random(20260927 + ti)
+        for i in range(55):
+            lo = round(0.05 + 0.01 * i, 3)
+            k = 2 if lo < 0.30 else 1
+            for _ in range(k):
+                r = round(lo + 0.0001 * rng.randint(1, 99), 4)
+                for p in ['DTR', 'NbhdPenalty@b=0.25', 'TwoPhase@k=8']:
+                    pts.append((tr, p, r, 0))
+    return pts
+
+
 def stage_b_points(a_path):
     recs = [json.loads(l) for l in open(a_path)]
     by = {}
@@ -109,7 +126,7 @@ def keyset(path):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--stage', choices=['A', 'B'], required=True)
+    ap.add_argument('--stage', choices=['A', 'B', 'C'], required=True)
     ap.add_argument('--from', dest='src')
     ap.add_argument('--workers', type=int, default=2)
     ap.add_argument('--out', required=True)
@@ -122,7 +139,8 @@ def main():
         pts = [(r['model'], r['heuristic'], r['ratio'], r['repeat'])
                for r in map(json.loads, open(a.only))]
     else:
-        pts = stage_a_points() if a.stage == 'A' else stage_b_points(a.src)
+        pts = {'A': stage_a_points, 'C': stage_c_points}[a.stage]() if a.stage != 'B' \
+            else stage_b_points(a.src)
     skip = keyset(a.out) | (keyset(a.deferred) if not a.only else set())
     todo = [p for p in pts if p not in skip]
     print(f'{len(pts)} points, {len(todo)} to run', flush=True)

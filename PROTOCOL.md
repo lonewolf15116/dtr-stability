@@ -21,6 +21,8 @@ Sub-questions:
 | Policy | Definition | Parameters |
 |---|---|---|
 | DTR | h_DTR = c(e*) / (size · staleness), simrd's choose() | — |
+| HEStar (baseline) | h_e*-style score: minimal \|e*\|, simrd's choose() tie rule (DTR App. A.3 leaves ties unspecified) | — |
+| CostStale (baseline) | *Coop-inspired score baseline*: c(e*)/staleness only; NOT Coop (no contiguous-block sliding window, no layout model) | — |
 | NbhdPenalty | h_DTR · (1 + b · \|evicted neighbourhood\|) | **b = 0.25, fixed** (chosen on ResNet-32) |
 | TwoPhase | keep storages ≥ current shortfall (refreshed per eviction), else 8 largest; rank by c(e*)/staleness | k = 8 |
 
@@ -38,6 +40,9 @@ artefact's has_start) is identical to start=False (checked on ResNet-32).
 ## 4. Budgets
 - Stage A: budget ratio 0.05 to 0.60, step 0.01 (56 budgets), ratio = fraction of
   the trace's unconstrained peak memory. Budget in bytes = int(peak × ratio).
+- Stage C (amendment 2026-09-26, see Deviations): seeded interior samples inside every
+  0.01 interval — 2 per interval below 0.30, 1 per interval from 0.30 to 0.60 —
+  for the three frozen policies, independent of any result.
 - Stage B (refinement, rule fixed now): for every adjacent pair of Stage A budgets
   where, for any policy, the status differs or overhead changes by more than 25%,
   run all three policies at step 0.001 across that 0.01 interval.
@@ -80,7 +85,12 @@ For NbhdPenalty vs DTR, per confirmatory trace:
 Reported as a 6-trace table of pass / fail / unresolved. Wording rules:
 - "removes failure bands" only for traces where DTR has at least one band and
   NbhdPenalty has none on the tested grid;
-- "generalises" only if H1 and H2 both pass on at least 5 of 6 traces;
+- "generalises" only if H1 and H2 both pass on at least 5 of 6 traces, and even then
+  only as "on the tested traces and sampled grids"; no claim of monotone feasibility
+  in general, and no claim that NbhdPenalty inherits h_e*'s theoretical guarantee;
+- the supported description is "a simple neighbourhood penalty", never "principled fix";
+- few or no DTR failure bands on the new traces limits the claimed prevalence; it is not
+  evidence that the ResNet-32 band is unimportant;
 - every regression is reported, including the worst one per trace;
 - TwoPhase is reported the same way; NbhdPenalty and TwoPhase are compared only
   on budgets where all three succeed.
@@ -105,3 +115,15 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   container under the full protocol. All other points ran in the cloud container.
   simrd results are deterministic, so the host does not affect outcomes (ResNet-32
   checks reproduced exactly on both hosts); wall times are not comparable across hosts.
+- 2026-09-26, amendment before any Stage A result below ratio 0.19 or on any trace other
+  than DenseNet existed: **Stage C added.** Reason (external review): Stage B refines
+  only where adjacent Stage A points differ, so a failure band lying strictly inside a
+  0.01 interval with successful endpoints (as ResNet-32's 0.102–0.106 band would, at
+  endpoints 0.10 and 0.11) is invisible to it. Stage C samples inside every interval
+  with a fixed seed. Detection power for a band of width w inside one interval:
+  1 − (1 − w/0.01)^k, e.g. w = 0.005 → 75% (k = 2, below 0.30) or 50% (k = 1). Stage C
+  therefore bounds, rather than rules out, undetected bands; results report the power.
+  Any Stage C point whose status differs from both neighbouring Stage A points triggers
+  a 0.001-step Stage B refinement of that interval.
+- 2026-09-26: baseline labels clarified (table in Sec. 2). CostStale is a
+  Coop-inspired score baseline, not an implementation of Coop.
