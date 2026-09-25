@@ -3,9 +3,16 @@
   python run_protocol.py --stage A --workers 2 --out protocol_A.jsonl
   python run_protocol.py --stage B --workers 2 --from protocol_A.jsonl --out protocol_B.jsonl
 
+Chunked mode (for hosts that kill background jobs, e.g. the laptop workspace):
+  --deadline 165 --deferred deferred.jsonl
+  runs until 165 s have passed; a point is only started with >= --min-start s left;
+  a point cut off by the deadline (not by the 20-min protocol limit) is written to
+  the deferred file instead of the results, and is skipped by later chunks.
+  --only deferred.jsonl runs exactly those points (full 20-min limit) elsewhere.
+
 Resumable: points already present in --out are skipped. One JSON record per line.
 """
-import argparse, json, os, random, subprocess, sys, time
+import argparse, json, os, random, subprocess, sys, threading, time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -71,23 +78,33 @@ def stage_b_points(a_path):
     return pts
 
 
-def run(pt):
+def run(pt, limit=TIMEOUT_S):
+    """limit < TIMEOUT_S only in chunked mode; a cut-off there returns 'deferred'."""
     tr, p, r, k = pt
     code = POINT % (HERE, tr, r, p, OVERHEAD_LIMIT, k)
     env = dict(os.environ)
     t0 = time.time()
     try:
         cp = subprocess.run([sys.executable, '-c', code], capture_output=True,
-                            text=True, timeout=TIMEOUT_S, env=env)
+                            text=True, timeout=limit, env=env)
         line = cp.stdout.strip().splitlines()[-1] if cp.stdout.strip() else ''
         rec = json.loads(line) if line.startswith('{') else {
             'model': tr, 'heuristic': p, 'ratio': r, 'repeat': k,
             'status': 'error', 'stderr': cp.stderr[-2000:]}
     except subprocess.TimeoutExpired:
         rec = {'model': tr, 'heuristic': p, 'ratio': r, 'repeat': k,
-               'status': 'timeout', 'overhead': None,
-               'wall_s': round(time.time() - t0, 1)}
+               'status': 'timeout' if limit >= TIMEOUT_S else 'deferred',
+               'overhead': None, 'wall_s': round(time.time() - t0, 1)}
     return rec
+
+
+def keyset(path):
+    out = set()
+    if path and os.path.exists(path):
+        for l in open(path):
+            r = json.loads(l)
+            out.add((r['model'], r['heuristic'], r['ratio'], r['repeat']))
+    return out
 
 
 def main():
@@ -96,22 +113,45 @@ def main():
     ap.add_argument('--from', dest='src')
     ap.add_argument('--workers', type=int, default=2)
     ap.add_argument('--out', required=True)
+    ap.add_argument('--deadline', type=float, default=None)
+    ap.add_argument('--min-start', type=float, default=45.0)
+    ap.add_argument('--deferred', default=None)
+    ap.add_argument('--only', default=None, help='run exactly the points in this jsonl')
     a = ap.parse_args()
-    pts = stage_a_points() if a.stage == 'A' else stage_b_points(a.src)
-    done = set()
-    if os.path.exists(a.out):
-        for l in open(a.out):
-            r = json.loads(l)
-            done.add((r['model'], r['heuristic'], r['ratio'], r['repeat']))
-    todo = [p for p in pts if p not in done]
+    if a.only:
+        pts = [(r['model'], r['heuristic'], r['ratio'], r['repeat'])
+               for r in map(json.loads, open(a.only))]
+    else:
+        pts = stage_a_points() if a.stage == 'A' else stage_b_points(a.src)
+    skip = keyset(a.out) | (keyset(a.deferred) if not a.only else set())
+    todo = [p for p in pts if p not in skip]
     print(f'{len(pts)} points, {len(todo)} to run', flush=True)
-    with ThreadPoolExecutor(a.workers) as ex, open(a.out, 'a') as f:
-        futs = [ex.submit(run, p) for p in todo]
-        for fu in as_completed(futs):
-            rec = fu.result()
-            f.write(json.dumps(rec) + '\n'); f.flush()
-            print(rec['model'], rec['heuristic'], rec['ratio'], rec.get('repeat'),
-                  rec['status'], rec.get('overhead'), rec.get('wall_s'), flush=True)
+    end = time.time() + a.deadline if a.deadline else None
+    lock = threading.Lock()
+    it = iter(todo)
+
+    def worker(f, fd):
+        while True:
+            with lock:
+                if end and end - time.time() < a.min_start:
+                    return
+                pt = next(it, None)
+            if pt is None:
+                return
+            limit = min(TIMEOUT_S, end - time.time()) if end else TIMEOUT_S
+            rec = run(pt, limit)
+            with lock:
+                target = fd if rec['status'] == 'deferred' else f
+                target.write(json.dumps(rec) + '\n'); target.flush()
+                print(rec['model'], rec['heuristic'], rec['ratio'], rec.get('repeat'),
+                      rec['status'], rec.get('overhead'), rec.get('wall_s'), flush=True)
+
+    with open(a.out, 'a') as f, open(a.deferred or os.devnull, 'a') as fd:
+        ts = [threading.Thread(target=worker, args=(f, fd)) for _ in range(a.workers)]
+        for t in ts: t.start()
+        for t in ts: t.join()
+    left = len([p for p in pts if p not in keyset(a.out) | keyset(a.deferred)])
+    print(f'REMAINING {left}', flush=True)
 
 
 if __name__ == '__main__':

@@ -98,3 +98,10 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   ranks by Coop's score; without these baselines their effect cannot be attributed.
   They run on the same Stage A grid and repeats, in a second pass after the three
   original policies, and are reported alongside them. No parameters involved.
+- 2026-09-26, execution only (no change to points, limits or policies): Stage A
+  records 128–138 of results/protocol/protocol_A.jsonl ran on the laptop's Claude
+  workspace (Linux VM, 2 vCPU, 3 GB) in 165-s chunks; one point cut off by a chunk
+  (not by the 20-min limit) was logged in deferred_A.jsonl and rerun in the cloud
+  container under the full protocol. All other points ran in the cloud container.
+  simrd results are deterministic, so the host does not affect outcomes (ResNet-32
+  checks reproduced exactly on both hosts); wall times are not comparable across hosts.
