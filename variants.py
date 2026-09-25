@@ -248,6 +248,42 @@ class CostStale(_Base):
         return e_star(s) / st if st > 0 else math.inf
 
 
+class TControlInspired(_Base):
+    """T-Control-INSPIRED baseline (Wang et al., ASPLOS 2026, Sec. 4.3): lock the
+    top K% of storages by betweenness over shortest computation paths, with
+    K = alpha * residual/budget + 1% recomputed at every eviction decision, and evict
+    the minimum-h_DTR storage among the unlocked ones. NOT T-Control: no segment
+    allocator, migration, segment-level Eq. 9 score or layer-wise incremental tracing;
+    BC is computed once on the whole iteration's graph (bc.py). If every evictable
+    storage is locked, it falls back to min h_DTR over all of them and counts it
+    (T-Control would have no evictable tensor there)."""
+    needs_bc = True
+
+    def __init__(self, alpha=0.3, floor=0.01):
+        self.alpha = alpha
+        self.floor = floor
+        self.bc = None
+        self.stats = dict(decisions=0, fallbacks=0, locked_candidates=0)
+        self._order = None
+
+    def score(self, s, rt):
+        return h_dtr(s, rt)
+
+    def choose(self, pool, rt, **kw):
+        if self._order is None:
+            self._order = sorted(self.bc, key=lambda k: -self.bc[k])
+        residual = max(rt.budget - rt.memory_usage, 0)
+        K = self.alpha * residual / rt.budget + self.floor
+        locked = set(self._order[:math.ceil(K * len(self._order))])
+        free = [s for s in pool if s.root_id not in locked]
+        self.stats['decisions'] += 1
+        self.stats['locked_candidates'] += len(pool) - len(free)
+        if not free:
+            self.stats['fallbacks'] += 1
+            free = pool
+        return [dtr_pick([(self.evaluate(s, rt), s) for s in free])]
+
+
 REGISTRY = {
     'DTR': lambda **k: DTR(),
     'DTRProbe': DTRProbe,
@@ -257,6 +293,7 @@ REGISTRY = {
     'NbhdPenalty': NbhdPenalty,
     'HEStar': HEStar,
     'CostStale': CostStale,
+    'TControlInspired': TControlInspired,
 }
 
 

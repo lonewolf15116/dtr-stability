@@ -53,6 +53,9 @@ def load(model):
 def run_point(model, ratio, hname, overhead_limit, repeat=0):
     cb, base = load(model)
     h = variants.make(hname)
+    if getattr(h, 'needs_bc', False):
+        import bc
+        h.bc = bc.bc_for(model, cb)
     budget = int(base['memory'] * ratio)
     limit = math.inf if overhead_limit <= 0 else base['compute'] * (overhead_limit - 1)
     rt = variants.RuntimeS(budget, h, stats=False, trace=False, remat_limit=limit)

@@ -22,6 +22,7 @@ Sub-questions:
 |---|---|---|
 | DTR | h_DTR = c(e*) / (size · staleness), simrd's choose() | — |
 | HEStar (baseline) | h_e*-style score: minimal \|e*\|, simrd's choose() tie rule (DTR App. A.3 leaves ties unspecified) | — |
+| TControlInspired (baseline) | *T-Control-inspired*: lock top K% of storages by betweenness over shortest computation paths, K = α·residual/budget + 1%, evict min h_DTR among unlocked (bc.py, variants.py) | **α = 0.3, floor 1% (the paper's formula, α mid-range of its [10%, 50%]), fixed** |
 | CostStale (baseline) | *Coop-inspired score baseline*: c(e*)/staleness only; NOT Coop (no contiguous-block sliding window, no layout model) | — |
 | NbhdPenalty | h_DTR · (1 + b · \|evicted neighbourhood\|) | **b = 0.25, fixed** (chosen on ResNet-32) |
 | TwoPhase | keep storages ≥ current shortfall (refreshed per eviction), else 8 largest; rank by c(e*)/staleness | k = 8 |
@@ -127,3 +128,15 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   a 0.001-step Stage B refinement of that interval.
 - 2026-09-26: baseline labels clarified (table in Sec. 2). CostStale is a
   Coop-inspired score baseline, not an implementation of Coop.
+- 2026-09-26, after reading T-Control in full (LITERATURE.md) and with Stage A complete
+  only for DenseNet and partly for InceptionV4: **added TControlInspired** as a baseline,
+  α = 0.3 and floor = 1% taken from the paper's formula before any confirmatory run.
+  Differences from T-Control: no segment allocator, migration or Eq. 9 segment score; BC
+  computed once on the whole iteration's graph (more information than T-Control's
+  layer-wise tracing); if every evictable storage is locked it falls back to min h_DTR
+  and counts the fallback. Checked: with α = 0 and floor = 0 it reproduces DTR exactly on
+  ResNet-32. Exploratory development runs on ResNet-32 only (results/dev/tcontrol/,
+  including smaller locks α = 0.1/floor 0.3% and floor 0.5%) informed nothing in the
+  frozen parameters. Runs on the Stage A grid after the other baselines.
+- 2026-09-26, execution only: the Windows run was restarted with 2 workers (was 8) at the
+  user's request to limit heat; outcomes are deterministic, only wall time changes.

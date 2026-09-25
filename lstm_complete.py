@@ -4,7 +4,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import run_protocol as R
 OUT = 'results/protocol/lstm_complete.jsonl'
 pts = [('lstm', p, r, 0) for r in (0.266, 0.265, 0.264, 0.262)
-       for p in ('DTR', 'NbhdPenalty@b=0.25', 'TwoPhase@k=8', 'HEStar', 'CostStale')]
+       for p in ('DTR', 'NbhdPenalty@b=0.25', 'TwoPhase@k=8', 'HEStar', 'CostStale',
+                 'TControlInspired@alpha=0.3,floor=0.01')]
 done = set()
 if os.path.exists(OUT):
     for l in open(OUT):

@@ -18,7 +18,9 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 HERE = os.path.dirname(os.path.abspath(__file__))
 TRACES = ['densenet', 'inception', 'transformer', 'unet', 'treelstm', 'unrollgan']
 POLICIES = ['DTR', 'NbhdPenalty@b=0.25', 'TwoPhase@k=8']
-if os.environ.get('PROTOCOL_BASELINES'):          # deviation 2026-09-26
+if os.environ.get('PROTOCOL_BASELINES') == '2':   # deviation 2026-09-26 (T-Control)
+    POLICIES = ['TControlInspired@alpha=0.3,floor=0.01']
+elif os.environ.get('PROTOCOL_BASELINES'):        # deviation 2026-09-26
     POLICIES = ['HEStar', 'CostStale']
 TIMEOUT_S = 20 * 60
 OVERHEAD_LIMIT = 60.0
