@@ -1,0 +1,1 @@
+{"model": "densenet", "heuristic": "TwoPhase@k=8", "ratio": 0.21, "repeat": 0, "status": "deferred", "overhead": null, "wall_s": 165.1}
