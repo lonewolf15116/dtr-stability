@@ -129,12 +129,23 @@ def run(pt, limit=TIMEOUT_S):
     return rec
 
 
+def interrupted(r):
+    """Amendment 2026-09-26: a record is an interruption artefact, not a result, if the
+    subprocess died without output ('error', empty stderr, no wall time) or a 'timeout'
+    whose wall time far exceeds the 20-min limit (host slept mid-point). Such points are
+    rerun; the stale record stays in the file and later records for the same point win."""
+    if r['status'] == 'error' and not (r.get('stderr') or '').strip():
+        return True
+    return r['status'] == 'timeout' and (r.get('wall_s') or 0) > 1.1 * TIMEOUT_S
+
+
 def keyset(path):
     out = set()
     if path and os.path.exists(path):
         for l in open(path):
             r = json.loads(l)
-            out.add((r['model'], r['heuristic'], r['ratio'], r['repeat']))
+            if not interrupted(r):
+                out.add((r['model'], r['heuristic'], r['ratio'], r['repeat']))
     return out
 
 

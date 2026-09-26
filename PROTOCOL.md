@@ -140,3 +140,9 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   frozen parameters. Runs on the Stage A grid after the other baselines.
 - 2026-09-26, execution only: the Windows run was restarted with 2 workers (was 8) at the
   user's request to limit heat; outcomes are deterministic, only wall time changes.
+- 2026-09-26, execution only: the laptop slept overnight. 8 InceptionV4 points ended as
+  'error' with no output (processes killed on sleep/resume) and 2 as 'timeout' after
+  8.8–9.0 h of wall time (clock ran through sleep). These are interruption artefacts, not
+  outcomes: run_protocol.py now treats them as not done and reruns them on the next Stage A
+  pass; later records for a point supersede earlier ones. Genuine 20-min 'timeout' points
+  are unaffected and stay unresolved as the protocol states.
