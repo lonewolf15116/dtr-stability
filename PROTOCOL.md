@@ -146,3 +146,9 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   outcomes: run_protocol.py now treats them as not done and reruns them on the next Stage A
   pass; later records for a point supersede earlier ones. Genuine 20-min 'timeout' points
   are unaffected and stay unresolved as the protocol states.
+- 2026-09-26, execution only: a stale copy of run_protocol.py reached the laptop (no Stage C,
+  and a 512 MB thread stack that Windows rejects). Stage C failed to start and all 204
+  Unrolled GAN Stage A points ended as 'error' (ValueError: size not valid) without running.
+  'error' is not an outcome class in this protocol, so every 'error' record is now treated as
+  not done and rerun (previously only errors with empty stderr). The correct script was
+  restored; no simulation result is affected.

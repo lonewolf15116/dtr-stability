@@ -134,7 +134,7 @@ def interrupted(r):
     subprocess died without output ('error', empty stderr, no wall time) or a 'timeout'
     whose wall time far exceeds the 20-min limit (host slept mid-point). Such points are
     rerun; the stale record stays in the file and later records for the same point win."""
-    if r['status'] == 'error' and not (r.get('stderr') or '').strip():
+    if r['status'] == 'error':          # never an outcome class in PROTOCOL.md; always rerun
         return True
     return r['status'] == 'timeout' and (r.get('wall_s') or 0) > 1.1 * TIMEOUT_S
 
