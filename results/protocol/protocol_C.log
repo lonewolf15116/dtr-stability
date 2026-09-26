@@ -1,0 +1,8 @@
+usage: run_protocol.py [-h] --stage {A,B} [--from SRC] [--workers WORKERS]
+                       --out OUT [--deadline DEADLINE] [--min-start MIN_START]
+                       [--deferred DEFERRED] [--only ONLY]
+run_protocol.py: error: argument --stage: invalid choice: 'C' (choose from A, B)
+usage: run_protocol.py [-h] --stage {A,B} [--from SRC] [--workers WORKERS]
+                       --out OUT [--deadline DEADLINE] [--min-start MIN_START]
+                       [--deferred DEFERRED] [--only ONLY]
+run_protocol.py: error: argument --stage: invalid choice: 'C' (choose from A, B)
