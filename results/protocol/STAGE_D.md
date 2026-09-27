@@ -44,3 +44,9 @@ unresolved and are not counted either way.
   Upper edge between 0.2425 (OOM) and 0.2430 (ok).
 - Not established: exact band widths (timeouts at 0.2410/0.2415/0.2435/0.2525/0.2528–0.2530);
   whether 0.2435 is a third band.
+
+## Addendum (laptop rerun, 6 workers)
+The laptop also reran DTRStock at 0.2423 and 0.2527 after the relaunch: both hit the 20-min
+limit (timeout, unresolved). Under 6-worker load the laptop is slower than the cloud host,
+where both points finished as OOM in 870–920 s. The cloud results stand; the laptop
+timeouts neither confirm nor contradict them.
