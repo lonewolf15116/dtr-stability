@@ -75,6 +75,14 @@ def stage_e_points():
     return pts
 
 
+def stage_e_points():
+    """Amendment 2026-09-28 (PROTOCOL.md): InceptionV4 lower-region confirmation."""
+    key = [0.209, 0.212, 0.222, 0.223, 0.235]
+    pts = [('inception', 'DTR', r, k) for r in key for k in range(3)]
+    pts += [('inception', 'DTRStock', r, 0) for r in key]
+    return pts
+
+
 def stage_c_points():
     """Amendment 2026-09-26 (PROTOCOL.md): seeded interior samples inside every
     0.01 Stage A interval, independent of any result. 2 per interval below 0.30,

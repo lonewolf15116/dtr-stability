@@ -181,3 +181,18 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   depth) and report the first decision index at which the victim sequences differ, and the
   pinned-memory and depth trajectories after it. It is reported as association with the
   failure, not as proof of cause.
+- 2026-09-28, amendment before any of its points ran: **Stage E (InceptionV4 lower-region
+  confirmation and divergence trace).** Reason: Stage B (single runs, 0.001 grid) shows DTR
+  on InceptionV4 alternating: ok 0.209; OOM 0.212–0.222; ok 0.223–0.2343; OOM 0.235–0.2425.
+  (1) Repeats 0–2 of DTR and one DTRStock run at 0.209, 0.212, 0.222, 0.223, 0.235
+  (0.2343 already has 3 repeats + DTRStock from Stage D). Same 60× cap, 20-min limit.
+  Claim rule as Stage D: a region is called confirmed only if all resolved repeats agree
+  and DTRStock gives the same status; a timeout is reported as unresolved, never counted.
+  (2) Divergence trace, DTR, budget pair 0.2343 (ok) vs 0.235 (OOM), no overhead cap:
+  log every eviction (model-operator index, nesting depth, victim storage id and size,
+  pinned bytes) and per model operator the max pinned bytes and max depth. Report:
+  the first eviction whose victim differs; the first model operator at which max pinned
+  bytes differ by more than 0.25 GB; the depth and pinned bytes of both runs from there
+  to the failure. Descriptive only: a divergence point is reported as "where the
+  histories separate", not as a proven cause. Runs in the cloud container (deterministic
+  simulator, identical code/commit), in parallel with Stage B on the laptop.

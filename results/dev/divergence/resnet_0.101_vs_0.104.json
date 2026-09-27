@@ -1,0 +1,374 @@
+{
+ "model": "resnet",
+ "runs": {
+  "0.101": {
+   "status": "ok",
+   "budget": 1016179144,
+   "wall_s": 2.5,
+   "evictions": 653,
+   "model_ops": 509,
+   "peak_pinned_gb": 0.755,
+   "depth_at_peak": 8,
+   "max_nesting": 38
+  },
+  "0.104": {
+   "status": "oom",
+   "budget": 1046362683,
+   "wall_s": 0.9,
+   "evictions": 548,
+   "model_ops": 471,
+   "peak_pinned_gb": 0.89,
+   "depth_at_peak": 118,
+   "max_nesting": 124,
+   "fail": {
+    "pinned_bytes": 889795480,
+    "request": 179830912,
+    "depth": 118,
+    "budget": 1046362683,
+    "over_by": 23263709
+   }
+  }
+ },
+ "first_differing_eviction": {
+  "index": 44,
+  "ok": {
+   "index": 44,
+   "model_op": 251,
+   "depth": 1,
+   "victim": 247,
+   "size_mb": 179.83,
+   "pinned_gb": 0.215
+  },
+  "fail": {
+   "index": 44,
+   "model_op": 254,
+   "depth": 1,
+   "victim": 282,
+   "size_mb": 179.83,
+   "pinned_gb": 0.126
+  }
+ },
+ "first_model_op_pinned_gap_gt_0_25GB": 446,
+ "common_eviction_prefix": 44,
+ "trajectory_from_separation": {
+  "ok": [
+   {
+    "op": 441,
+    "pinned_gb": 0.215,
+    "depth": 4
+   },
+   {
+    "op": 442,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 443,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 444,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 445,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 446,
+    "pinned_gb": 0.485,
+    "depth": 29
+   },
+   {
+    "op": 447,
+    "pinned_gb": 0.215,
+    "depth": 5
+   },
+   {
+    "op": 448,
+    "pinned_gb": 0.215,
+    "depth": 3
+   },
+   {
+    "op": 449,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 450,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 451,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 452,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 453,
+    "pinned_gb": 0.485,
+    "depth": 22
+   },
+   {
+    "op": 454,
+    "pinned_gb": 0.215,
+    "depth": 5
+   },
+   {
+    "op": 455,
+    "pinned_gb": 0.215,
+    "depth": 3
+   },
+   {
+    "op": 456,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 457,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 458,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 459,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 460,
+    "pinned_gb": 0.485,
+    "depth": 15
+   },
+   {
+    "op": 461,
+    "pinned_gb": 0.126,
+    "depth": 1
+   },
+   {
+    "op": 462,
+    "pinned_gb": 0.081,
+    "depth": 1
+   },
+   {
+    "op": 463,
+    "pinned_gb": 0.126,
+    "depth": 1
+   },
+   {
+    "op": 464,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 465,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 466,
+    "pinned_gb": 0.305,
+    "depth": 5
+   },
+   {
+    "op": 467,
+    "pinned_gb": 0.215,
+    "depth": 3
+   },
+   {
+    "op": 468,
+    "pinned_gb": 0.215,
+    "depth": 2
+   },
+   {
+    "op": 469,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 470,
+    "pinned_gb": 0.305,
+    "depth": 1
+   },
+   {
+    "op": 471,
+    "pinned_gb": 0.395,
+    "depth": 1
+   },
+   {
+    "op": 472,
+    "pinned_gb": 0.755,
+    "depth": 38
+   }
+  ],
+  "fail": [
+   {
+    "op": 441,
+    "pinned_gb": 0.215,
+    "depth": 4
+   },
+   {
+    "op": 442,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 443,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 444,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 445,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 446,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 447,
+    "pinned_gb": 0.485,
+    "depth": 57
+   },
+   {
+    "op": 448,
+    "pinned_gb": 0.215,
+    "depth": 4
+   },
+   {
+    "op": 449,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 450,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 451,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 452,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 453,
+    "pinned_gb": 0.395,
+    "depth": 14
+   },
+   {
+    "op": 454,
+    "pinned_gb": 0.215,
+    "depth": 3
+   },
+   {
+    "op": 455,
+    "pinned_gb": 0.215,
+    "depth": 2
+   },
+   {
+    "op": 456,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 457,
+    "pinned_gb": 0.215,
+    "depth": 2
+   },
+   {
+    "op": 458,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 459,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 460,
+    "pinned_gb": 0.395,
+    "depth": 7
+   },
+   {
+    "op": 461,
+    "pinned_gb": 0.126,
+    "depth": 1
+   },
+   {
+    "op": 462,
+    "pinned_gb": 0.081,
+    "depth": 1
+   },
+   {
+    "op": 463,
+    "pinned_gb": 0.126,
+    "depth": 1
+   },
+   {
+    "op": 464,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 465,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 466,
+    "pinned_gb": 0.305,
+    "depth": 5
+   },
+   {
+    "op": 467,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 468,
+    "pinned_gb": 0.305,
+    "depth": 3
+   },
+   {
+    "op": 469,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 470,
+    "pinned_gb": 0.305,
+    "depth": 1
+   },
+   {
+    "op": 471,
+    "pinned_gb": 0.89,
+    "depth": 124
+   }
+  ]
+ }
+}
