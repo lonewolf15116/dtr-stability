@@ -152,3 +152,14 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   'error' is not an outcome class in this protocol, so every 'error' record is now treated as
   not done and rerun (previously only errors with empty stderr). The correct script was
   restored; no simulation result is affected.
+- 2026-09-27, amendment before any of its points ran: **Stage D (InceptionV4 band
+  confirmation)**, run right after Stage A and before the remainder of Stage C. Reason:
+  Stage C found DTR OOM at 0.2423 and 0.2527 between successes (STAGE_C_INTERIM.md); the
+  0.2527 band is narrower than Stage B's 0.001 grid, and those runs used the instrumented
+  RuntimeS. Stage D runs (1) three repeats of DTR at 0.2343, 0.2423, 0.248, 0.2523, 0.2527,
+  0.26; (2) the same six points with **unmodified simrd** (policy name DTRStock: stock
+  RuntimeV2EagerOptimized and simrd's DTR, no subclass or instrumentation); (3) a fine sweep,
+  DTR, 0.2524–0.2530 at 0.0001 and 0.2405–0.2440 at 0.0005. Same 60× cap and 20-min limit.
+  Claim rule: the InceptionV4 bands are called confirmed only if all repeats agree AND
+  DTRStock gives the same statuses at all six points; a DTRStock disagreement is reported as
+  an instrumentation effect and the band is withdrawn.

@@ -52,6 +52,21 @@ def stage_a_points():
     return pts
 
 
+def stage_d_points():
+    """Amendment 2026-09-27 (PROTOCOL.md): confirmation of the InceptionV4 DTR bands
+    found in Stage C, fixed before any of these points ran.
+      (1) repeats 0-2 of DTR at the six Stage C points bracketing both bands;
+      (2) the same six points with unmodified simrd (DTRStock), repeat 0;
+      (3) a fine local sweep: 0.2524-0.2530 step 0.0001 and 0.2405-0.2440 step 0.0005, DTR."""
+    key = [0.2343, 0.2423, 0.248, 0.2523, 0.2527, 0.26]
+    pts = [('inception', 'DTR', r, k) for r in key for k in range(3)]
+    pts += [('inception', 'DTRStock', r, 0) for r in key]
+    fine = [round(0.2524 + 0.0001 * i, 4) for i in range(7)] + \
+           [round(0.2405 + 0.0005 * i, 4) for i in range(8)]
+    pts += [('inception', 'DTR', r, 0) for r in fine if r not in key]
+    return pts
+
+
 def stage_c_points():
     """Amendment 2026-09-26 (PROTOCOL.md): seeded interior samples inside every
     0.01 Stage A interval, independent of any result. 2 per interval below 0.30,
@@ -160,7 +175,7 @@ def keep_awake():
 def main():
     keep_awake()
     ap = argparse.ArgumentParser()
-    ap.add_argument('--stage', choices=['A', 'B', 'C'], required=True)
+    ap.add_argument('--stage', choices=['A', 'B', 'C', 'D'], required=True)
     ap.add_argument('--from', dest='src')
     ap.add_argument('--workers', type=int, default=2)
     ap.add_argument('--out', required=True)
@@ -173,7 +188,7 @@ def main():
         pts = [(r['model'], r['heuristic'], r['ratio'], r['repeat'])
                for r in map(json.loads, open(a.only))]
     else:
-        pts = {'A': stage_a_points, 'C': stage_c_points}[a.stage]() if a.stage != 'B' \
+        pts = {'A': stage_a_points, 'C': stage_c_points, 'D': stage_d_points}[a.stage]() if a.stage != 'B' \
             else stage_b_points(a.src)
     skip = keyset(a.out) | (keyset(a.deferred) if not a.only else set())
     todo = [p for p in pts if p not in skip]

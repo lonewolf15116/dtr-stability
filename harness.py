@@ -50,7 +50,34 @@ def load(model):
     return _cache[model]
 
 
+def run_point_stock(model, ratio, overhead_limit, repeat=0):
+    """'DTRStock': unmodified simrd RuntimeV2EagerOptimized + simrd's own DTR heuristic,
+    no RuntimeS subclass, no instrumentation. Records status and overhead only."""
+    from simrd.heuristic.dtr import DTR
+    cb, base = load(model)
+    budget = int(base['memory'] * ratio)
+    limit = math.inf if overhead_limit <= 0 else base['compute'] * (overhead_limit - 1)
+    rt = RuntimeV2EagerOptimized(budget, DTR(), stats=False, trace=False, remat_limit=limit)
+    status, t0 = 'ok', time.time()
+    try:
+        cb(rt)
+    except MemoryError:
+        status = 'oom'
+    except RematExceededError:
+        status = 'thrashed'
+    except RecursionError:
+        status = 'recursion'
+    s = rt.telemetry.summary
+    return {'model': model, 'ratio': ratio, 'budget': budget, 'heuristic': 'DTRStock',
+            'repeat': repeat, 'overhead_limit': overhead_limit, 'status': status,
+            'overhead': ((s['model_compute'] + s['remat_compute']) / s['model_compute']
+                         if status == 'ok' else None),
+            'wall_s': round(time.time() - t0, 2)}
+
+
 def run_point(model, ratio, hname, overhead_limit, repeat=0):
+    if hname == 'DTRStock':
+        return run_point_stock(model, ratio, overhead_limit, repeat)
     cb, base = load(model)
     h = variants.make(hname)
     if getattr(h, 'needs_bc', False):
@@ -105,11 +132,11 @@ def main(a):
             p = run_point(a.model, r, a.heuristic, a.overhead_limit, k)
             rows.append(p)
             extra = (f" pinned={p['peak_pinned_all']/1e6:.1f}MB"
-                     f"@d{p['depth_at_peak_pinned']}")
+                     f"@d{p['depth_at_peak_pinned']}") if 'peak_pinned_all' in p else ''
             if 'tie_stats' in p:
                 extra += f" ties={p['tie_stats']}"
             print(f"{a.model} {a.heuristic:16s} {r:.3f} rep{k} {p['status']:9s} "
-                  f"{(p['overhead'] or 0):7.3f} nest={p['max_nesting_depth']}{extra} "
+                  f"{(p['overhead'] or 0):7.3f} nest={p.get('max_nesting_depth')}{extra} "
                   f"({p['wall_s']}s)", flush=True)
             if a.out:                                   # write as we go
                 json.dump(rows, open(a.out, 'w'), indent=1)
