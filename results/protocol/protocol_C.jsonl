@@ -971,3 +971,10 @@
 {"model": "treelstm", "heuristic": "NbhdPenalty@b=0.25", "ratio": 0.0522, "repeat": 0, "status": "error", "stderr": ""}
 {"model": "treelstm", "heuristic": "TwoPhase@k=8", "ratio": 0.0522, "repeat": 0, "status": "timeout", "overhead": null, "wall_s": 1200.0}
 {"model": "treelstm", "heuristic": "NbhdPenalty@b=0.25", "ratio": 0.0522, "repeat": 0, "status": "timeout", "overhead": null, "wall_s": 1200.0}
+{"model": "treelstm", "heuristic": "TwoPhase@k=8", "ratio": 0.0639, "repeat": 0, "status": "timeout", "overhead": null, "wall_s": 1200.0}
+{"model": "treelstm", "heuristic": "DTR", "ratio": 0.0639, "repeat": 0, "status": "timeout", "overhead": null, "wall_s": 1200.0}
+{"model": "treelstm", "heuristic": "NbhdPenalty@b=0.25", "ratio": 0.0611, "repeat": 0, "status": "timeout", "overhead": null, "wall_s": 1200.0}
+{"model": "treelstm", "heuristic": "DTR", "ratio": 0.0611, "repeat": 0, "status": "timeout", "overhead": null, "wall_s": 1200.0}
+{"model": "treelstm", "heuristic": "TwoPhase@k=8", "ratio": 0.0611, "repeat": 0, "status": "timeout", "overhead": null, "wall_s": 1200.0}
+{"model": "treelstm", "heuristic": "DTR", "ratio": 0.0715, "repeat": 0, "status": "timeout", "overhead": null, "wall_s": 1200.0}
+{"model": "treelstm", "ratio": 0.0715, "budget": 12167412, "heuristic": "NbhdPenalty@b=0.25", "repeat": 0, "overhead_limit": 60.0, "status": "ok", "overhead": 5.665179821226653, "remat_compute": 562111678, "model_compute": 120490892, "evictions": 25314, "max_nesting_depth": 74, "peak_pinned_all": 6800800, "depth_at_peak_pinned": 72, "peak_pinned_evict": 6800800, "fail": null, "choose_calls": 20609, "candidates_offered": 1293591, "heuristic_eval_count": 1293591, "choose_seconds": 2.209, "wall_s": 115.76}
