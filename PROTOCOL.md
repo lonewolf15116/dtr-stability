@@ -163,3 +163,7 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   Claim rule: the InceptionV4 bands are called confirmed only if all repeats agree AND
   DTRStock gives the same statuses at all six points; a DTRStock disagreement is reported as
   an instrumentation effect and the band is withdrawn.
+- 2026-09-27, execution only: DTRStock at 0.2423 and 0.2527 ended as 'timeout' after 7,091 s
+  (laptop slept; interruption artefacts). They were rerun once in the cloud container
+  (same code, same simrd commit, same 20-min limit) into protocol_D_cloud.jsonl: both OOM.
+  Earlier cross-platform checks found identical outcomes on Linux and Windows.

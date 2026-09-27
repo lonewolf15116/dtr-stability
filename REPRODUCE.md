@@ -32,13 +32,13 @@ and 0.107). Raw: `results/dev/resnet_DTR_pinned.json`.
 ```bash
 python harness.py inception DTR --ratios 0.2523,0.2527,0.26
 ```
-Expected (from Stage C; repeats pending):
+Expected (confirmed in Stage D by 3 repeats and unmodified simrd):
 ```
 inception DTR  0.2523 ok   1.378  pinned=0.99GB @depth 1
 inception DTR  0.2527 oom         pinned=2.82GB @depth 199
 inception DTR  0.26   ok   1.359  pinned=0.99GB @depth 1
 ```
-Raw: `results/protocol/protocol_A.jsonl`, `results/protocol/protocol_C.jsonl`
+Raw: `results/protocol/protocol_A.jsonl`, `protocol_C.jsonl`, `protocol_D.jsonl`
 (one JSON record per run; the last non-interrupted record per point counts, see
 `run_protocol.interrupted`).
 
@@ -50,7 +50,7 @@ python figures/make_cliff_figure.py   # -> figures/fig_feasibility_cliffs.{png,p
 ## 5. The full confirmatory protocol
 `PROTOCOL.md` (plan, hypotheses, claim rules, dated deviations) is run by
 `run_protocol.py` (`--stage A|C|B`), or on Windows by `run_windows.bat`.
-Summaries: `results/protocol/STAGE_A.md`, `results/protocol/STAGE_C_INTERIM.md`.
+Summaries: `results/protocol/STAGE_A.md`, `STAGE_C_INTERIM.md`, `STAGE_D.md`.
 
 ## Metrics
 - *status*: ok / oom (evictable pool empty, allocation still does not fit) /

@@ -1,0 +1,2 @@
+{"model": "inception", "ratio": 0.2527, "budget": 2841700290, "heuristic": "DTRStock", "repeat": 0, "overhead_limit": 60.0, "status": "oom", "overhead": null, "wall_s": 871.08}
+{"model": "inception", "ratio": 0.2423, "budget": 2724748636, "heuristic": "DTRStock", "repeat": 0, "overhead_limit": 60.0, "status": "oom", "overhead": null, "wall_s": 918.63}

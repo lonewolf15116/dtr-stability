@@ -16,7 +16,7 @@ def resnet():
 
 def inception(lo=0.22, hi=0.27):
     last = {}
-    for f in ('protocol_A.jsonl', 'protocol_C.jsonl'):
+    for f in ('protocol_A.jsonl', 'protocol_C.jsonl', 'protocol_D.jsonl'):
         for l in open(f'{ROOT}/results/protocol/{f}'):
             r = json.loads(l)
             if r['model'] == 'inception' and r['heuristic'] == 'DTR' and lo <= r['ratio'] <= hi \
@@ -51,7 +51,7 @@ def panel(ax, recs, title, annotate):
 fig, axes = plt.subplots(1, 2, figsize=(10, 3.9), dpi=200, facecolor=SURF)
 for a in axes: a.set_facecolor(SURF)
 panel(axes[0], resnet(), 'ResNet-32 (development trace), 0.001 steps', [0.104])
-panel(axes[1], inception(), 'InceptionV4 (untouched trace), Stage A + C samples', [0.2423, 0.2527])
+panel(axes[1], inception(), 'InceptionV4 (untouched trace), Stages A, C, D', [0.2423, 0.2527])
 axes[0].set_ylabel('recursion depth at peak pinned memory', fontsize=8.5, color=INK2)
 h = [plt.Line2D([], [], ls='', marker='o', color=GOOD, ms=7, label='completed'),
      plt.Line2D([], [], ls='', marker='X', color=CRIT, ms=8, label='out of memory'),
@@ -60,7 +60,7 @@ fig.legend(handles=h, loc='upper left', bbox_to_anchor=(0.005, 0.925), ncol=3, f
 fig.suptitle('DTR: more memory can fail while neighbouring budgets succeed', x=0.01, ha='left',
              fontsize=12, color=INK, fontweight='bold')
 fig.text(0.01, 0.005, 'simrd reference simulator, DTR heuristic, public traces; no allocator model. '
-         'InceptionV4 points are single runs pending repeats.', fontsize=7, color=INK2)
+         'InceptionV4 bands at 0.2423 and 0.2527 reproduced by repeats and by unmodified simrd (Stage D).', fontsize=7, color=INK2)
 fig.tight_layout(rect=(0, 0.03, 1, 0.89))
 fig.savefig(f'{HERE}/fig_feasibility_cliffs.png', facecolor=SURF)
 fig.savefig(f'{HERE}/fig_feasibility_cliffs.pdf', facecolor=SURF)
