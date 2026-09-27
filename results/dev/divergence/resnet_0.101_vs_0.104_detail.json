@@ -1,0 +1,538 @@
+{
+ "model": "resnet",
+ "runs": {
+  "0.101": {
+   "status": "ok",
+   "budget": 1016179144,
+   "wall_s": 2.5,
+   "evictions": 653,
+   "model_ops": 509,
+   "peak_pinned_gb": 0.755,
+   "depth_at_peak": 8,
+   "max_nesting": 38
+  },
+  "0.104": {
+   "status": "oom",
+   "budget": 1046362683,
+   "wall_s": 0.8,
+   "evictions": 548,
+   "model_ops": 471,
+   "peak_pinned_gb": 0.89,
+   "depth_at_peak": 118,
+   "max_nesting": 124,
+   "fail": {
+    "pinned_bytes": 889795480,
+    "request": 179830912,
+    "depth": 118,
+    "budget": 1046362683,
+    "over_by": 23263709
+   }
+  }
+ },
+ "first_differing_eviction": {
+  "index": 44,
+  "ok": {
+   "index": 44,
+   "model_op": 251,
+   "depth": 1,
+   "victim": 247,
+   "size_mb": 179.83,
+   "pinned_gb": 0.215
+  },
+  "fail": {
+   "index": 44,
+   "model_op": 254,
+   "depth": 1,
+   "victim": 282,
+   "size_mb": 179.83,
+   "pinned_gb": 0.126
+  }
+ },
+ "first_model_op_pinned_gap_gt_0_25GB": 446,
+ "common_eviction_prefix": 44,
+ "trajectory_from_separation": {
+  "ok": [
+   {
+    "op": 441,
+    "pinned_gb": 0.215,
+    "depth": 4
+   },
+   {
+    "op": 442,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 443,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 444,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 445,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 446,
+    "pinned_gb": 0.485,
+    "depth": 29
+   },
+   {
+    "op": 447,
+    "pinned_gb": 0.215,
+    "depth": 5
+   },
+   {
+    "op": 448,
+    "pinned_gb": 0.215,
+    "depth": 3
+   },
+   {
+    "op": 449,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 450,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 451,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 452,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 453,
+    "pinned_gb": 0.485,
+    "depth": 22
+   },
+   {
+    "op": 454,
+    "pinned_gb": 0.215,
+    "depth": 5
+   },
+   {
+    "op": 455,
+    "pinned_gb": 0.215,
+    "depth": 3
+   },
+   {
+    "op": 456,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 457,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 458,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 459,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 460,
+    "pinned_gb": 0.485,
+    "depth": 15
+   },
+   {
+    "op": 461,
+    "pinned_gb": 0.126,
+    "depth": 1
+   },
+   {
+    "op": 462,
+    "pinned_gb": 0.081,
+    "depth": 1
+   },
+   {
+    "op": 463,
+    "pinned_gb": 0.126,
+    "depth": 1
+   },
+   {
+    "op": 464,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 465,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 466,
+    "pinned_gb": 0.305,
+    "depth": 5
+   },
+   {
+    "op": 467,
+    "pinned_gb": 0.215,
+    "depth": 3
+   },
+   {
+    "op": 468,
+    "pinned_gb": 0.215,
+    "depth": 2
+   },
+   {
+    "op": 469,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 470,
+    "pinned_gb": 0.305,
+    "depth": 1
+   },
+   {
+    "op": 471,
+    "pinned_gb": 0.395,
+    "depth": 1
+   },
+   {
+    "op": 472,
+    "pinned_gb": 0.755,
+    "depth": 38
+   }
+  ],
+  "fail": [
+   {
+    "op": 441,
+    "pinned_gb": 0.215,
+    "depth": 4
+   },
+   {
+    "op": 442,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 443,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 444,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 445,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 446,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 447,
+    "pinned_gb": 0.485,
+    "depth": 57
+   },
+   {
+    "op": 448,
+    "pinned_gb": 0.215,
+    "depth": 4
+   },
+   {
+    "op": 449,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 450,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 451,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 452,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 453,
+    "pinned_gb": 0.395,
+    "depth": 14
+   },
+   {
+    "op": 454,
+    "pinned_gb": 0.215,
+    "depth": 3
+   },
+   {
+    "op": 455,
+    "pinned_gb": 0.215,
+    "depth": 2
+   },
+   {
+    "op": 456,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 457,
+    "pinned_gb": 0.215,
+    "depth": 2
+   },
+   {
+    "op": 458,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 459,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 460,
+    "pinned_gb": 0.395,
+    "depth": 7
+   },
+   {
+    "op": 461,
+    "pinned_gb": 0.126,
+    "depth": 1
+   },
+   {
+    "op": 462,
+    "pinned_gb": 0.081,
+    "depth": 1
+   },
+   {
+    "op": 463,
+    "pinned_gb": 0.126,
+    "depth": 1
+   },
+   {
+    "op": 464,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 465,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 466,
+    "pinned_gb": 0.305,
+    "depth": 5
+   },
+   {
+    "op": 467,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 468,
+    "pinned_gb": 0.305,
+    "depth": 3
+   },
+   {
+    "op": 469,
+    "pinned_gb": 0.215,
+    "depth": 1
+   },
+   {
+    "op": 470,
+    "pinned_gb": 0.305,
+    "depth": 1
+   },
+   {
+    "op": 471,
+    "pinned_gb": 0.89,
+    "depth": 124
+   }
+  ]
+ },
+ "detail": {
+  "evictions_before_divergence_op": {
+   "ok": 45,
+   "fail": 44
+  },
+  "evictions_divergence_to_failop": {
+   "ok": 364,
+   "fail": 364
+  },
+  "evictions_in_failop": {
+   "ok": 2,
+   "fail": 140
+  },
+  "remats_divergence_to_failop": {
+   "ok": 158,
+   "fail": 150
+  },
+  "remats_in_failop": {
+   "ok": 0,
+   "fail": 132
+  },
+  "failop_direct_remats": [
+   {
+    "storage": 612,
+    "fail": {
+     "evictions_before_failop": 1,
+     "last_evicted_op": 466,
+     "last_remat_op": null,
+     "resident_at_failop_start": false
+    },
+    "ok": {
+     "evictions_before_failop": 0,
+     "last_evicted_op": null,
+     "last_remat_op": null,
+     "resident_at_failop_start": true
+    }
+   }
+  ],
+  "failop_remat_depth_histogram": {
+   "2": 1,
+   "3": 1,
+   "4": 1,
+   "5": 1,
+   "6": 1,
+   "7": 1,
+   "8": 1,
+   "9": 1,
+   "10": 1,
+   "11": 1,
+   "12": 1,
+   "13": 1,
+   "14": 1,
+   "15": 1,
+   "16": 1,
+   "17": 1,
+   "18": 1,
+   "19": 1,
+   "20": 1,
+   "21": 1,
+   "22": 1,
+   "23": 1,
+   "24": 1,
+   "25": 1,
+   "26": 1,
+   "27": 1,
+   "28": 1,
+   "29": 1,
+   "30": 1,
+   "31": 1,
+   "32": 2,
+   "33": 2,
+   "34": 2,
+   "35": 2,
+   "36": 3,
+   "37": 1,
+   "38": 1,
+   "39": 1,
+   "40": 1,
+   "41": 1,
+   "42": 1,
+   "43": 1,
+   "44": 1,
+   "45": 1,
+   "46": 1,
+   "47": 1,
+   "48": 1,
+   "49": 1,
+   "50": 1,
+   "51": 1,
+   "52": 1,
+   "53": 1,
+   "54": 1,
+   "55": 1,
+   "56": 1,
+   "57": 1,
+   "58": 1,
+   "59": 1,
+   "60": 1,
+   "61": 1,
+   "62": 1,
+   "63": 1,
+   "64": 1,
+   "65": 1,
+   "66": 1,
+   "67": 1,
+   "68": 1,
+   "69": 1,
+   "70": 1,
+   "71": 1,
+   "72": 1,
+   "73": 1,
+   "74": 1,
+   "75": 1,
+   "76": 1,
+   "77": 1,
+   "78": 1,
+   "79": 1,
+   "80": 1,
+   "81": 1,
+   "82": 1,
+   "83": 1,
+   "84": 1,
+   "85": 1,
+   "86": 1,
+   "87": 1,
+   "88": 1,
+   "89": 1,
+   "90": 1,
+   "91": 1,
+   "92": 1,
+   "93": 1,
+   "94": 1,
+   "95": 1,
+   "96": 1,
+   "97": 1,
+   "98": 1,
+   "99": 1,
+   "100": 1,
+   "101": 1,
+   "102": 1,
+   "103": 1,
+   "104": 1,
+   "105": 1,
+   "106": 1,
+   "107": 1,
+   "108": 1,
+   "109": 1,
+   "110": 1,
+   "111": 1,
+   "112": 1,
+   "113": 1,
+   "114": 1,
+   "115": 1,
+   "116": 1,
+   "117": 2,
+   "118": 2,
+   "119": 2,
+   "120": 1,
+   "121": 1,
+   "122": 1,
+   "123": 1,
+   "124": 1
+  }
+ }
+}

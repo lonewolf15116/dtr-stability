@@ -202,3 +202,12 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   oversubscribed host and are void as execution artefacts; they are kept in
   protocol_E_void_oversubscribed.jsonl and not used. Stage E was restarted with one
   launcher and 1 worker (the divergence trace uses the second vCPU).
+- 2026-09-28, exploratory addition (labelled exploratory, not confirmatory), fixed before it
+  runs on InceptionV4: trace_divergence.py --detail also logs every rematerialization and
+  reports, for the budget pair, (a) evictions and rematerializations before the divergence,
+  between the divergence and the failing operator, and inside the failing operator; (b) the
+  storages the failing operator rebuilds directly (its parents) and, for each, whether it was
+  resident at the start of that operator in each run and when it was last evicted; (c) the
+  depth histogram of rematerializations inside the failing operator. Checked first on
+  ResNet-32 0.101 vs 0.104 (development trace). Runs on InceptionV4 0.2343 vs 0.235 after
+  Stage E (1) finishes, so it does not load the host during protocol points.
