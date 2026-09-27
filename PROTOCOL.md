@@ -167,3 +167,17 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   (laptop slept; interruption artefacts). They were rerun once in the cloud container
   (same code, same simrd commit, same 20-min limit) into protocol_D_cloud.jsonl: both OOM.
   Earlier cross-platform checks found identical outcomes on Linux and Windows.
+- 2026-09-28, amendment before any of its points ran: **Stage E (InceptionV4 lower-region
+  confirmation) and a divergence trace.** Reason: Stage B single runs show DTR alternating
+  ok/OOM across 0.205–0.26 (ok 0.209; OOM 0.212–0.222; ok 0.223–0.2343; OOM 0.235–0.2425),
+  wider and more fragmented than Stage C/D showed. Points (DTR and DTRStock, InceptionV4):
+  budgets 0.209, 0.212, 0.222, 0.223, 0.2343, 0.235; DTR repeats 0–2, DTRStock repeat 0.
+  Same 60x cap and 20-min limit. Runs in the cloud container (same code and simrd commit)
+  in parallel with Stage B on the laptop. Claim rule as Stage D: a hole edge is confirmed
+  only if all resolved repeats agree and DTRStock gives the same status; any disagreement
+  withdraws that point; timeouts are unresolved.
+  Divergence trace (mechanism, descriptive only): for the pair 0.2343 (ok) / 0.235 (OOM),
+  log every eviction decision (victim storage id, trace position, pinned bytes, nesting
+  depth) and report the first decision index at which the victim sequences differ, and the
+  pinned-memory and depth trajectories after it. It is reported as association with the
+  failure, not as proof of cause.

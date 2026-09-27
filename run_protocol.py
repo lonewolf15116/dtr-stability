@@ -67,6 +67,14 @@ def stage_d_points():
     return pts
 
 
+def stage_e_points():
+    """Amendment 2026-09-28 (PROTOCOL.md): InceptionV4 lower-region confirmation."""
+    key = [0.209, 0.212, 0.222, 0.223, 0.2343, 0.235]
+    pts = [('inception', 'DTR', r, k) for r in key for k in range(3)]
+    pts += [('inception', 'DTRStock', r, 0) for r in key]
+    return pts
+
+
 def stage_c_points():
     """Amendment 2026-09-26 (PROTOCOL.md): seeded interior samples inside every
     0.01 Stage A interval, independent of any result. 2 per interval below 0.30,
@@ -175,7 +183,7 @@ def keep_awake():
 def main():
     keep_awake()
     ap = argparse.ArgumentParser()
-    ap.add_argument('--stage', choices=['A', 'B', 'C', 'D'], required=True)
+    ap.add_argument('--stage', choices=['A', 'B', 'C', 'D', 'E'], required=True)
     ap.add_argument('--from', dest='src')
     ap.add_argument('--workers', type=int, default=2)
     ap.add_argument('--out', required=True)
@@ -188,7 +196,7 @@ def main():
         pts = [(r['model'], r['heuristic'], r['ratio'], r['repeat'])
                for r in map(json.loads, open(a.only))]
     else:
-        pts = {'A': stage_a_points, 'C': stage_c_points, 'D': stage_d_points}[a.stage]() if a.stage != 'B' \
+        pts = {'A': stage_a_points, 'C': stage_c_points, 'D': stage_d_points, 'E': stage_e_points}[a.stage]() if a.stage != 'B' \
             else stage_b_points(a.src)
     skip = keyset(a.out) | (keyset(a.deferred) if not a.only else set())
     todo = [p for p in pts if p not in skip]
