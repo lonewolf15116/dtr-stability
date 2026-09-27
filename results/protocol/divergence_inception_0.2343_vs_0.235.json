@@ -1,0 +1,124 @@
+{
+ "model": "inception",
+ "runs": {
+  "0.2343": {
+   "status": "ok",
+   "budget": 2634785825,
+   "wall_s": 192.2,
+   "evictions": 1966,
+   "model_ops": 2307,
+   "peak_pinned_gb": 0.987,
+   "depth_at_peak": 1,
+   "max_nesting": 30
+  },
+  "0.235": {
+   "status": "oom",
+   "budget": 2642657571,
+   "wall_s": 1274.0,
+   "evictions": 9012,
+   "model_ops": 2270,
+   "peak_pinned_gb": 2.634,
+   "depth_at_peak": 188,
+   "max_nesting": 193,
+   "fail": {
+    "pinned_bytes": 2634399100,
+    "request": 8388608,
+    "depth": 187,
+    "budget": 2642657571,
+    "over_by": 130137
+   }
+  }
+ },
+ "first_differing_eviction": {
+  "index": 13,
+  "ok": {
+   "index": 13,
+   "model_op": 945,
+   "depth": 1,
+   "victim": 931,
+   "size_mb": 130.97,
+   "pinned_gb": 0.327
+  },
+  "fail": {
+   "index": 13,
+   "model_op": 945,
+   "depth": 0,
+   "victim": 968,
+   "size_mb": 87.31,
+   "pinned_gb": 0.24
+  }
+ },
+ "first_model_op_pinned_gap_gt_0_25GB": 2270,
+ "common_eviction_prefix": 13,
+ "trajectory_from_separation": {
+  "ok": [
+   {
+    "op": 2265,
+    "pinned_gb": 0.36,
+    "depth": 1
+   },
+   {
+    "op": 2266,
+    "pinned_gb": 0.728,
+    "depth": 8
+   },
+   {
+    "op": 2267,
+    "pinned_gb": 0.608,
+    "depth": 4
+   },
+   {
+    "op": 2268,
+    "pinned_gb": 0.36,
+    "depth": 1
+   },
+   {
+    "op": 2269,
+    "pinned_gb": 0.548,
+    "depth": 1
+   },
+   {
+    "op": 2270,
+    "pinned_gb": 0.735,
+    "depth": 1
+   },
+   {
+    "op": 2271,
+    "pinned_gb": 0.487,
+    "depth": 1
+   }
+  ],
+  "fail": [
+   {
+    "op": 2265,
+    "pinned_gb": 0.36,
+    "depth": 1
+   },
+   {
+    "op": 2266,
+    "pinned_gb": 0.728,
+    "depth": 8
+   },
+   {
+    "op": 2267,
+    "pinned_gb": 0.608,
+    "depth": 4
+   },
+   {
+    "op": 2268,
+    "pinned_gb": 0.36,
+    "depth": 1
+   },
+   {
+    "op": 2269,
+    "pinned_gb": 0.548,
+    "depth": 1
+   },
+   {
+    "op": 2270,
+    "pinned_gb": 2.634,
+    "depth": 193
+   }
+  ]
+ }
+}
