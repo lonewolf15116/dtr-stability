@@ -1,0 +1,4 @@
+{"model": "inception", "heuristic": "DTR", "ratio": 0.209, "repeat": 0, "status": "timeout", "overhead": null, "wall_s": 1200.1}
+{"model": "inception", "heuristic": "DTR", "ratio": 0.209, "repeat": 1, "status": "timeout", "overhead": null, "wall_s": 1200.1}
+{"model": "inception", "heuristic": "DTR", "ratio": 0.209, "repeat": 1, "status": "timeout", "overhead": null, "wall_s": 1200.1}
+{"model": "inception", "heuristic": "DTR", "ratio": 0.209, "repeat": 0, "status": "timeout", "overhead": null, "wall_s": 1200.1}

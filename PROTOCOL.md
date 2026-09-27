@@ -196,3 +196,9 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   to the failure. Descriptive only: a divergence point is reported as "where the
   histories separate", not as a proven cause. Runs in the cloud container (deterministic
   simulator, identical code/commit), in parallel with Stage B on the laptop.
+- 2026-09-28, execution only: the first Stage E launch in the cloud started twice by mistake
+  (two launchers, 4 simulations + the divergence trace on 2 vCPUs). Its only records, four
+  'timeout' results for DTR 0.209 (repeats 0 and 1, each twice), came from a 2.5x
+  oversubscribed host and are void as execution artefacts; they are kept in
+  protocol_E_void_oversubscribed.jsonl and not used. Stage E was restarted with one
+  launcher and 1 worker (the divergence trace uses the second vCPU).
