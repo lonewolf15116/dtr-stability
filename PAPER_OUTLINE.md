@@ -2,7 +2,9 @@
 
 Working skeleton (2026-09-28). Results-dependent statements are marked **[OPEN]** and are
 filled only from EVIDENCE_summary.csv / STAGE_*.md once the corresponding stage is final.
-No "first" claims until LITERATURE.md's citing-paper sweep is done.
+Novelty wording: "we did not identify prior characterisation in the literature reviewed"
+(LITERATURE_SWEEP.md documents coverage and gaps). No "first", no "to our knowledge" unless
+the search coverage is extended and documented.
 
 ## Terminology (fixed)
 - **Feasibility hole**: a budget at which an eviction policy fails although both a smaller

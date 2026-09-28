@@ -42,6 +42,29 @@ Raw: `results/protocol/protocol_A.jsonl`, `protocol_C.jsonl`, `protocol_D.jsonl`
 (one JSON record per run; the last non-interrupted record per point counts, see
 `run_protocol.interrupted`).
 
+## 3b. Independent check: unmodified simrd (no code from this repo in the simulation path)
+```python
+# python stock_triple.py   (or paste; needs DTR_SIMRD on sys.path)
+import math, sys; sys.setrecursionlimit(1_000_000)
+import harness                       # only used to load the trace
+from simrd.runtime import RuntimeV2EagerOptimized
+from simrd.heuristic.dtr import DTR
+cb, base = harness.load('resnet')
+for r in (0.101, 0.104, 0.107):
+    rt = RuntimeV2EagerOptimized(int(base['memory'] * r), DTR(), stats=False, trace=False)
+    try: cb(rt); print(r, 'ok')
+    except MemoryError: print(r, 'oom')
+```
+Expected: `0.101 ok`, `0.104 oom`, `0.107 ok`. Equivalent through the harness:
+`python harness.py resnet DTRStock --ratios 0.101,0.104,0.107 --overhead-limit 0`.
+
+## 3c. Retention intervention (exploratory)
+```bash
+python retention_test.py resnet 0.104 --retain 612    --out r612.json   # ok, 2.24x
+python retention_test.py resnet 0.104 --retain 999999 --out ctl.json    # oom, 0.89 GB @ depth 118 (control)
+python retention_test.py inception 0.235 --retain 3131 --out r3131.json # ok, 1.477x (~2 min)
+```
+
 ## 4. Figure
 ```bash
 python figures/make_cliff_figure.py   # -> figures/fig_feasibility_cliffs.{png,pdf}
