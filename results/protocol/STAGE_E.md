@@ -40,3 +40,24 @@ pinned and OOMs, while the ok run stays at 0.74 GB, depth 1. Totals: 1,966 evict
 vs 9,012 (fail); their timing is analysed in the exploratory --detail run. Wording: the
 histories separate at eviction 13 and the failure manifests as a single late cascade —
 an association, not a demonstrated cause.
+
+## Exploratory follow-up (pre-registered as exploratory; not confirmatory)
+Raw: divergence_inception_detail.json, retention_inception_0.235_{3131,control}.json.
+- **When the extra evictions happen.** From the divergence (op 945) to op 2,269 the two runs
+  do the same amount of work: 1,657 evictions each; 335 vs 334 rematerializations. Inside the
+  failing operator 2,270: 7,342 evictions and 6,143 rematerializations in the 0.235 run vs 2
+  and 0 in the 0.2343 run. All of the failing run's extra work is in that one operator.
+- **The missing parent.** Operator 2,270 has one parent that must be rebuilt: storage 3131.
+  The 0.235 run evicted it at op 2,267, three operators earlier; the 0.2343 run never evicted
+  it. Rebuilding it recurses to max nesting 193 (rematerialization depths 2–193).
+- **Retention test at 0.235, same budget.** Never offering storage 3131 for eviction: **ok**,
+  1.477x (0.2343 plain DTR: 1.471x), peak pinned 0.99 GB, depth at peak pinned 1, max nesting
+  30, 1,969 evictions. Control (non-existent id, same wrapper): OOM, 2.63 GB, depth 188 —
+  identical to plain DTR, so the wrapper itself changes nothing.
+- The same holds on ResNet-32 (development trace): the failing operator's single rebuilt
+  parent (storage 612) was evicted 5 operators earlier only in the failing run; retaining
+  it turns 0.104 from OOM into ok (2.24x).
+Interpretation limits: this supports the involvement of one late eviction of one storage in
+these two failures. It does not explain why DTR's score picked that storage at 0.235 but not
+at 0.2343, does not test other holes, and retention is not a fix (it needs to know the
+storage in advance).

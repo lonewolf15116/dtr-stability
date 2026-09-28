@@ -1,0 +1,24 @@
+{
+ "model": "inception",
+ "ratio": 0.235,
+ "budget": 2642657571,
+ "policy": "DTR+retain",
+ "retain": [
+  999999999
+ ],
+ "retained_seen": [],
+ "status": "oom",
+ "overhead": null,
+ "peak_pinned_gb": 2.634,
+ "depth_at_peak_pinned": 188,
+ "max_nesting_depth": 193,
+ "evictions": 9012,
+ "fail": {
+  "pinned_bytes": 2634399100,
+  "request": 8388608,
+  "depth": 187,
+  "budget": 2642657571,
+  "over_by": 130137
+ },
+ "wall_s": 969.8
+}
