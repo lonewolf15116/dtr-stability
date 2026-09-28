@@ -746,7 +746,11 @@ inception,DTR,0.59,1,1,ok,True,1,A,protocol_A.jsonl:203
 inception,DTR,0.598,1,1,ok,True,1,C,protocol_C.jsonl:479
 inception,DTR,0.6,1,1,ok,True,1,A,protocol_A.jsonl:201
 inception,DTRStock,0.209,1,1,ok,True,1,E,protocol_E.jsonl:15
+inception,DTRStock,0.212,1,1,oom,True,0,E,protocol_E.jsonl:18
+inception,DTRStock,0.222,1,1,oom,True,0,E,protocol_E.jsonl:17
+inception,DTRStock,0.223,1,1,ok,True,1,E,protocol_E.jsonl:19
 inception,DTRStock,0.2343,1,1,ok,True,1,D,protocol_D.jsonl:18
+inception,DTRStock,0.235,1,1,oom,True,0,E,protocol_E.jsonl:20
 inception,DTRStock,0.2423,2,1,oom/timeout,True,0,D,protocol_D.jsonl:40 protocol_D_cloud.jsonl:2
 inception,DTRStock,0.248,1,1,ok,True,1,D,protocol_D.jsonl:20
 inception,DTRStock,0.2523,1,1,ok,True,1,D,protocol_D.jsonl:21
