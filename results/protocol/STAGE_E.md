@@ -68,12 +68,17 @@ op 2,270; the full op-2,270 decision log of the failing run, 7,357 decisions, is
 by its count.)
 1. **Op 2,266: the smaller budget needs one extra eviction.** Both runs make the same 14
    evictions, same victims in the same order. The 0.2343 run is then still 0.17 MB short
-   and evicts a 15th storage, 932 (218 MB). The 0.235 run, 7.9 MB larger, is not short and
+   (shortfall 173,479 B) and evicts a 15th storage, 932 (218,275,840 B). The 0.235 run, 7.9 MB larger, is not short and
    keeps storage 932 resident.
-2. **Op 2,267: the larger budget is now the tighter one.** Op 2,267 produces storage 3131
-   (248 MB). The 0.2343 run has room (it freed 932). The 0.235 run is 49.4 MB short and
-   must evict; the lowest-scored of 675 candidates is 3131 itself (h_DTR = 2.8e-9;
-   e* compute 3.1e6, staleness 4.4e6), so it evicts 3131.
+2. **Op 2,267: the larger budget is now the tighter one.** Storage 3131 (247,775,232 B) is the
+   output of op 2,266 (the 247,775,232 B request there) and is resident in both runs at the
+   start of op 2,267. Op 2,267 requests 60,211,200 B. The 0.2343 run has room (it freed 932).
+   The 0.235 run is 49,367,205 B short and must evict; the lowest-scored of 675 candidates is
+   3131 (h_DTR = 2.82e-9); second is storage 932 (h = 8.18e-9), the storage the 0.2343 run
+   had evicted one operator earlier. DTR evicts 3131.
+   Correction to the first write-up of this probe: 3131 is produced by op 2,266, not op 2,267.
+   Exact byte values, requests, shortfalls, victims and score components for every decision:
+   MECHANISM_inception_0.2343_vs_0.235.md (source decision_probe_inception_exact.json).
 3. **Op 2,270 needs 3131.** The 0.2343 run has it; the 0.235 run must rebuild it, which
    recurses to max nesting 193 and OOMs (retention of 3131 alone removes the failure).
 So the sequence is: more budget → one fewer eviction at op 2,266 (a 0.17 MB margin) → more

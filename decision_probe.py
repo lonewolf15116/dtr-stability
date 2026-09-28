@@ -36,7 +36,7 @@ class Probe:
         op = rt.model_op
         if self.lo <= op <= self.hi:
             def row(s):
-                return dict(storage=s.root_id, size_mb=round(s.size / 1e6, 2),
+                return dict(storage=s.root_id, size_bytes=s.size, size_mb=round(s.size / 1e6, 2),
                             e_star=e_star(s), staleness=stale(s, rt),
                             h_dtr=h_dtr(s, rt))
             scored = sorted(((h_dtr(s, rt), s) for s in pool), key=lambda x: x[0])
@@ -44,7 +44,7 @@ class Probe:
             tracked = next((s for s in pool if s.root_id == self.sid), None)
             self.decisions.append(dict(
                 model_op=op, depth=rt.depth, memory_in_use=rt.memory_usage, budget=rt.budget,
-                shortfall=rt.shortfall, pinned_gb=round(rt._pinned() / GB, 4),
+                shortfall=rt.shortfall, request_bytes=rt.shortfall - rt.memory_usage + rt.budget, pinned_gb=round(rt._pinned() / GB, 4),
                 pool_size=len(pool), victims=[v.root_id for v in victims],
                 victim_rows=[row(v) for v in victims],
                 tracked_in_pool=tracked is not None,

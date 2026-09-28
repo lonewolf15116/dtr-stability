@@ -1,0 +1,3415 @@
+{
+ "model": "inception",
+ "storage": 3131,
+ "window": [
+  2260,
+  2269
+ ],
+ "runs": [
+  {
+   "ratio": 0.2343,
+   "budget": 2634785825,
+   "status": "stopped at window end",
+   "ops_state": [
+    {
+     "model_op": 2260,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2329930184,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2261,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2299824584,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2262,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2269718984,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2263,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2239760840,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2264,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2119338440,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2265,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2119338440,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2266,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2119338440,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2267,
+     "tracked_resident": true,
+     "tracked_in_pool": true,
+     "memory_in_use": 2296261064,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2268,
+     "tracked_resident": true,
+     "tracked_in_pool": true,
+     "memory_in_use": 2356472264,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2269,
+     "tracked_resident": true,
+     "tracked_in_pool": true,
+     "memory_in_use": 2296261064,
+     "pinned_gb": 0.2396
+    }
+   ],
+   "decisions": [
+    {
+     "model_op": 2266,
+     "depth": 3,
+     "memory_in_use": 2629044680,
+     "budget": 2634785825,
+     "shortfall": 118146471,
+     "request_bytes": 123887616,
+     "pinned_gb": 0.484,
+     "pool_size": 679,
+     "victims": [
+      936
+     ],
+     "victim_rows": [
+      {
+       "storage": 936,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 519214,
+       "staleness": 4339819,
+       "h_dtr": 1.3702793651803023e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 936,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 519214,
+       "staleness": 4339819,
+       "h_dtr": 1.3702793651803023e-09
+      },
+      {
+       "storage": 940,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 631998,
+       "staleness": 4339819,
+       "h_dtr": 1.6679323327861357e-09
+      },
+      {
+       "storage": 933,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 650864,
+       "staleness": 4339819,
+       "h_dtr": 1.7177223817899984e-09
+      },
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 1824690,
+       "staleness": 4339819,
+       "h_dtr": 3.3938260535515045e-09
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 34878050,
+       "staleness": 77768783,
+       "h_dtr": 5.1366648882732414e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 191024155,
+       "h_dtr": 8.70826208613944e-09
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 468999783,
+       "h_dtr": 1.3802840652310229e-08
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 23466442,
+       "h_dtr": 1.3966245723919085e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 463706653,
+       "h_dtr": 1.554877473831489e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 466491426,
+       "h_dtr": 1.8794152705802156e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 3,
+     "memory_in_use": 2541734344,
+     "budget": 2634785825,
+     "shortfall": 30836135,
+     "request_bytes": 123887616,
+     "pinned_gb": 0.484,
+     "pool_size": 678,
+     "victims": [
+      940
+     ],
+     "victim_rows": [
+      {
+       "storage": 940,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1151212,
+       "staleness": 4339819,
+       "h_dtr": 3.038211697966438e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 940,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1151212,
+       "staleness": 4339819,
+       "h_dtr": 3.038211697966438e-09
+      },
+      {
+       "storage": 933,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1170078,
+       "staleness": 4339819,
+       "h_dtr": 3.0880017469703007e-09
+      },
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 1824690,
+       "staleness": 4339819,
+       "h_dtr": 3.3938260535515045e-09
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 34878050,
+       "staleness": 77768783,
+       "h_dtr": 5.1366648882732414e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 191024155,
+       "h_dtr": 8.70826208613944e-09
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 468999783,
+       "h_dtr": 1.3802840652310229e-08
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 23466442,
+       "h_dtr": 1.3966245723919085e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 463706653,
+       "h_dtr": 1.554877473831489e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 466491426,
+       "h_dtr": 1.8794152705802156e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 467789738,
+       "h_dtr": 1.9899571040916908e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 7,
+     "memory_in_use": 2578311624,
+     "budget": 2634785825,
+     "shortfall": 30836647,
+     "request_bytes": 87310848,
+     "pinned_gb": 0.5713,
+     "pool_size": 677,
+     "victims": [
+      944
+     ],
+     "victim_rows": [
+      {
+       "storage": 944,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 713053,
+       "staleness": 5217103,
+       "h_dtr": 1.1032260412297658e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 944,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 713053,
+       "staleness": 5217103,
+       "h_dtr": 1.1032260412297658e-09
+      },
+      {
+       "storage": 933,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1802076,
+       "staleness": 5217103,
+       "h_dtr": 3.956198120312077e-09
+      },
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 2975902,
+       "staleness": 5217103,
+       "h_dtr": 4.604275674525936e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 191901439,
+       "h_dtr": 8.668451967800635e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 24343726,
+       "h_dtr": 1.3462938879532871e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 469877067,
+       "h_dtr": 1.377707005802238e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 464583937,
+       "h_dtr": 1.551941364721559e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 467368710,
+       "h_dtr": 1.8758874756916026e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 468667022,
+       "h_dtr": 1.9862321619768048e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15028467,
+       "staleness": 472320060,
+       "h_dtr": 2.0229591762922918e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 5,
+     "memory_in_use": 2629044680,
+     "budget": 2634785825,
+     "shortfall": 118146471,
+     "request_bytes": 123887616,
+     "pinned_gb": 0.5713,
+     "pool_size": 678,
+     "victims": [
+      933
+     ],
+     "victim_rows": [
+      {
+       "storage": 933,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1802076,
+       "staleness": 6368346,
+       "h_dtr": 3.2410131425136915e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 933,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1802076,
+       "staleness": 6368346,
+       "h_dtr": 3.2410131425136915e-09
+      },
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 3688955,
+       "staleness": 6368346,
+       "h_dtr": 4.67572338622528e-09
+      },
+      {
+       "storage": 968,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 518533,
+       "staleness": 1151243,
+       "h_dtr": 5.158741169757937e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 193052682,
+       "h_dtr": 8.61675885198696e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 25494969,
+       "h_dtr": 1.2855010541024593e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 471028310,
+       "h_dtr": 1.3743397441901264e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 465735180,
+       "h_dtr": 1.548105146825058e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 468519953,
+       "h_dtr": 1.8712780619166943e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 27259968,
+       "staleness": 6368346,
+       "h_dtr": 1.9610696674835618e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 469818265,
+       "h_dtr": 1.9813650973196853e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 5,
+     "memory_in_use": 2541734344,
+     "budget": 2634785825,
+     "shortfall": 30836135,
+     "request_bytes": 123887616,
+     "pinned_gb": 0.5713,
+     "pool_size": 677,
+     "victims": [
+      968
+     ],
+     "victim_rows": [
+      {
+       "storage": 968,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 518533,
+       "staleness": 1151243,
+       "h_dtr": 5.158741169757937e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 968,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 518533,
+       "staleness": 1151243,
+       "h_dtr": 5.158741169757937e-09
+      },
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 4339819,
+       "staleness": 6368346,
+       "h_dtr": 5.500688728999082e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 193052682,
+       "h_dtr": 8.61675885198696e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 25494969,
+       "h_dtr": 1.2855010541024593e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 471028310,
+       "h_dtr": 1.3743397441901264e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 465735180,
+       "h_dtr": 1.548105146825058e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 468519953,
+       "h_dtr": 1.8712780619166943e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 469818265,
+       "h_dtr": 1.9813650973196853e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15028467,
+       "staleness": 473471303,
+       "h_dtr": 2.0180403616223512e-08
+      },
+      {
+       "storage": 2183,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15044146,
+       "staleness": 472479853,
+       "h_dtr": 2.024384822812162e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 4,
+     "memory_in_use": 2578311624,
+     "budget": 2634785825,
+     "shortfall": 67414183,
+     "request_bytes": 123888384,
+     "pinned_gb": 0.6078,
+     "pool_size": 677,
+     "victims": [
+      941
+     ],
+     "victim_rows": [
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 4339819,
+       "staleness": 8182647,
+       "h_dtr": 4.281046104587719e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 4339819,
+       "staleness": 8182647,
+       "h_dtr": 4.281046104587719e-09
+      },
+      {
+       "storage": 972,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1151243,
+       "staleness": 2965544,
+       "h_dtr": 4.446281663055805e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 194866983,
+       "h_dtr": 8.536532874444532e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 27309270,
+       "h_dtr": 1.200098337444008e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 472842611,
+       "h_dtr": 1.3690663912515016e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 467549481,
+       "h_dtr": 1.5420978067891275e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 29062044,
+       "staleness": 8182647,
+       "h_dtr": 1.6271465573332504e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 470334254,
+       "h_dtr": 1.864059660045812e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 471632566,
+       "h_dtr": 1.973743077687071e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15028467,
+       "staleness": 475285604,
+       "h_dtr": 2.0103369247513033e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 3,
+     "memory_in_use": 2578311624,
+     "budget": 2634785825,
+     "shortfall": 67413415,
+     "request_bytes": 123887616,
+     "pinned_gb": 0.6078,
+     "pool_size": 677,
+     "victims": [
+      972
+     ],
+     "victim_rows": [
+      {
+       "storage": 972,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1151243,
+       "staleness": 3668237,
+       "h_dtr": 3.594545256531998e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 972,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1151243,
+       "staleness": 3668237,
+       "h_dtr": 3.594545256531998e-09
+      },
+      {
+       "storage": 973,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 1814301,
+       "staleness": 3668237,
+       "h_dtr": 3.992308165802285e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 195569676,
+       "h_dtr": 8.505860624953551e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 28011963,
+       "h_dtr": 1.1699933176339525e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 473545304,
+       "h_dtr": 1.3670348361678772e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 468252174,
+       "h_dtr": 1.539783623547031e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 31599787,
+       "staleness": 8885340,
+       "h_dtr": 1.6293126754543623e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 471036947,
+       "h_dtr": 1.861278855518611e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 472335259,
+       "h_dtr": 1.970806740799104e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15028467,
+       "staleness": 475988297,
+       "h_dtr": 2.0073691003456032e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 2,
+     "memory_in_use": 2614888904,
+     "budget": 2634785825,
+     "shortfall": 227878311,
+     "request_bytes": 247775232,
+     "pinned_gb": 0.6078,
+     "pool_size": 677,
+     "victims": [
+      976
+     ],
+     "victim_rows": [
+      {
+       "storage": 976,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 702693,
+       "staleness": 4546663,
+       "h_dtr": 1.2475126728769504e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 976,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 702693,
+       "staleness": 4546663,
+       "h_dtr": 1.2475126728769504e-09
+      },
+      {
+       "storage": 973,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 2965544,
+       "staleness": 4546663,
+       "h_dtr": 5.26482222247013e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 196448102,
+       "h_dtr": 8.467826309277978e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 28890389,
+       "h_dtr": 1.134419115083896e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 474423730,
+       "h_dtr": 1.3645036833880708e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 31599787,
+       "staleness": 9763766,
+       "h_dtr": 1.4827267560203373e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 469130600,
+       "h_dtr": 1.5369004477974678e-08
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 7301386,
+       "staleness": 4546663,
+       "h_dtr": 1.8392759149156143e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 471915373,
+       "h_dtr": 1.8578142603104828e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 473213685,
+       "h_dtr": 1.9671483345928398e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 2,
+     "memory_in_use": 2491001288,
+     "budget": 2634785825,
+     "shortfall": 103990695,
+     "request_bytes": 247775232,
+     "pinned_gb": 0.6078,
+     "pool_size": 676,
+     "victims": [
+      973
+     ],
+     "victim_rows": [
+      {
+       "storage": 973,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 3668237,
+       "staleness": 4546663,
+       "h_dtr": 6.51233489534708e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 973,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 3668237,
+       "staleness": 4546663,
+       "h_dtr": 6.51233489534708e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 196448102,
+       "h_dtr": 8.467826309277978e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 28890389,
+       "h_dtr": 1.134419115083896e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 474423730,
+       "h_dtr": 1.3645036833880708e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 31599787,
+       "staleness": 9763766,
+       "h_dtr": 1.4827267560203373e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 469130600,
+       "h_dtr": 1.5369004477974678e-08
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 7301386,
+       "staleness": 4546663,
+       "h_dtr": 1.8392759149156143e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 471915373,
+       "h_dtr": 1.8578142603104828e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 473213685,
+       "h_dtr": 1.9671483345928398e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15028467,
+       "staleness": 476866723,
+       "h_dtr": 2.0036713686224772e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 2,
+     "memory_in_use": 2614888904,
+     "budget": 2634785825,
+     "shortfall": 160736679,
+     "request_bytes": 180633600,
+     "pinned_gb": 0.6078,
+     "pool_size": 677,
+     "victims": [
+      980
+     ],
+     "victim_rows": [
+      {
+       "storage": 980,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 4546663,
+       "staleness": 10695783,
+       "h_dtr": 3.4312494039926907e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 980,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 4546663,
+       "staleness": 10695783,
+       "h_dtr": 3.4312494039926907e-09
+      },
+      {
+       "storage": 948,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 5217103,
+       "staleness": 10695783,
+       "h_dtr": 3.937213195549897e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 197380119,
+       "h_dtr": 8.427841744909088e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 29822406,
+       "h_dtr": 1.0989659762465016e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 31599787,
+       "staleness": 10695783,
+       "h_dtr": 1.3535238222130782e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 475355747,
+       "h_dtr": 1.361828338370142e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 470062617,
+       "h_dtr": 1.5338531573028594e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 472847390,
+       "h_dtr": 1.8541523716967976e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 474145702,
+       "h_dtr": 1.9632815576050307e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15028467,
+       "staleness": 477798740,
+       "h_dtr": 1.999762911731257e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 2,
+     "memory_in_use": 2491001288,
+     "budget": 2634785825,
+     "shortfall": 36849063,
+     "request_bytes": 180633600,
+     "pinned_gb": 0.6078,
+     "pool_size": 676,
+     "victims": [
+      948
+     ],
+     "victim_rows": [
+      {
+       "storage": 948,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 5217103,
+       "staleness": 10695783,
+       "h_dtr": 3.937213195549897e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 948,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 5217103,
+       "staleness": 10695783,
+       "h_dtr": 3.937213195549897e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 197380119,
+       "h_dtr": 8.427841744909088e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 29822406,
+       "h_dtr": 1.0989659762465016e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 31599787,
+       "staleness": 10695783,
+       "h_dtr": 1.3535238222130782e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 475355747,
+       "h_dtr": 1.361828338370142e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 470062617,
+       "h_dtr": 1.5338531573028594e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 472847390,
+       "h_dtr": 1.8541523716967976e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 474145702,
+       "h_dtr": 1.9632815576050307e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15028467,
+       "staleness": 477798740,
+       "h_dtr": 1.999762911731257e-08
+      },
+      {
+       "storage": 2183,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15044146,
+       "staleness": 476807290,
+       "h_dtr": 2.0060117862244124e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 1,
+     "memory_in_use": 2547747272,
+     "budget": 2634785825,
+     "shortfall": 160736679,
+     "request_bytes": 247775232,
+     "pinned_gb": 0.7283,
+     "pool_size": 676,
+     "victims": [
+      990
+     ],
+     "victim_rows": [
+      {
+       "storage": 990,
+       "size_bytes": 60211200,
+       "size_mb": 60.21,
+       "e_star": 17631234,
+       "staleness": 113604834,
+       "h_dtr": 2.577559001301936e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 990,
+       "size_bytes": 60211200,
+       "size_mb": 60.21,
+       "e_star": 17631234,
+       "staleness": 113604834,
+       "h_dtr": 2.577559001301936e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 198131654,
+       "h_dtr": 8.395874020833257e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 30573941,
+       "h_dtr": 1.0719524029895106e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 32477071,
+       "staleness": 11447318,
+       "h_dtr": 1.2997727842470312e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 476107282,
+       "h_dtr": 1.3596786933238034e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 470814152,
+       "h_dtr": 1.531404751009895e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 473598925,
+       "h_dtr": 1.8512100922085932e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 474897237,
+       "h_dtr": 1.9601746226927208e-08
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 10696806,
+       "staleness": 6230215,
+       "h_dtr": 1.9664613990121816e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15028467,
+       "staleness": 478550275,
+       "h_dtr": 1.996622401949149e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 1,
+     "memory_in_use": 2487536072,
+     "budget": 2634785825,
+     "shortfall": 100525479,
+     "request_bytes": 247775232,
+     "pinned_gb": 0.7283,
+     "pool_size": 675,
+     "victims": [
+      1244
+     ],
+     "victim_rows": [
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 198131654,
+       "h_dtr": 8.395874020833257e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 198131654,
+       "h_dtr": 8.395874020833257e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 30573941,
+       "h_dtr": 1.0719524029895106e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 32477071,
+       "staleness": 11447318,
+       "h_dtr": 1.2997727842470312e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 476107282,
+       "h_dtr": 1.3596786933238034e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 470814152,
+       "h_dtr": 1.531404751009895e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 473598925,
+       "h_dtr": 1.8512100922085932e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 474897237,
+       "h_dtr": 1.9601746226927208e-08
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 10696806,
+       "staleness": 6230215,
+       "h_dtr": 1.9664613990121816e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15028467,
+       "staleness": 478550275,
+       "h_dtr": 1.996622401949149e-08
+      },
+      {
+       "storage": 2183,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15044146,
+       "staleness": 477558825,
+       "h_dtr": 2.002854922632246e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 1,
+     "memory_in_use": 2417289672,
+     "budget": 2634785825,
+     "shortfall": 30279079,
+     "request_bytes": 247775232,
+     "pinned_gb": 0.7283,
+     "pool_size": 674,
+     "victims": [
+      1028
+     ],
+     "victim_rows": [
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 30573941,
+       "h_dtr": 1.0719524029895106e-08
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 30573941,
+       "h_dtr": 1.0719524029895106e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 32477071,
+       "staleness": 11447318,
+       "h_dtr": 1.2997727842470312e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 476107282,
+       "h_dtr": 1.3596786933238034e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 470814152,
+       "h_dtr": 1.531404751009895e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 473598925,
+       "h_dtr": 1.8512100922085932e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 474897237,
+       "h_dtr": 1.9601746226927208e-08
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 10696806,
+       "staleness": 6230215,
+       "h_dtr": 1.9664613990121816e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15028467,
+       "staleness": 478550275,
+       "h_dtr": 1.996622401949149e-08
+      },
+      {
+       "storage": 2183,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15044146,
+       "staleness": 477558825,
+       "h_dtr": 2.002854922632246e-08
+      },
+      {
+       "storage": 2168,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15297888,
+       "staleness": 480158716,
+       "h_dtr": 2.0256083936017212e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 1,
+     "memory_in_use": 2387184072,
+     "budget": 2634785825,
+     "shortfall": 173479,
+     "request_bytes": 247775232,
+     "pinned_gb": 0.7283,
+     "pool_size": 673,
+     "victims": [
+      932
+     ],
+     "victim_rows": [
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 32477071,
+       "staleness": 11447318,
+       "h_dtr": 1.2997727842470312e-08
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 32477071,
+       "staleness": 11447318,
+       "h_dtr": 1.2997727842470312e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 17818467,
+       "staleness": 476107282,
+       "h_dtr": 1.3596786933238034e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17010690,
+       "staleness": 470814152,
+       "h_dtr": 1.531404751009895e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 20684682,
+       "staleness": 473598925,
+       "h_dtr": 1.8512100922085932e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19216969,
+       "staleness": 474897237,
+       "h_dtr": 1.9601746226927208e-08
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 10696806,
+       "staleness": 6230215,
+       "h_dtr": 1.9664613990121816e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15028467,
+       "staleness": 478550275,
+       "h_dtr": 1.996622401949149e-08
+      },
+      {
+       "storage": 2183,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15044146,
+       "staleness": 477558825,
+       "h_dtr": 2.002854922632246e-08
+      },
+      {
+       "storage": 2168,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15297888,
+       "staleness": 480158716,
+       "h_dtr": 2.0256083936017212e-08
+      },
+      {
+       "storage": 2231,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 14977791,
+       "staleness": 469749914,
+       "h_dtr": 2.027168665353665e-08
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "ratio": 0.235,
+   "budget": 2642657571,
+   "status": "stopped at window end",
+   "ops_state": [
+    {
+     "model_op": 2260,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2326784456,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2261,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2296678856,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2262,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2266573256,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2263,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2236615112,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2264,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2116192712,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2265,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2116192712,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2266,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2116192712,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2267,
+     "tracked_resident": true,
+     "tracked_in_pool": true,
+     "memory_in_use": 2511391176,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2268,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2323827144,
+     "pinned_gb": 0.2396
+    },
+    {
+     "model_op": 2269,
+     "tracked_resident": false,
+     "tracked_in_pool": false,
+     "memory_in_use": 2263615944,
+     "pinned_gb": 0.2396
+    }
+   ],
+   "decisions": [
+    {
+     "model_op": 2266,
+     "depth": 3,
+     "memory_in_use": 2625898952,
+     "budget": 2642657571,
+     "shortfall": 107128997,
+     "request_bytes": 123887616,
+     "pinned_gb": 0.484,
+     "pool_size": 678,
+     "victims": [
+      936
+     ],
+     "victim_rows": [
+      {
+       "storage": 936,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 519214,
+       "staleness": 4339819,
+       "h_dtr": 1.3702793651803023e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 936,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 519214,
+       "staleness": 4339819,
+       "h_dtr": 1.3702793651803023e-09
+      },
+      {
+       "storage": 940,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 631998,
+       "staleness": 4339819,
+       "h_dtr": 1.6679323327861357e-09
+      },
+      {
+       "storage": 933,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 650864,
+       "staleness": 4339819,
+       "h_dtr": 1.7177223817899984e-09
+      },
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 1824690,
+       "staleness": 4339819,
+       "h_dtr": 3.3938260535515045e-09
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 34878050,
+       "staleness": 77768783,
+       "h_dtr": 5.1366648882732414e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 191024155,
+       "h_dtr": 8.70826208613944e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 23466442,
+       "h_dtr": 1.3966245723919085e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 469759614,
+       "h_dtr": 1.4226876295434235e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 464466484,
+       "h_dtr": 1.605002794155423e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 467251257,
+       "h_dtr": 1.9287140944281952e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 3,
+     "memory_in_use": 2538588616,
+     "budget": 2642657571,
+     "shortfall": 19818661,
+     "request_bytes": 123887616,
+     "pinned_gb": 0.484,
+     "pool_size": 677,
+     "victims": [
+      940
+     ],
+     "victim_rows": [
+      {
+       "storage": 940,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1151212,
+       "staleness": 4339819,
+       "h_dtr": 3.038211697966438e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 940,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1151212,
+       "staleness": 4339819,
+       "h_dtr": 3.038211697966438e-09
+      },
+      {
+       "storage": 933,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1170078,
+       "staleness": 4339819,
+       "h_dtr": 3.0880017469703007e-09
+      },
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 1824690,
+       "staleness": 4339819,
+       "h_dtr": 3.3938260535515045e-09
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 34878050,
+       "staleness": 77768783,
+       "h_dtr": 5.1366648882732414e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 191024155,
+       "h_dtr": 8.70826208613944e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 23466442,
+       "h_dtr": 1.3966245723919085e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 469759614,
+       "h_dtr": 1.4226876295434235e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 464466484,
+       "h_dtr": 1.605002794155423e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 467251257,
+       "h_dtr": 1.9287140944281952e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 468549569,
+       "h_dtr": 2.0463986351915848e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 7,
+     "memory_in_use": 2575165896,
+     "budget": 2642657571,
+     "shortfall": 19819173,
+     "request_bytes": 87310848,
+     "pinned_gb": 0.5713,
+     "pool_size": 676,
+     "victims": [
+      944
+     ],
+     "victim_rows": [
+      {
+       "storage": 944,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 713053,
+       "staleness": 5217103,
+       "h_dtr": 1.1032260412297658e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 944,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 713053,
+       "staleness": 5217103,
+       "h_dtr": 1.1032260412297658e-09
+      },
+      {
+       "storage": 933,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1802076,
+       "staleness": 5217103,
+       "h_dtr": 3.956198120312077e-09
+      },
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 2975902,
+       "staleness": 5217103,
+       "h_dtr": 4.604275674525936e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 191901439,
+       "h_dtr": 8.668451967800635e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 24343726,
+       "h_dtr": 1.3462938879532871e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 470636898,
+       "h_dtr": 1.420035688950367e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 465343768,
+       "h_dtr": 1.6019769810510177e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 468128541,
+       "h_dtr": 1.925099638424291e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 469426853,
+       "h_dtr": 2.0425742421710276e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15605621,
+       "staleness": 473079891,
+       "h_dtr": 2.0972750723365692e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 5,
+     "memory_in_use": 2625898952,
+     "budget": 2642657571,
+     "shortfall": 107128997,
+     "request_bytes": 123887616,
+     "pinned_gb": 0.5713,
+     "pool_size": 677,
+     "victims": [
+      933
+     ],
+     "victim_rows": [
+      {
+       "storage": 933,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1802076,
+       "staleness": 6368346,
+       "h_dtr": 3.2410131425136915e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 933,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1802076,
+       "staleness": 6368346,
+       "h_dtr": 3.2410131425136915e-09
+      },
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 3688955,
+       "staleness": 6368346,
+       "h_dtr": 4.67572338622528e-09
+      },
+      {
+       "storage": 968,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 518533,
+       "staleness": 1151243,
+       "h_dtr": 5.158741169757937e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 193052682,
+       "h_dtr": 8.61675885198696e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 25494969,
+       "h_dtr": 1.2855010541024593e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 471788141,
+       "h_dtr": 1.4165705612699866e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 466495011,
+       "h_dtr": 1.5980235308701836e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 469279784,
+       "h_dtr": 1.9203769600592702e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 27259968,
+       "staleness": 6368346,
+       "h_dtr": 1.9610696674835618e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 470578096,
+       "h_dtr": 2.0375771984958803e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 5,
+     "memory_in_use": 2538588616,
+     "budget": 2642657571,
+     "shortfall": 19818661,
+     "request_bytes": 123887616,
+     "pinned_gb": 0.5713,
+     "pool_size": 676,
+     "victims": [
+      968
+     ],
+     "victim_rows": [
+      {
+       "storage": 968,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 518533,
+       "staleness": 1151243,
+       "h_dtr": 5.158741169757937e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 968,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 518533,
+       "staleness": 1151243,
+       "h_dtr": 5.158741169757937e-09
+      },
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 4339819,
+       "staleness": 6368346,
+       "h_dtr": 5.500688728999082e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 193052682,
+       "h_dtr": 8.61675885198696e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 25494969,
+       "h_dtr": 1.2855010541024593e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 471788141,
+       "h_dtr": 1.4165705612699866e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 466495011,
+       "h_dtr": 1.5980235308701836e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 469279784,
+       "h_dtr": 1.9203769600592702e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 470578096,
+       "h_dtr": 2.0375771984958803e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 29062044,
+       "staleness": 6368346,
+       "h_dtr": 2.0907101931841094e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15605621,
+       "staleness": 474231134,
+       "h_dtr": 2.0921837295861754e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 4,
+     "memory_in_use": 2575165896,
+     "budget": 2642657571,
+     "shortfall": 56396709,
+     "request_bytes": 123888384,
+     "pinned_gb": 0.6078,
+     "pool_size": 676,
+     "victims": [
+      941
+     ],
+     "victim_rows": [
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 4339819,
+       "staleness": 8182647,
+       "h_dtr": 4.281046104587719e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 941,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 4339819,
+       "staleness": 8182647,
+       "h_dtr": 4.281046104587719e-09
+      },
+      {
+       "storage": 972,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1151243,
+       "staleness": 2965544,
+       "h_dtr": 4.446281663055805e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 194866983,
+       "h_dtr": 8.536532874444532e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 27309270,
+       "h_dtr": 1.200098337444008e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 473602442,
+       "h_dtr": 1.4111438886898595e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 468309312,
+       "h_dtr": 1.5918325463738487e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 29062044,
+       "staleness": 8182647,
+       "h_dtr": 1.6271465573332504e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 471094085,
+       "h_dtr": 1.912981108678516e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 472392397,
+       "h_dtr": 2.0297515468294154e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15605621,
+       "staleness": 476045435,
+       "h_dtr": 2.08421001373115e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 3,
+     "memory_in_use": 2575165896,
+     "budget": 2642657571,
+     "shortfall": 56395941,
+     "request_bytes": 123887616,
+     "pinned_gb": 0.6078,
+     "pool_size": 676,
+     "victims": [
+      972
+     ],
+     "victim_rows": [
+      {
+       "storage": 972,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1151243,
+       "staleness": 3668237,
+       "h_dtr": 3.594545256531998e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 972,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 1151243,
+       "staleness": 3668237,
+       "h_dtr": 3.594545256531998e-09
+      },
+      {
+       "storage": 973,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 1814301,
+       "staleness": 3668237,
+       "h_dtr": 3.992308165802285e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 195569676,
+       "h_dtr": 8.505860624953551e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 28011963,
+       "h_dtr": 1.1699933176339525e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 474305135,
+       "h_dtr": 1.4090532494380302e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 469012005,
+       "h_dtr": 1.5894475976399478e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 31599787,
+       "staleness": 8885340,
+       "h_dtr": 1.6293126754543623e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 471796778,
+       "h_dtr": 1.9101319191611584e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 473095090,
+       "h_dtr": 2.0267367359936146e-08
+      },
+      {
+       "storage": 1136,
+       "size_bytes": 20070400,
+       "size_mb": 20.07,
+       "e_star": 53050903,
+       "staleness": 127431707,
+       "h_dtr": 2.0742411791474835e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 2,
+     "memory_in_use": 2611743176,
+     "budget": 2642657571,
+     "shortfall": 216860837,
+     "request_bytes": 247775232,
+     "pinned_gb": 0.6078,
+     "pool_size": 676,
+     "victims": [
+      976
+     ],
+     "victim_rows": [
+      {
+       "storage": 976,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 702693,
+       "staleness": 4546663,
+       "h_dtr": 1.2475126728769504e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 976,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 702693,
+       "staleness": 4546663,
+       "h_dtr": 1.2475126728769504e-09
+      },
+      {
+       "storage": 973,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 2965544,
+       "staleness": 4546663,
+       "h_dtr": 5.26482222247013e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 196448102,
+       "h_dtr": 8.467826309277978e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 28890389,
+       "h_dtr": 1.134419115083896e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 475183561,
+       "h_dtr": 1.406448468651662e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 31599787,
+       "staleness": 9763766,
+       "h_dtr": 1.4827267560203373e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 469890431,
+       "h_dtr": 1.5864762409080534e-08
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 7301386,
+       "staleness": 4546663,
+       "h_dtr": 1.8392759149156143e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 472675204,
+       "h_dtr": 1.906582104135911e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 473973516,
+       "h_dtr": 2.0229805382653603e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 2,
+     "memory_in_use": 2487855560,
+     "budget": 2642657571,
+     "shortfall": 92973221,
+     "request_bytes": 247775232,
+     "pinned_gb": 0.6078,
+     "pool_size": 675,
+     "victims": [
+      973
+     ],
+     "victim_rows": [
+      {
+       "storage": 973,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 3668237,
+       "staleness": 4546663,
+       "h_dtr": 6.51233489534708e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 973,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 3668237,
+       "staleness": 4546663,
+       "h_dtr": 6.51233489534708e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 196448102,
+       "h_dtr": 8.467826309277978e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 28890389,
+       "h_dtr": 1.134419115083896e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 475183561,
+       "h_dtr": 1.406448468651662e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 31599787,
+       "staleness": 9763766,
+       "h_dtr": 1.4827267560203373e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 469890431,
+       "h_dtr": 1.5864762409080534e-08
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 7301386,
+       "staleness": 4546663,
+       "h_dtr": 1.8392759149156143e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 472675204,
+       "h_dtr": 1.906582104135911e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 473973516,
+       "h_dtr": 2.0229805382653603e-08
+      },
+      {
+       "storage": 1136,
+       "size_bytes": 20070400,
+       "size_mb": 20.07,
+       "e_star": 53050903,
+       "staleness": 128310133,
+       "h_dtr": 2.060040684303995e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 2,
+     "memory_in_use": 2611743176,
+     "budget": 2642657571,
+     "shortfall": 149719205,
+     "request_bytes": 180633600,
+     "pinned_gb": 0.6078,
+     "pool_size": 676,
+     "victims": [
+      980
+     ],
+     "victim_rows": [
+      {
+       "storage": 980,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 4546663,
+       "staleness": 10695783,
+       "h_dtr": 3.4312494039926907e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 980,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 4546663,
+       "staleness": 10695783,
+       "h_dtr": 3.4312494039926907e-09
+      },
+      {
+       "storage": 948,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 5217103,
+       "staleness": 10695783,
+       "h_dtr": 3.937213195549897e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 197380119,
+       "h_dtr": 8.427841744909088e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 29822406,
+       "h_dtr": 1.0989659762465016e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 31599787,
+       "staleness": 10695783,
+       "h_dtr": 1.3535238222130782e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 476115578,
+       "h_dtr": 1.4036952844607273e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 470822448,
+       "h_dtr": 1.5833357304398222e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 473607221,
+       "h_dtr": 1.9028301196767246e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 474905533,
+       "h_dtr": 2.0190103755249477e-08
+      },
+      {
+       "storage": 1136,
+       "size_bytes": 20070400,
+       "size_mb": 20.07,
+       "e_star": 53050903,
+       "staleness": 129242150,
+       "h_dtr": 2.0451849043710326e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 2,
+     "memory_in_use": 2487855560,
+     "budget": 2642657571,
+     "shortfall": 25831589,
+     "request_bytes": 180633600,
+     "pinned_gb": 0.6078,
+     "pool_size": 675,
+     "victims": [
+      948
+     ],
+     "victim_rows": [
+      {
+       "storage": 948,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 5217103,
+       "staleness": 10695783,
+       "h_dtr": 3.937213195549897e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 948,
+       "size_bytes": 123887616,
+       "size_mb": 123.89,
+       "e_star": 5217103,
+       "staleness": 10695783,
+       "h_dtr": 3.937213195549897e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 197380119,
+       "h_dtr": 8.427841744909088e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 29822406,
+       "h_dtr": 1.0989659762465016e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 31599787,
+       "staleness": 10695783,
+       "h_dtr": 1.3535238222130782e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 476115578,
+       "h_dtr": 1.4036952844607273e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 470822448,
+       "h_dtr": 1.5833357304398222e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 473607221,
+       "h_dtr": 1.9028301196767246e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 474905533,
+       "h_dtr": 2.0190103755249477e-08
+      },
+      {
+       "storage": 1136,
+       "size_bytes": 20070400,
+       "size_mb": 20.07,
+       "e_star": 53050903,
+       "staleness": 129242150,
+       "h_dtr": 2.0451849043710326e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15605621,
+       "staleness": 478558571,
+       "h_dtr": 2.0732648472782264e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 1,
+     "memory_in_use": 2544601544,
+     "budget": 2642657571,
+     "shortfall": 149719205,
+     "request_bytes": 247775232,
+     "pinned_gb": 0.7283,
+     "pool_size": 675,
+     "victims": [
+      990
+     ],
+     "victim_rows": [
+      {
+       "storage": 990,
+       "size_bytes": 60211200,
+       "size_mb": 60.21,
+       "e_star": 17631234,
+       "staleness": 113604834,
+       "h_dtr": 2.577559001301936e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 990,
+       "size_bytes": 60211200,
+       "size_mb": 60.21,
+       "e_star": 17631234,
+       "staleness": 113604834,
+       "h_dtr": 2.577559001301936e-09
+      },
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 198131654,
+       "h_dtr": 8.395874020833257e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 30573941,
+       "h_dtr": 1.0719524029895106e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 32477071,
+       "staleness": 11447318,
+       "h_dtr": 1.2997727842470312e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 476867113,
+       "h_dtr": 1.4014830829755577e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 471573983,
+       "h_dtr": 1.5808124101103032e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 474358756,
+       "h_dtr": 1.899815432130847e-08
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 10696806,
+       "staleness": 6230215,
+       "h_dtr": 1.9664613990121816e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 475657068,
+       "h_dtr": 2.0158203525763762e-08
+      },
+      {
+       "storage": 1136,
+       "size_bytes": 20070400,
+       "size_mb": 20.07,
+       "e_star": 53050903,
+       "staleness": 129993685,
+       "h_dtr": 2.0333610374108297e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 1,
+     "memory_in_use": 2484390344,
+     "budget": 2642657571,
+     "shortfall": 89508005,
+     "request_bytes": 247775232,
+     "pinned_gb": 0.7283,
+     "pool_size": 674,
+     "victims": [
+      1244
+     ],
+     "victim_rows": [
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 198131654,
+       "h_dtr": 8.395874020833257e-09
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 1244,
+       "size_bytes": 70246400,
+       "size_mb": 70.25,
+       "e_star": 116854072,
+       "staleness": 198131654,
+       "h_dtr": 8.395874020833257e-09
+      },
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 30573941,
+       "h_dtr": 1.0719524029895106e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 32477071,
+       "staleness": 11447318,
+       "h_dtr": 1.2997727842470312e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 476867113,
+       "h_dtr": 1.4014830829755577e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 471573983,
+       "h_dtr": 1.5808124101103032e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 474358756,
+       "h_dtr": 1.899815432130847e-08
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 10696806,
+       "staleness": 6230215,
+       "h_dtr": 1.9664613990121816e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 475657068,
+       "h_dtr": 2.0158203525763762e-08
+      },
+      {
+       "storage": 1136,
+       "size_bytes": 20070400,
+       "size_mb": 20.07,
+       "e_star": 53050903,
+       "staleness": 129993685,
+       "h_dtr": 2.0333610374108297e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15605621,
+       "staleness": 479310106,
+       "h_dtr": 2.0700140685496027e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2266,
+     "depth": 1,
+     "memory_in_use": 2414143944,
+     "budget": 2642657571,
+     "shortfall": 19261605,
+     "request_bytes": 247775232,
+     "pinned_gb": 0.7283,
+     "pool_size": 673,
+     "victims": [
+      1028
+     ],
+     "victim_rows": [
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 30573941,
+       "h_dtr": 1.0719524029895106e-08
+      }
+     ],
+     "tracked_in_pool": false,
+     "tracked": null,
+     "tracked_rank": null,
+     "lowest10": [
+      {
+       "storage": 1028,
+       "size_bytes": 30105600,
+       "size_mb": 30.11,
+       "e_star": 9866752,
+       "staleness": 30573941,
+       "h_dtr": 1.0719524029895106e-08
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 32477071,
+       "staleness": 11447318,
+       "h_dtr": 1.2997727842470312e-08
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 476867113,
+       "h_dtr": 1.4014830829755577e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 471573983,
+       "h_dtr": 1.5808124101103032e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 474358756,
+       "h_dtr": 1.899815432130847e-08
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 10696806,
+       "staleness": 6230215,
+       "h_dtr": 1.9664613990121816e-08
+      },
+      {
+       "storage": 2196,
+       "size_bytes": 2064384,
+       "size_mb": 2.06,
+       "e_star": 19794123,
+       "staleness": 475657068,
+       "h_dtr": 2.0158203525763762e-08
+      },
+      {
+       "storage": 1136,
+       "size_bytes": 20070400,
+       "size_mb": 20.07,
+       "e_star": 53050903,
+       "staleness": 129993685,
+       "h_dtr": 2.0333610374108297e-08
+      },
+      {
+       "storage": 2177,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15605621,
+       "staleness": 479310106,
+       "h_dtr": 2.0700140685496027e-08
+      },
+      {
+       "storage": 2183,
+       "size_bytes": 1572864,
+       "size_mb": 1.57,
+       "e_star": 15621300,
+       "staleness": 478318656,
+       "h_dtr": 2.0763888134687285e-08
+      }
+     ]
+    },
+    {
+     "model_op": 2267,
+     "depth": 2,
+     "memory_in_use": 2631813576,
+     "budget": 2642657571,
+     "shortfall": 49367205,
+     "request_bytes": 60211200,
+     "pinned_gb": 0.4203,
+     "pool_size": 675,
+     "victims": [
+      3131
+     ],
+     "victim_rows": [
+      {
+       "storage": 3131,
+       "size_bytes": 247775232,
+       "size_mb": 247.78,
+       "e_star": 3088317,
+       "staleness": 4415533,
+       "h_dtr": 2.8228047902252366e-09
+      }
+     ],
+     "tracked_in_pool": true,
+     "tracked": {
+      "storage": 3131,
+      "size_bytes": 247775232,
+      "size_mb": 247.78,
+      "e_star": 3088317,
+      "staleness": 4415533,
+      "h_dtr": 2.8228047902252366e-09
+     },
+     "tracked_rank": 0,
+     "lowest10": [
+      {
+       "storage": 3131,
+       "size_bytes": 247775232,
+       "size_mb": 247.78,
+       "e_star": 3088317,
+       "staleness": 4415533,
+       "h_dtr": 2.8228047902252366e-09
+      },
+      {
+       "storage": 932,
+       "size_bytes": 218275840,
+       "size_mb": 218.28,
+       "e_star": 32477071,
+       "staleness": 18199633,
+       "h_dtr": 8.175391442795115e-09
+      },
+      {
+       "storage": 965,
+       "size_bytes": 87310336,
+       "size_mb": 87.31,
+       "e_star": 10696806,
+       "staleness": 12982530,
+       "h_dtr": 9.436895046687108e-09
+      },
+      {
+       "storage": 2190,
+       "size_bytes": 2752512,
+       "size_mb": 2.75,
+       "e_star": 18395621,
+       "staleness": 483619428,
+       "h_dtr": 1.381915516629935e-08
+      },
+      {
+       "storage": 1004,
+       "size_bytes": 20070400,
+       "size_mb": 20.07,
+       "e_star": 7879351,
+       "staleness": 28134514,
+       "h_dtr": 1.3953880579462626e-08
+      },
+      {
+       "storage": 982,
+       "size_bytes": 60211200,
+       "size_mb": 60.21,
+       "e_star": 4053076,
+       "staleness": 4415533,
+       "h_dtr": 1.524489121910169e-08
+      },
+      {
+       "storage": 2224,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 17587844,
+       "staleness": 478326298,
+       "h_dtr": 1.5584967996293298e-08
+      },
+      {
+       "storage": 2202,
+       "size_bytes": 2359296,
+       "size_mb": 2.36,
+       "e_star": 21261836,
+       "staleness": 481111071,
+       "h_dtr": 1.87315183402876e-08
+      },
+      {
+       "storage": 1020,
+       "size_bytes": 20070400,
+       "size_mb": 20.07,
+       "e_star": 12675548,
+       "staleness": 32813277,
+       "h_dtr": 1.9246914252506847e-08
+      },
+      {
+       "storage": 1136,
+       "size_bytes": 20070400,
+       "size_mb": 20.07,
+       "e_star": 53050903,
+       "staleness": 136746000,
+       "h_dtr": 1.9329566801841125e-08
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
