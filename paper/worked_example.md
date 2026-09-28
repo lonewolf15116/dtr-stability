@@ -14,10 +14,9 @@ after earlier results were observed, and are exploratory.
 
 **Where the runs separate.** The two executions evict the same first 12 tensors and first
 choose different victims at eviction 13 (operator 945 of about 2,300). From there to operator
-2,269 they do the same amount of work: 1,657 evictions each, and 335 versus 334
-rematerializations. Per-operator pinned memory and recursion depth are identical over that
-span. Their histories already differ, but before operator 2,270 they have equal eviction
-counts and nearly equal rematerialization counts. The failing run's extra work (7,342
+2,269 their histories differ, but the event counts are close: 1,657 evictions each and 335
+versus 334 rematerializations (event counts, not compute cost). Per-operator peak pinned
+memory and recursion depth are identical over that span. The failing run's extra work (7,342
 evictions and 6,143 rematerializations) happens inside a single operator, 2,270.
 
 **Allocation threshold (operator 2,266).** Operator 2,266 produces storage 3131
@@ -35,8 +34,7 @@ smaller budget had evicted one operator earlier. DTR evicts 3131.
 resident and the run completes. At 0.235 it must be rebuilt, which requires rebuilding its
 own evicted ancestors in turn: maximum nesting depth reaches 193, and pinned memory peaks at
 2.63 GB (depth at peak pinned memory: 188) before the evictable pool empties.¹ That storage 3131 is needed three operators after its
-eviction is hindsight from the trace; DTR's score does not use future accesses and could not
-have known it.
+eviction is hindsight from the trace; DTR's score does not use future-access information.
 
 **Intervention.** We reran 0.235 with one change: storage 3131 is never offered to DTR as an
 eviction candidate. Its bytes remain resident and count against the same budget; no limit is
@@ -46,8 +44,8 @@ path with no retained tensor reproduces the original failure exactly (2.63 GB pe
 maximum nesting depth 193; depth at peak pinned memory 188). Preventing storage 3131's
 eviction prevents OOM in this execution under the same budget, supporting its causal
 involvement; retaining it also changes the rest of the execution, so this is not a claim
-that nothing else matters. It is not a fix:
-retaining a tensor requires knowing in advance which one will be needed.
+that nothing else matters. It is not a fix: this intervention selects the retained tensor
+using hindsight.
 
 **Summary.** In this execution, the extra 7.9 MB avoids one eviction at operator 2,266. That
 leaves 218 MB more resident going into operator 2,267, which forces an eviction there. DTR's

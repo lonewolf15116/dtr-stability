@@ -16,11 +16,16 @@ excluded (counted separately). Stage D results are not included here (see STAGE_
 | InceptionV4 | 2 (0.2423, 0.2527) | 14 (0.25–0.3001) | 18 (0.31–0.4301) | 1.0733 (63; 3.56×) | **fail** | **fail** | **fail** (0.31 vs 0.26) |
 | Transformer | 0 | 0 | 0 | 1.0063 (112; 1.26×) | pass | pass | pass (0.13 = 0.13) |
 | U-Net | **1 (0.4324)** | 2 (0.3968, 0.40) | 6 | 0.9905 (35; 1.03×) | **fail** | pass | pass (0.4036 vs 0.44) |
-| TreeLSTM | 0 (17 timeouts) | 0 (4 timeouts) | 0 (49 timeouts) | 1.0820 (119; 1.65×) | pass | **fail** | unresolved* |
+| TreeLSTM | 0 (17 timeouts) | 0 (4 timeouts) | 0 (49 timeouts) | 1.0820 (119; 1.65×) | pass | **fail** | pass* (0.0639 vs 0.0964) |
 | Unrolled GAN | 0 (2 timeouts) | 0 (21 timeouts) | 1 (0.2401) | 1.2065 (72; 6.26×) | pass | **fail** | **fail** (0.2401 vs 0.2326) |
 
-*TreeLSTM: DTR has timeouts at 0.0984–0.1076 above its first success (0.0964), so its
-stable-from is unresolved.
+*TreeLSTM (corrected 2026-09-28): DTR has timeouts at 0.0984–0.1076 above its sampled
+stable-from (0.0964). They can only raise DTR's true stable-from, and NbhdPenalty's (0.0639)
+has no timeouts above it, so H3 passes whatever those timeouts would have been. Reporting
+rule: H3 is unresolved only if treating timeouts as failures could change the verdict. The
+same check keeps Unrolled GAN's H3 a fail: NbhdPenalty's timeouts lie above its 0.2401, and
+DTR's 0.2326 has none above it. The earlier version of this note called TreeLSTM's H3
+unresolved.
 
 ## Findings
 - **NbhdPenalty does not generalise** (H1 and H2 both pass on 2 of 6 traces: DenseNet,
