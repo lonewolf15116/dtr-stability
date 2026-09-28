@@ -211,3 +211,22 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   depth histogram of rematerializations inside the failing operator. Checked first on
   ResNet-32 0.101 vs 0.104 (development trace). Runs on InceptionV4 0.2343 vs 0.235 after
   Stage E (1) finishes, so it does not load the host during protocol points.
+- 2026-09-28, execution metadata: run_protocol.py now adds a `host` field to every new
+  record (decision-neutral). Older records carry no host; EVIDENCE_runs.csv gives their
+  provenance from these deviation notes. EVIDENCE_runs.csv has one row per execution
+  (run ID = file:line), including interrupted, superseded and void runs with the reason;
+  EVIDENCE_summary.csv aggregates valid runs per point. A rerun supersedes an earlier record
+  only within the same file; runs of the same point in different files (e.g. laptop and
+  cloud) are separate valid executions.
+- 2026-09-28, exploratory amendment (fixed before it runs; exploratory, not confirmatory):
+  **retention test** for InceptionV4 DTR at 0.235. X = the storage(s) the failing operator
+  (op 2,270) rebuilds directly that are resident at the start of that operator in the 0.2343
+  run but not in the 0.235 run (from trace_divergence.py --detail). Intervention: X is never
+  evicted after it is first computed (removed from the evictable pool; the policy is
+  otherwise unchanged). X's bytes stay resident and count against the same 0.235 budget.
+  If holding X makes another allocation fail, the run is recorded as OOM with its failure
+  snapshot, exactly like any other run; no budget or cap is relaxed. Reported: status,
+  overhead, peak pinned, depth, and the operator of any failure. Interpretation rule: a
+  success supports X's involvement in this particular failure only; it is not a fix and is
+  not tested elsewhere. If X is empty (no such storage), the test is not run and that is
+  reported.

@@ -12,7 +12,7 @@ Chunked mode (for hosts that kill background jobs, e.g. the laptop workspace):
 
 Resumable: points already present in --out are skipped. One JSON record per line.
 """
-import argparse, json, os, random, subprocess, sys, threading, time
+import argparse, json, os, platform, random, subprocess, sys, threading, time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -157,6 +157,7 @@ def run(pt, limit=TIMEOUT_S):
         rec = {'model': tr, 'heuristic': p, 'ratio': r, 'repeat': k,
                'status': 'timeout' if limit >= TIMEOUT_S else 'deferred',
                'overhead': None, 'wall_s': round(time.time() - t0, 1)}
+    rec.setdefault('host', f'{platform.system()} {platform.node()}')
     return rec
 
 
