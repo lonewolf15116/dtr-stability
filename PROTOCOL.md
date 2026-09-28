@@ -230,3 +230,11 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   success supports X's involvement in this particular failure only; it is not a fix and is
   not tested elsewhere. If X is empty (no such storage), the test is not run and that is
   reported.
+- 2026-09-28, implementation note for the retention test (before its InceptionV4 run):
+  simrd asserts that every unlocked resident storage stays in its pool, so "never evicted"
+  is implemented by never offering X to the policy as a candidate (retention_test.py); if only
+  X remains in the pool the run is OOM. Same semantics as specified. Checks on ResNet-32
+  (development trace, exploratory): a control with a non-existent storage id reproduces DTR's
+  0.104 OOM exactly (0.89 GB, depth 118); retaining storage 612 — the failing operator's
+  parent that the 0.104 run evicted at op 466 and the 0.101 run never evicted — gives ok at
+  0.104 (2.24x, 0.575 GB, depth at peak pinned 30, max nesting 57).

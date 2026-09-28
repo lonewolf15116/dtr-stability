@@ -1,0 +1,20 @@
+{
+ "model": "resnet",
+ "ratio": 0.104,
+ "budget": 1046362683,
+ "policy": "DTR+retain",
+ "retain": [
+  612
+ ],
+ "retained_seen": [
+  612
+ ],
+ "status": "ok",
+ "overhead": 2.2406212357357984,
+ "peak_pinned_gb": 0.575,
+ "depth_at_peak_pinned": 30,
+ "max_nesting_depth": 57,
+ "evictions": 650,
+ "fail": null,
+ "wall_s": 2.9
+}

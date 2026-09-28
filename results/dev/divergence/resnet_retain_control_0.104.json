@@ -1,0 +1,24 @@
+{
+ "model": "resnet",
+ "ratio": 0.104,
+ "budget": 1046362683,
+ "policy": "DTR+retain",
+ "retain": [
+  999999
+ ],
+ "retained_seen": [],
+ "status": "oom",
+ "overhead": null,
+ "peak_pinned_gb": 0.89,
+ "depth_at_peak_pinned": 118,
+ "max_nesting_depth": 124,
+ "evictions": 548,
+ "fail": {
+  "pinned_bytes": 889795480,
+  "request": 179830912,
+  "depth": 118,
+  "budget": 1046362683,
+  "over_by": 23263709
+ },
+ "wall_s": 0.8
+}
