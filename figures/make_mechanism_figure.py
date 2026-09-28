@@ -18,7 +18,7 @@ rows = [
      ('49,367,205 B short  →  evicts lowest h_DTR:\n3131 (h = 2.82e-9), ranked ahead of\n932 (h = 8.18e-9) among 675 candidates', CRIT)),
     ('Op 2,270\n(needs storage 3131)',
      ('3131 resident  →  run completes\n(1.471× overhead)', GOOD),
-     ('3131 evicted  →  rebuild recurses to depth 193,\n2.63 GB pinned  →  out of memory', CRIT)),
+     ('3131 evicted  →  rebuild cascade: max nesting depth 193,\npeak pinned 2.63 GB (depth at peak 188)  →  out of memory', CRIT)),
 ]
 
 fig = plt.figure(figsize=(10, 5.6), dpi=200, facecolor=SURF)
@@ -41,7 +41,7 @@ for i, (label, left, right) in enumerate(rows):
             ax.annotate('', (x + w / 2, y - gap + 0.8), (x + w / 2, y - 0.8),
                         arrowprops=dict(arrowstyle='->', color=INK2, lw=1))
 ax.text(2, 10.5, 'Intervention at 0.235, same budget: never evicting storage 3131 → completes (1.477×).\n'
-        'Control, same wrapper with no retained tensor → out of memory (2.63 GB pinned, depth 188).',
+        'Control, same wrapper with no retained tensor → out of memory (peak pinned 2.63 GB; max nesting depth 193; depth at peak pinned 188).',
         fontsize=8.2, color=INK, va='center')
 ax.text(2, 3.5, 'Which tensor is needed later is hindsight from the trace; DTR\'s score (e*/(size·staleness)) '
         'does not use future accesses. simrd reference simulator; no allocator model.',

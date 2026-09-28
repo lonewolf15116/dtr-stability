@@ -16,8 +16,9 @@ after earlier results were observed, and are exploratory.
 choose different victims at eviction 13 (operator 945 of about 2,300). From there to operator
 2,269 they do the same amount of work: 1,657 evictions each, and 335 versus 334
 rematerializations. Per-operator pinned memory and recursion depth are identical over that
-span. The failure is therefore not a slow accumulation; all of the failing run's extra work
-(7,342 evictions and 6,143 rematerializations) happens inside a single operator, 2,270.
+span. Their histories already differ, but before operator 2,270 they have equal eviction
+counts and nearly equal rematerialization counts. The failing run's extra work (7,342
+evictions and 6,143 rematerializations) happens inside a single operator, 2,270.
 
 **Allocation threshold (operator 2,266).** Operator 2,266 produces storage 3131
 (247,775,232 B). To make room, both runs make the same 14 evictions in the same order. The
@@ -32,9 +33,8 @@ smaller budget had evicted one operator earlier. DTR evicts 3131.
 
 **Failure cascade (operator 2,270).** Operator 2,270 reads storage 3131. At 0.2343 it is
 resident and the run completes. At 0.235 it must be rebuilt, which requires rebuilding its
-own evicted ancestors in turn: the rematerialization chain reaches a nesting depth of 193,
-pinned memory reaches 2.63 GB (depth 188 at that peak), and the evictable pool empties with
-a request of 8,388,608 B still unmet. That storage 3131 is needed three operators after its
+own evicted ancestors in turn: maximum nesting depth reaches 193, and pinned memory peaks at
+2.63 GB (depth at peak pinned memory: 188) before the evictable pool empties.¹ That storage 3131 is needed three operators after its
 eviction is hindsight from the trace; DTR's score does not use future accesses and could not
 have known it.
 
@@ -42,8 +42,11 @@ have known it.
 eviction candidate. Its bytes remain resident and count against the same budget; no limit is
 relaxed. The run completes with 1.477× overhead, 0.99 GB peak pinned memory and a maximum
 nesting depth of 30, matching the successful smaller budget. A control using the same code
-path with no retained tensor reproduces the original failure exactly (2.63 GB, depth 188).
-This supports storage 3131's eviction as a necessary step in this failure. It is not a fix:
+path with no retained tensor reproduces the original failure exactly (2.63 GB peak pinned;
+maximum nesting depth 193; depth at peak pinned memory 188). Preventing storage 3131's
+eviction prevents OOM in this execution under the same budget, supporting its causal
+involvement; retaining it also changes the rest of the execution, so this is not a claim
+that nothing else matters. It is not a fix:
 retaining a tensor requires knowing in advance which one will be needed.
 
 **Summary.** In this execution, the extra 7.9 MB avoids one eviction at operator 2,266. That
@@ -54,11 +57,16 @@ did not give the same execution more room; it produced a different execution.
 **Supporting case: ResNet-32 (development trace).** The failing operator at budget 0.104
 (operator 471) needs storage 612, which the 0.104 run evicted at operator 466 and the 0.101 run
 never evicted. Retaining 612 at 0.104 turns the failure into a completion (2.24×), and the
-control reproduces the failure (0.89 GB pinned, depth 118 at that peak; maximum nesting 124).
+control reproduces the failure (0.89 GB peak pinned; depth at peak pinned memory 118;
+maximum nesting depth 124).
 The larger budget likewise carries more data into operator 466 (802 MB versus 667 MB).
 However, our probe reports unchanged memory-in-use across consecutive evictions within
 operator 466, which we have not yet explained; we therefore report ResNet-32 only as a second
 instance of the retention result, not as a byte-level account.
+
+¹ During the cascade, an allocation of 8,388,608 bytes (8 MiB) could not be satisfied; the
+run was 130,137 bytes over budget at that point. This is a different request from operator
+2,267's 60,211,200 bytes.
 
 *Figure 5 (figures/fig_mechanism_inception.pdf): the two budgets side by side at operators
 2,266, 2,267 and 2,270, with the intervention and control.*
