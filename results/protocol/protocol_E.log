@@ -7,3 +7,10 @@ inception DTR 0.209 0 ok 4.9124083725582945 833.18
 inception DTR 0.209 2 ok 4.9124083725582945 839.85
 inception DTR 0.212 0 oom None 1023.42
 inception DTR 0.212 1 oom None 1061.16
+inception DTR 0.212 2 oom None 1050.23
+inception DTR 0.222 0 oom None 942.12
+inception DTR 0.222 1 oom None 936.13
+inception DTR 0.223 0 ok 2.5747171963937108 282.68
+inception DTR 0.223 1 ok 2.5747171963937108 279.98
+inception DTR 0.222 2 oom None 950.61
+inception DTR 0.223 2 ok 2.5747171963937108 277.31
