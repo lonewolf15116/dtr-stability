@@ -61,3 +61,26 @@ Interpretation limits: this supports the involvement of one late eviction of one
 these two failures. It does not explain why DTR's score picked that storage at 0.235 but not
 at 0.2343, does not test other holes, and retention is not a fix (it needs to know the
 storage in advance).
+
+## Exploratory decision probe at operators 2,260–2,270 (decision_probe_inception_window.json)
+Why is storage 3131 evicted at 0.235 but not at 0.2343? (plain DTR, both runs stopped after
+op 2,270; the full op-2,270 decision log of the failing run, 7,357 decisions, is summarised
+by its count.)
+1. **Op 2,266: the smaller budget needs one extra eviction.** Both runs make the same 14
+   evictions, same victims in the same order. The 0.2343 run is then still 0.17 MB short
+   and evicts a 15th storage, 932 (218 MB). The 0.235 run, 7.9 MB larger, is not short and
+   keeps storage 932 resident.
+2. **Op 2,267: the larger budget is now the tighter one.** Op 2,267 produces storage 3131
+   (248 MB). The 0.2343 run has room (it freed 932). The 0.235 run is 49.4 MB short and
+   must evict; the lowest-scored of 675 candidates is 3131 itself (h_DTR = 2.8e-9;
+   e* compute 3.1e6, staleness 4.4e6), so it evicts 3131.
+3. **Op 2,270 needs 3131.** The 0.2343 run has it; the 0.235 run must rebuild it, which
+   recurses to max nesting 193 and OOMs (retention of 3131 alone removes the failure).
+So the sequence is: more budget → one fewer eviction at op 2,266 (a 0.17 MB margin) → more
+data carried into op 2,267 → a forced eviction whose cheapest candidate is a tensor needed
+three operators later → a cascade that cannot fit. The same shape appears on ResNet-32
+(0.104 carries 802 MB into op 466 vs 667 MB at 0.101; its third eviction there removes
+storage 612, needed at op 471). Open: on ResNet the probe reports identical memory-in-use
+across consecutive evictions within op 466, which is not yet explained; the InceptionV4
+numbers are internally consistent (e.g. 2,629.0 − 87.31 = 2,541.7 MB). This explains
+these two failures step by step; it is not a general theory of when holes occur.
