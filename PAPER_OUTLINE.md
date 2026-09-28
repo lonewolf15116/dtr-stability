@@ -48,8 +48,9 @@ on public traces with no allocator model; behaviour on real hardware is untested
 ## 4. Results: feasibility holes exist and coarse grids miss them
 - Fig. 1: ResNet-32 and InceptionV4 panels (figures/fig_feasibility_cliffs).
 - Stage A alone: 0 DTR holes on confirmatory traces at 0.01 resolution.
-- With C/B: InceptionV4 regions (confirmed: 0.2343 ok / 0.2423 OOM / 0.248–0.2524 ok /
-  0.2526–0.2527 OOM / 0.26 ok). [OPEN: Stage E lower region; Stage B U-Net 0.4324.]
+- Confirmed (Stages D+E; 3 repeats + stock simrd at each point): ok 0.209 | OOM 0.212,
+  0.222 | ok 0.223, 0.2343 | OOM 0.235, 0.2423 | ok 0.248, 0.2523 | OOM 0.2527 | ok 0.26.
+  Three failure regions, six switches. [OPEN: Stage B U-Net 0.4324.]
 - Determinism: all resolved repeats agree across 3,288 executions (EVIDENCE_summary.csv:
   0 disagreeing points) [re-check at freeze]; stock simrd agrees at every resolved point.
 
@@ -60,7 +61,12 @@ on public traces with no allocator model; behaviour on real hardware is untested
   (model op 945); per-op pinned/depth identical through op 2,269; op 2,270 cascades
   (depth 193, 2.63 GB). Wording: "histories separate at eviction 13 and the failure
   manifests as a single late cascade" — association, not cause.
-- [OPEN, exploratory] eviction timing, missing tensor at op 2,270, retention test.
+- Exploratory (STAGE_E.md): all extra work of the failing run is inside op 2,270 (7,342
+  evictions, 6,143 rematerializations vs 2 and 0); its single rebuilt parent, storage 3131,
+  was evicted at op 2,267 only in the failing run; never evicting it gives ok at 0.235
+  (1.477x) with a control reproducing the OOM. Same pattern on ResNet-32 (storage 612).
+  The early divergence at eviction 13 is where histories separate; the decisive event
+  observed is a late eviction of one parent. [OPEN: why the score picks it at 0.235.]
 
 ## 6. Policy comparisons (negative results)
 - NbhdPenalty removes the ResNet-32 hole but does not generalise (H1+H2 on 2/6 traces).
