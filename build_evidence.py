@@ -74,8 +74,11 @@ for fn, (stage, host, void) in FILES.items():
                    depth_at_peak_pinned=r.get('depth_at_peak_pinned', ''),
                    max_nesting_depth=r.get('max_nesting_depth', ''),
                    wall_s=r.get('wall_s', ''), overhead_cap=60, timeout_s=1200,
-                   simrd_commit=SIMRD, first_committed_in=bl.get(i, 'uncommitted'),
-                   host=host, excluded=excl)
+                   simrd_commit=SIMRD,
+                   result_first_committed_in=bl.get(i, 'uncommitted'),
+                   producing_code_version=(r.get('code_version') or 'unknown (not recorded)'),
+                   host=(r.get('host') or ''), host_inferred=('' if r.get('host') else 'inferred: ' + host),
+                   excluded=excl)
         rows.append(row)
         if not excl:
             k = (r['model'], r['heuristic'], r['ratio'], r['repeat'], fn)  # reruns within one file supersede

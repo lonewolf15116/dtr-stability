@@ -238,3 +238,15 @@ runs in its own process. Hardware: 2-vCPU cloud container unless stated.
   0.104 OOM exactly (0.89 GB, depth 118); retaining storage 612 — the failing operator's
   parent that the 0.104 run evicted at op 466 and the 0.101 run never evicted — gives ok at
   0.104 (2.24x, 0.575 GB, depth at peak pinned 30, max nesting 57).
+- 2026-09-28b, exploratory amendment (fixed before its InceptionV4 run): **decision probe**
+  (decision_probe.py). Plain DTR at 0.2343 and 0.235, each stopped after model operator 2,270.
+  For every eviction decision in operators 2,260–2,270: memory in use, budget, shortfall,
+  pinned bytes, pool size, victim(s), and score components (e* compute, size, staleness,
+  h_DTR) for the victim, for storage 3131 and for the 10 lowest-scored candidates; per
+  operator, whether 3131 is resident and whether it is evictable. Question: at operator
+  2,267, why is 3131 evicted at 0.235 and not at 0.2343 (not a candidate / not needed /
+  outranked)? Descriptive. Checked first on ResNet-32 (0.101 vs 0.104, storage 612).
+  Provenance: EVIDENCE_runs.csv now separates `result_first_committed_in` (the repo commit
+  that first contains a record — not necessarily the producing code), `producing_code_version`
+  ('unknown (not recorded)' for all records before this date; new records carry the git hash),
+  and `host` (recorded) vs `host_inferred` (from these notes).

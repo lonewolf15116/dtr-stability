@@ -23,6 +23,20 @@ if os.environ.get('PROTOCOL_BASELINES') == '2':   # deviation 2026-09-26 (T-Cont
 elif os.environ.get('PROTOCOL_BASELINES'):        # deviation 2026-09-26
     POLICIES = ['HEStar', 'CostStale']
 TIMEOUT_S = 20 * 60
+
+
+def _code_version():
+    try:
+        v = subprocess.run(['git', 'rev-parse', '--short', 'HEAD'], cwd=HERE, capture_output=True,
+                           text=True).stdout.strip()
+        d = subprocess.run(['git', 'status', '--porcelain', '--', '*.py'], cwd=HERE, capture_output=True,
+                           text=True).stdout.strip()
+        return (v or 'nogit') + ('+dirty' if d else '')
+    except Exception:
+        return 'unknown'
+
+
+CODE_VERSION = _code_version()
 OVERHEAD_LIMIT = 60.0
 
 POINT = r'''
@@ -158,6 +172,7 @@ def run(pt, limit=TIMEOUT_S):
                'status': 'timeout' if limit >= TIMEOUT_S else 'deferred',
                'overhead': None, 'wall_s': round(time.time() - t0, 1)}
     rec.setdefault('host', f'{platform.system()} {platform.node()}')
+    rec.setdefault('code_version', CODE_VERSION)
     return rec
 
 
