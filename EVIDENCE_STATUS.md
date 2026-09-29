@@ -20,11 +20,11 @@ The repository contains all 20 Stage E keys (five budgets, each with three DTR r
 
 ## Recovery after the snapshot
 
-The terminal transcript covers all 408 T-Control-inspired points: 282 successes, 117 OOM, four timeouts and five compute-cap terminations, with REMAINING 0. The final JSONL has not been supplied, so complete metadata verification remains pending.
+The terminal transcript covers all 408 T-Control-inspired points: 282 successes, 117 OOM, four timeouts and five compute-cap terminations, with REMAINING 0. The final JSONL was subsequently supplied and checked: all 408 expected keys are present, with no unexpected keys. It contains 408 valid records plus 408 preserved dependency errors. See `results/imports/2026-09-29-tcontrol-recovered/`.
 
 ## What remains
 
-- Import the recovered `protocol_A_tcontrol.jsonl` and verify all 408 expected keys.
+- Completed: recovered T-Control JSONL imported separately and all 408 expected keys verified.
 - Audit cloud Stage D/E evidence together with laptop evidence, preserving host and source provenance.
 - Confirm the U-Net and Unrolled GAN DTR candidates with repeats and stock simrd.
 - Confirm the T-Control-inspired InceptionV4 candidate: success at 0.20, OOM at 0.21/0.22, success at 0.23. This is not the full published T-Control implementation.
