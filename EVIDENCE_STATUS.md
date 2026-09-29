@@ -14,6 +14,10 @@ This report audits the supplied laptop snapshot, not a live laptop connection.
 
 Stage C generates 1,440 entries but only 1,437 unique keys. All unique points are covered.
 
+## Cloud confirmation files checked
+
+The repository contains all 20 Stage E keys (five budgets, each with three DTR repeats and one stock-simrd execution): eight successes and 12 OOM outcomes. The two cloud Stage D stock-simrd checks at 0.2423 and 0.2527 both record OOM. Cross-host evidence-table reconciliation remains separate from this coverage check.
+
 ## Recovery after the snapshot
 
 The terminal transcript covers all 408 T-Control-inspired points: 282 successes, 117 OOM, four timeouts and five compute-cap terminations, with REMAINING 0. The final JSONL has not been supplied, so complete metadata verification remains pending.
