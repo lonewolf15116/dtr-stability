@@ -32,13 +32,15 @@ What this does not establish: that every budget between two confirmed OOM points
 (0.205–0.207 OOM, 0.201–0.204 timeouts, single runs).
 
 ## (2) Divergence trace, 0.2343 vs 0.235 (descriptive)
-Raw: divergence_inception_0.2343_vs_0.235.json. First 12 evictions identical; the histories
-separate at eviction 13 (model op 945: the ok run evicts a 131 MB storage, the failing run an
-87 MB one). Per-operator max pinned bytes and depth are identical through op 2,269; at op
+Raw: divergence_inception_0.2343_vs_0.235.json. First 13 evictions identical; the histories
+separate at the 14th eviction (model op 945: the ok run evicts a 131 MB storage, the failing run an
+87 MB one). Per-operator max pinned bytes differ by less than 0.25 GB through op 2,269 and are identical
+over ops 2,265–2,269 (the full per-operator arrays were not saved; corrected 2026-10-01, the
+first version said 'identical through op 2,269' and counted the shared evictions as 12); at op
 2,270 the failing run cascades to max nesting 193 (depth at peak pinned 188) with 2.63 GB
 pinned and OOMs, while the ok run stays at 0.74 GB, depth 1. Totals: 1,966 evictions (ok)
 vs 9,012 (fail); their timing is analysed in the exploratory --detail run. Wording: the
-histories separate at eviction 13 and the failure manifests as a single late cascade —
+histories separate at the 14th eviction and the failure manifests as a single late cascade —
 an association, not a demonstrated cause.
 
 ## Exploratory follow-up (pre-registered as exploratory; not confirmatory)

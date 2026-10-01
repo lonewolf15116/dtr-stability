@@ -12,11 +12,12 @@ These two points were fixed as confirmation targets before they ran, after the e
 sweeps had shown the region; the analyses below were likewise specified before execution,
 after earlier results were observed, and are exploratory.
 
-**Where the runs separate.** The two executions evict the same first 12 tensors and first
-choose different victims at eviction 13 (operator 945 of about 2,300). From there to operator
+**Where the runs separate.** The two executions evict the same first 13 tensors and first
+choose different victims at the 14th eviction (operator 945 of about 2,300). From there to operator
 2,269 their histories differ, but the event counts are close: 1,657 evictions each and 335
 versus 334 rematerializations (event counts, not compute cost). Per-operator peak pinned
-memory and recursion depth are identical over that span. The failing run's extra work (7,342
+memory differs by less than 0.25 GB until operator 2,270 and is identical over operators
+2,265–2,269. The failing run's extra work (7,342
 evictions and 6,143 rematerializations) happens inside a single operator, 2,270.
 
 **Allocation threshold (operator 2,266).** Operator 2,266 produces storage 3131

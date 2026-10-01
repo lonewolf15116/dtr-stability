@@ -1,0 +1,3 @@
+{"model": "resnet", "ratio": 0.101, "budget": 1016179144, "heuristic": "DTRStock", "repeat": 0, "overhead_limit": 0, "status": "ok", "overhead": 2.222862145102466, "wall_s": 1.4, "host": "Linux vm"}
+{"model": "resnet", "ratio": 0.104, "budget": 1046362683, "heuristic": "DTRStock", "repeat": 0, "overhead_limit": 0, "status": "oom", "overhead": null, "wall_s": 0.5, "host": "Linux vm"}
+{"model": "resnet", "ratio": 0.107, "budget": 1076546222, "heuristic": "DTRStock", "repeat": 0, "overhead_limit": 0, "status": "ok", "overhead": 2.0767637231841416, "wall_s": 1.79, "host": "Linux vm"}

@@ -21,31 +21,38 @@ rows = [
      ('3131 evicted  →  rebuild cascade: max nesting depth 193,\npeak pinned 2.63 GB (depth at peak 188)  →  out of memory', CRIT)),
 ]
 
-fig = plt.figure(figsize=(10, 5.6), dpi=200, facecolor=SURF)
+import sys
+PAPER = '--paper' in sys.argv
+fig = plt.figure(figsize=(8, 4.8) if PAPER else (10, 5.6), dpi=200, facecolor=SURF)
+FS = 0.82 if PAPER else 1.0
 ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, 100); ax.set_ylim(0, 100); ax.axis('off')
-ax.text(2, 96, 'InceptionV4, DTR: how 7.9 MB more budget leads to a failure', fontsize=12.5,
+ax.text(2, 96, 'InceptionV4, DTR: how 7.9 MB more budget leads to a failure', fontsize=12.5*FS,
         fontweight='bold', color=INK, va='top')
 xcol = [(24, 36), (62, 36)]
-ax.text(24 + 18, 87, 'budget 0.2343  —  completes', ha='center', fontsize=10, color=INK, fontweight='bold')
-ax.text(62 + 18, 87, 'budget 0.235  —  out of memory', ha='center', fontsize=10, color=INK, fontweight='bold')
+ax.text(24 + 18, 87, 'budget 0.2343  —  completes', ha='center', fontsize=10*FS, color=INK, fontweight='bold')
+ax.text(62 + 18, 87, 'budget 0.235  —  out of memory', ha='center', fontsize=10*FS, color=INK, fontweight='bold')
 ytop, h, gap = 82, 17, 5
 for i, (label, left, right) in enumerate(rows):
     y = ytop - i * (h + gap) - h
-    ax.text(2, y + h / 2, label, va='center', fontsize=9, color=INK2)
+    ax.text(2, y + h / 2, label, va='center', fontsize=9*FS, color=INK2)
     for (x, w), (txt, col) in zip(xcol, (left, right)):
         ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle='round,pad=0.4,rounding_size=1.2',
                                     facecolor=SURF, edgecolor=col, linewidth=1.6))
-        ax.text(x + w / 2, y + h / 2, txt, ha='center', va='center', fontsize=8.3, color=INK)
+        ax.text(x + w / 2, y + h / 2, txt, ha='center', va='center', fontsize=8.3*FS, color=INK)
     if i < len(rows) - 1:
         for x, w in xcol:
             ax.annotate('', (x + w / 2, y - gap + 0.8), (x + w / 2, y - 0.8),
                         arrowprops=dict(arrowstyle='->', color=INK2, lw=1))
 ax.text(2, 10.5, 'Intervention at 0.235, same budget: never evicting storage 3131 → completes (1.477×).\n'
         'Control, same wrapper with no retained tensor → out of memory (peak pinned 2.63 GB; max nesting depth 193; depth at peak pinned 188).',
-        fontsize=8.2, color=INK, va='center')
+        fontsize=8.2*FS, color=INK, va='center')
 ax.text(2, 3.5, 'Which tensor is needed later is hindsight from the trace; DTR\'s score (e*/(size·staleness)) '
         'does not use future accesses. simrd reference simulator; no allocator model.',
-        fontsize=7.6, color=INK2)
+        fontsize=7.6*FS, color=INK2)
+name = 'fig_mechanism_paper' if PAPER else 'fig_mechanism_inception'
+if PAPER:
+    t = [x for x in ax.texts if x.get_text().startswith('InceptionV4, DTR')]
+    for x in t: x.remove()
 for ext in ('png', 'pdf'):
-    fig.savefig(f'{HERE}/fig_mechanism_inception.{ext}', facecolor=SURF)
+    fig.savefig(f'{HERE}/{name}.{ext}', facecolor=SURF)
 print('written')

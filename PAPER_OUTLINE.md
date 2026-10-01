@@ -59,15 +59,15 @@ on public traces with no allocator model; behaviour on real hardware is untested
 ## 5. Failure signature and divergence evidence
 - Failing runs: ≥2 GB pinned, depth at peak pinned ≥157 (InceptionV4); successes ~1 GB,
   ≤47 (0.209 is intermediate: 1.93 GB, depth 96).
-- Divergence trace 0.2343 vs 0.235: identical first 12 evictions; differ at eviction 13
+- Divergence trace 0.2343 vs 0.235: identical first 13 evictions; differ at the 14th
   (model op 945); per-op pinned/depth identical through op 2,269; op 2,270 cascades
-  (depth 193, 2.63 GB). Wording: "histories separate at eviction 13 and the failure
+  (depth 193, 2.63 GB). Wording: "histories separate at the 14th eviction and the failure
   manifests as a single late cascade" — association, not cause.
 - Exploratory (STAGE_E.md): all extra work of the failing run is inside op 2,270 (7,342
   evictions, 6,143 rematerializations vs 2 and 0); its single rebuilt parent, storage 3131,
   was evicted at op 2,267 only in the failing run; never evicting it gives ok at 0.235
   (1.477x) with a control reproducing the OOM. Same pattern on ResNet-32 (storage 612).
-  The early divergence at eviction 13 is where histories separate; the decisive event
+  The early divergence at the 14th eviction is where histories separate; the decisive event
   observed is a late eviction of one parent. [OPEN: why the score picks it at 0.235.]
 
 ## 6. Policy comparisons (negative results)
