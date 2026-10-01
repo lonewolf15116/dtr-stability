@@ -31,8 +31,8 @@ reference simulator, simrd, to replay the public DTR training traces, we show th
 expectation fails. We call the exceptions \emph{feasibility holes}: memory budgets at which
 an eviction policy runs out of memory although both a smaller and a larger budget
 complete, a form of non-monotone feasibility. Under a written sweep protocol with dated
-amendments, a 0.01-step budget grid finds no such hole for DTR on any of six confirmatory
-traces. Finer sampling finds holes on InceptionV4 (three regions) and U-Net (two regions),
+amendments, a 0.01-step budget grid shows no such hole for DTR on any of six confirmatory
+traces, although unresolved timeouts prevent it from establishing monotonicity. Finer sampling finds holes on InceptionV4 (three regions) and U-Net (two regions),
 in addition to one on the ResNet-32 development trace. Every hole is reproduced by three
 repeats and by unmodified simrd. For one InceptionV4 pair (0.2343 versus 0.235 of peak
 memory) we trace the failure to individual allocations. The larger budget avoids one
@@ -78,8 +78,9 @@ would see it, and how it arises.
 \item Reproducible counterexamples to monotone feasibility for DTR in simrd: holes on two of
 six confirmatory traces and on the development trace, each confirmed by repeats and by
 unmodified simrd (Section~\ref{sec:holes}).
-\item Evidence that a standard coarse sweep misses all of them: no DTR hole appears on a
-0.01-step grid (Section~\ref{sec:holes}).
+\item Evidence that a coarse sweep does not reveal them: the 0.01-step grid on the
+confirmatory traces shows no DTR hole, although its unresolved timeouts prevent a conclusion
+of monotonicity (Section~\ref{sec:holes}).
 \item A step-by-step account of one failure, down to individual allocations, with an
 intervention that prevents it under the same budget (Section~\ref{sec:mechanism}).
 \item Negative results for two simple score changes, evaluated against criteria fixed
@@ -387,7 +388,9 @@ unmodified simrd (\texttt{REPRODUCE.md}). The InceptionV4 failing points take 13
 
 \section{Conclusion and future work}
 In DTR's reference simulator, feasibility is not monotone in the memory budget. Confirmed
-holes occur on three of the seven traces we swept. A 0.01-step sweep misses all of them. In one
+holes occur on three of the seven traces we swept. On the confirmatory traces, the 0.01-step
+sweep showed none of them, although its unresolved timeouts mean it could not establish
+monotonicity either. In one
 traced case the outcome turns on whether one allocation is 173{,}479 bytes short, through a
 changed eviction choice that only matters three operators later. The two score changes we
 tested did not remove the holes. Two questions remain open. The first is
