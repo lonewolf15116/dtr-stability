@@ -27,6 +27,8 @@ manifest.json, source_snapshot/.
   commit, not the simrd commit. The probe ran git in the wrong directory, so the batch does
   not itself record the simrd commit. The laptop's simrd checkout is the one used for every
   laptop stage (external/simrd), but this batch's record does not prove it.
+  **Resolved 2026-10-01 by content check:** the laptop's simrd sources and traces are
+  byte-identical to commit eff53cc4 and unmodified since 25 September (SIMRD_PROVENANCE.md).
 - The repo was dirty at launch (modified PROTOCOL.md, harness.py, run_protocol.py,
   run_windows.bat, result files). The snapshot captures the Python sources actually used.
 

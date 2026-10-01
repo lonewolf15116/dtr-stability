@@ -18,13 +18,13 @@ rows = [
      ('49,367,205 B short  →  evicts lowest h_DTR:\n3131 (h = 2.82e-9), ranked ahead of\n932 (h = 8.18e-9) among 675 candidates', CRIT)),
     ('Op 2,270\n(needs storage 3131)',
      ('3131 resident  →  run completes\n(1.471× overhead)', GOOD),
-     ('3131 evicted  →  rebuild cascade: max nesting depth 193,\npeak pinned 2.63 GB (depth at peak 188)  →  out of memory', CRIT)),
+     ('3131 evicted  →  rebuild cascade:\nmax nesting depth 193; peak pinned 2.63 GB\n(depth at peak pinned 188)  →  out of memory', CRIT)),
 ]
 
 import sys
 PAPER = '--paper' in sys.argv
-fig = plt.figure(figsize=(8, 4.8) if PAPER else (10, 5.6), dpi=200, facecolor=SURF)
-FS = 0.82 if PAPER else 1.0
+fig = plt.figure(figsize=(8.4, 5.0) if PAPER else (10, 5.6), dpi=200, facecolor=SURF)
+FS = 0.9 if PAPER else 1.0
 ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, 100); ax.set_ylim(0, 100); ax.axis('off')
 ax.text(2, 96, 'InceptionV4, DTR: how 7.9 MB more budget leads to a failure', fontsize=12.5*FS,
         fontweight='bold', color=INK, va='top')

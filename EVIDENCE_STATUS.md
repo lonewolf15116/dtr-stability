@@ -27,7 +27,7 @@ Stage reports written earlier (STAGE_A/C/D/E.md) are kept as dated records.
   (unresolved only when timeouts could change the verdict).
 
 Open: rerun the four interrupted Unrolled GAN keys if wanted; the batch manifest records the
-repo commit instead of the simrd commit (provenance gap, noted in AUDIT.md); independent
+repo commit instead of the simrd commit (resolved by a content check: SIMRD_PROVENANCE.md); independent
 reproduction; real-hardware pilot as a separate study.
 
 ---

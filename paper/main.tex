@@ -118,8 +118,11 @@ generalise, under a written protocol on traces not used during development.
 
 \section{Method}\label{sec:method}
 \paragraph{Simulator, traces, budgets.} All runs use simrd at commit
-\texttt{eff53cc4} (the 29 September confirmation batch recorded the wrong commit in its
-manifest, so for that batch this rests on the shared laptop setup) with its \texttt{RuntimeV2Eager\-Optimized} runtime and the public traces
+\texttt{eff53cc4}. For the cloud runs this is a recorded git checkout. The laptop's copy
+has no git metadata, and one batch's manifest recorded the wrong commit. A content check
+showed that all 19 simulator source files and all trace files on the laptop are
+byte-identical to that commit, and unmodified since before the laptop runs
+(\texttt{SIMRD\_PROVENANCE.md}). The runs use the \texttt{RuntimeV2Eager\-Optimized} runtime and the public traces
 released with DTR. simrd models tensor sizes, operator compute costs, eviction and
 rematerialization; it has no allocator or fragmentation model. ResNet-32 is the development
 trace: all exploratory tuning used it. The six confirmatory traces are DenseNet,
@@ -168,9 +171,15 @@ executions, of which 5{,}583 are valid outcomes.
 
 \paragraph{Counting holes.} Because budgets are sampled, we report three quantities:
 \emph{failing samples} above a policy's first success; \emph{sample-supported failure
-regions}, runs of failing samples entered from a success; and \emph{edge brackets}
-[last completing sample, first failing sample]. We do not report hole widths. A run of
-failing samples does not show that every budget between them fails.
+regions}; and \emph{edge brackets}. Timed-out samples are set aside first. A failure region
+is then a maximal run of consecutive failing samples, in budget order, with a completing
+sample immediately below and immediately above it. This matches the definition of a hole:
+success on both sides. Timeouts lying between failing samples therefore do not split a
+region, and timeouts between a failure and a success are reported but neither extend nor
+close it. Edge brackets give the last completing and first failing sample at each end. We do
+not report hole widths, and a run of failing samples does not show that every budget
+between them fails. Every failing sample above a policy's first success has a completing
+sample somewhere above it, because the top of every grid completes.
 
 \section{Feasibility holes exist, and a coarse grid misses them}\label{sec:holes}
 
@@ -181,8 +190,10 @@ overhead, pinned bytes and both depth measures. Unmodified simrd gives the same 
 our runtime wherever both completed.
 
 \paragraph{The coarse grid.} On Stage A's 0.01 grid, DTR has \emph{no} failing budget above
-its first success on any of the six confirmatory traces. A conventional sweep at this
-resolution would conclude that DTR's feasibility is a threshold.
+its first success on any of the six confirmatory traces. The coarse sweep reveals no
+inversion, but its 13 timed-out DTR grid points (on InceptionV4, TreeLSTM and Unrolled GAN)
+mean it could not have established monotonicity either. It simply gives no sign of the holes
+found below.
 
 \paragraph{Finer sampling.} With Stages C and B, DTR shows sample-supported failure regions
 on three confirmatory traces (Table~\ref{tab:regions}). DenseNet, Transformer and
@@ -230,7 +241,8 @@ brackets (0.2525, 0.2528--0.2530) timed out, so their outcome is unknown.
 \centering
 \includegraphics[width=\linewidth]{../figures/fig_holes_paper.pdf}
 \caption{DTR outcome against budget, with recursion depth at peak pinned memory on the
-vertical axis. Green: completed; red: OOM; hollow: timeout (unresolved). Annotated failures
+vertical axis. Green: completed; red: OOM. Hollow markers in the separate bottom strip are
+timeouts (unresolved); their vertical position carries no depth. Annotated failures
 are confirmed by three repeats and unmodified simrd.}
 \label{fig:holes}
 \end{figure}
@@ -310,8 +322,12 @@ Two variants were fixed on the development trace before any confirmatory run.
 keeps candidates large enough to cover the current shortfall (or, if none is, the eight
 largest) and ranks them by cost over staleness. Against DTR, on each trace, the protocol tests: H1, no more failing samples
 above the first success; H2, a matched-budget geometric-mean overhead ratio of at most
-1.05; and H3, a stable-from budget no higher than DTR's. A variant ``generalises'' only if
-H1 and H2 both hold on at least five of six traces.
+1.05; and H3, a stable-from budget no higher than DTR's. A policy's
+\emph{stable-from} budget is the lowest sampled budget at and above which every completed
+sample succeeds, with timeouts set aside. A timeout at or above it could only raise the true
+value. H3 is therefore reported as unresolved only if treating such timeouts as failures
+could change the verdict. A variant ``generalises'' only if H1 and H2 both hold on at least
+five of six traces.
 
 On ResNet-32, NbhdPenalty removes DTR's hole at every sampled budget. On the confirmatory
 traces it does not generalise: H1 and H2 both hold on 2 of 6 traces (DenseNet,
@@ -350,8 +366,9 @@ bounds rather than rules out narrow regions (a region of width 0.005 inside one 
 sampled with probability 75\% below 0.30 and 50\% above).
 \item \textbf{Unresolved runs.} 417 valid runs timed out. Some are probably failures, but we
 do not assume so, and a timeout can also hide a run that would have hit the compute cap.
-\item \textbf{Shared-defect risk.} Repeats and unmodified simrd rule out non-determinism and
-our instrumentation. They do not rule out a defect in simrd or in the traces. Independent
+\item \textbf{Shared-defect risk.} All completed repeats agreed, and unmodified simrd
+reproduced the selected outcomes. This is evidence that the outcomes were not introduced by
+our instrumentation, not proof. It does not address a defect shared with simrd or the traces. Independent
 reproduction is pending.
 \item \textbf{Mechanism scope.} Section~\ref{sec:mechanism} explains one pair at the level
 of allocations and supports a second through retention. We do not claim that other holes
@@ -379,8 +396,11 @@ than enforcing a hard memory limit, so they need their own experimental design. 
 is whether a policy can guarantee monotone feasibility at acceptable cost, for example
 through an inclusion-style property.
 
-\paragraph{Acknowledgements.} [Author to complete, including a statement on the use of AI
-assistants for code, analysis and drafting.]
+\paragraph{Acknowledgements and use of AI assistance.} AI assistants (Anthropic's Claude and
+OpenAI's ChatGPT/Codex) were used extensively: to write and run experiment code, to audit
+result files, to analyse data and to draft and fact-check this manuscript. Every number in
+the paper is computed from execution records released in the repository. \textbf{[Author:
+state here what you personally reviewed or re-ran, and add any other acknowledgements.]}
 
 \begin{thebibliography}{99}\small
 \bibitem{belady1969} L.~A. Belady, R.~A. Nelson, G.~S. Shedler. An anomaly in space-time

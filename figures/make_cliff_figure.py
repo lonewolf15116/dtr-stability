@@ -87,29 +87,31 @@ def panel_small(ax, recs, title, annotate, xticks):
         elif r['status'] == 'oom':
             ax.scatter(x, r['depth_at_peak_pinned'], s=20, c=CRIT, marker='X', zorder=3, linewidths=0)
         else:
-            ax.scatter(x, 4, s=12, facecolors='none', edgecolors=UNRES, marker='o', zorder=2, linewidths=0.7)
+            ax.scatter(x, -34, s=12, facecolors='none', edgecolors=UNRES, marker='o', zorder=2, linewidths=0.7)
     for x in annotate:
         r = min(recs, key=lambda q: abs(q['ratio'] - x))
         ax.annotate(f"{r['ratio']:.4g}\n{r['peak_pinned_all']/1e9:.2f} GB", (r['ratio'], r['depth_at_peak_pinned']),
-                    xytext=(0, 5), textcoords='offset points', ha='center', va='bottom', fontsize=6, color=INK2)
-    ax.set_title(title, fontsize=7.5, color=INK, loc='left')
-    ax.set_xlabel('budget (fraction of peak)', fontsize=7, color=INK2)
+                    xytext=(0, 5), textcoords='offset points', ha='center', va='bottom', fontsize=6.8, color=INK2)
+    ax.set_title(title, fontsize=8, color=INK, loc='left')
+    ax.set_xlabel('budget (fraction of peak)', fontsize=7.5, color=INK2)
     ax.set_xticks(xticks)
-    ax.set_ylim(-8, 260); ax.set_yticks([0, 100, 200]); ax.grid(axis='y', color=GRID, lw=0.6); ax.set_axisbelow(True)
+    ax.axhline(-18, color=GRID, lw=0.8, ls=(0, (2, 2)))
+    ax.set_ylim(-48, 265); ax.set_yticks([-34, 0, 100, 200]); ax.set_yticklabels(['timeout', '0', '100', '200'])
+    ax.grid(axis='y', color=GRID, lw=0.6); ax.set_axisbelow(True)
     for s in ('top', 'right'): ax.spines[s].set_visible(False)
     for s in ('left', 'bottom'): ax.spines[s].set_color(GRID)
-    ax.tick_params(colors=INK2, labelsize=6.5, length=2)
+    ax.tick_params(colors=INK2, labelsize=7, length=2)
 
 matplotlib.rcParams['font.family'] = 'DejaVu Sans'
-fig, axes = plt.subplots(1, 3, figsize=(7.2, 2.5), dpi=300, facecolor='white')
+fig, axes = plt.subplots(1, 3, figsize=(7.2, 2.7), dpi=300, facecolor='white')
 panel_small(axes[0], resnet(), 'ResNet-32 (development)', [0.104], [0.095, 0.105, 0.115])
 panel_small(axes[1], inception(), 'InceptionV4', [0.212, 0.235, 0.2527], [0.20, 0.22, 0.24, 0.26])
 panel_small(axes[2], trace_points('unet', 0.415, 0.445), 'U-Net', [0.424, 0.433], [0.42, 0.43, 0.44])
-axes[0].set_ylabel('depth at peak pinned memory', fontsize=7, color=INK2)
+axes[0].set_ylabel('depth at peak pinned memory', fontsize=7.5, color=INK2)
 h = [plt.Line2D([], [], ls='', marker='o', color=GOOD, ms=4, label='completed'),
      plt.Line2D([], [], ls='', marker='X', color=CRIT, ms=5, label='out of memory'),
-     plt.Line2D([], [], ls='', marker='o', mfc='none', mec=UNRES, ms=4, label='timeout (unresolved)')]
-fig.legend(handles=h, loc='upper center', ncol=3, frameon=False, fontsize=6.5, labelcolor=INK2,
+     plt.Line2D([], [], ls='', marker='o', mfc='none', mec=UNRES, ms=4, label='timeout (unresolved; no depth)')]
+fig.legend(handles=h, loc='upper center', ncol=3, frameon=False, fontsize=7.2, labelcolor=INK2,
            bbox_to_anchor=(0.5, 1.0))
 fig.tight_layout(rect=(0, 0, 1, 0.92), w_pad=1.0)
 fig.savefig(f'{HERE}/fig_holes_paper.pdf'); fig.savefig(f'{HERE}/fig_holes_paper.png')
