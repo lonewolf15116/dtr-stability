@@ -3,12 +3,22 @@
 Exploratory follow-up to "Deterministic Regime Switching and Feasibility Inversion
 in Dynamic Tensor Rematerialization". Not part of that preprint.
 
+## Start here
+
+1. [Reproduce the finding](REPRODUCE.md).
+2. [Read the latest evidence audit and outstanding checks](EVIDENCE_STATUS.md).
+3. [Inspect the protocol](PROTOCOL.md) and [paper outline](PAPER_OUTLINE.md).
+
+Raw laptop imports are preserved separately under `results/imports/`; existing
+`results/protocol/` paths remain intact. Do not combine these directories by
+counting lines: snapshots overlap and contain superseded execution errors.
+
 ## Setup
 ```bash
 git clone https://github.com/uwsampl/dtr-prototype.git
 cd dtr-prototype && git checkout eff53cc4804cc7d6246a6e5086861ce2b846f62b
 cd simrd && unzip logs.zip            # creates simrd/logs/
-pip install attrs dill pathos multiprocess numpy    # not simrd/requirements.txt
+pip install attrs dill pathos multiprocess numpy networkx    # not simrd/requirements.txt
 export DTR_SIMRD=$PWD                 # the dtr-prototype/simrd directory
 ```
 Python 3.11 was used. Traces: `lstm-128-11000000000.0-2020-10-1-16-38-52-default.log`
@@ -20,7 +30,7 @@ In an Anaconda prompt (any env with Python >= 3.10):
 git clone https://github.com/uwsampl/dtr-prototype.git C:\dtr\dtr-prototype
 cd C:\dtr\dtr-prototype && git checkout eff53cc4804cc7d6246a6e5086861ce2b846f62b
 cd simrd && tar -xf logs.zip
-pip install attrs dill pathos multiprocess numpy
+pip install attrs dill pathos multiprocess numpy networkx
 set DTR_SIMRD=C:\dtr\dtr-prototype\simrd
 cd <this repo> && python run_protocol.py --stage A --workers 6 --out results\protocol\protocol_A.jsonl
 ```
