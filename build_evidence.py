@@ -29,7 +29,13 @@ FILES = {  # file -> (stage, host provenance, void reason or None)
     'protocol_E.jsonl': ('E', 'cloud container (2 vCPU)', None),
     'protocol_E_void_oversubscribed.jsonl': ('E', 'cloud container, 2.5x oversubscribed',
                                              'void: execution artefact (duplicate launcher)'),
+    'protocol_A_tcontrol.jsonl': ('A-tcontrol', 'laptop Windows (native)', None),
+    'lstm_complete.jsonl': ('LSTM', 'laptop Windows (native)', None),
+    'confirmation_20260929/results.jsonl': ('F-confirm-20260929',
+                                            'laptop Windows (native); manifest.json', None),
 }
+# recovery_20260929_151630/ holds earlier snapshots of protocol_A_tcontrol.jsonl and
+# lstm_complete.jsonl (their records reappear in the live files); it is preserved, never counted.
 
 
 def blame(path):

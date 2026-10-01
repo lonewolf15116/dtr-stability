@@ -1,0 +1,113 @@
+"""Final per-trace tables from the protocol files (A + C + B for the three frozen policies;
+A grid for the added baselines). Timeouts excluded and counted; repeat 0 only; interrupted
+records excluded. Usage: python final_tables.py > results/protocol/FINAL_TABLES.md"""
+import json, math, os, sys
+from collections import defaultdict
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import run_protocol as R
+P = 'results/protocol/'
+TR = ['densenet', 'inception', 'transformer', 'unet', 'treelstm', 'unrollgan']
+NAMES = {'densenet': 'DenseNet', 'inception': 'InceptionV4', 'transformer': 'Transformer',
+         'unet': 'U-Net', 'treelstm': 'TreeLSTM', 'unrollgan': 'Unrolled GAN'}
+
+def load(files):
+    last = {}
+    for f in files:
+        for l in open(P + f):
+            r = json.loads(l)
+            if R.interrupted(r) or r['repeat'] != 0:
+                continue
+            last[(r['model'], r['heuristic'], r['ratio'])] = r
+    return last
+
+def struct(last, tr, p):
+    rs = sorted((k[2], v) for k, v in last.items() if k[0] == tr and k[1] == p)
+    res = [(x, v['status']) for x, v in rs if v['status'] != 'timeout']
+    tout = [x for x, v in rs if v['status'] == 'timeout']
+    first = next((x for x, s in res if s == 'ok'), None)
+    failed = [x for x, s in res if s != 'ok' and first is not None and x > first]
+    oom = [x for x in failed if dict(res)[x] == 'oom']
+    thr = [x for x in failed if dict(res)[x] != 'oom']
+    stable = None
+    for i, (x, s) in enumerate(res):
+        if all(t == 'ok' for _, t in res[i:]):
+            stable = x; break
+    regions = 0; prev_ok = False
+    for x, s in res:
+        if first is not None and x > first:
+            if s != 'ok' and prev_ok: regions += 1
+        prev_ok = (s == 'ok')
+    t_above = [x for x in tout if stable is not None and x >= stable]
+    oks = [x for x, t in res if t == 'ok']
+    return dict(oks=oks, n=len(rs), first=first, failed=failed, oom=oom, thr=thr, stable=stable,
+                regions=regions, tout=tout, t_above=t_above)
+
+def geo(last, tr, p):
+    rat = []
+    for k, v in last.items():
+        if k[0] == tr and k[1] == p and v['status'] == 'ok':
+            d = last.get((tr, 'DTR', k[2]))
+            if d and d['status'] == 'ok':
+                rat.append(v['overhead'] / d['overhead'])
+    if not rat: return None, 0, None
+    return math.exp(sum(map(math.log, rat)) / len(rat)), len(rat), max(rat)
+
+def worst_stable(s):
+    """Highest the true stable-from could be if every timeout at/above it were a failure:
+    the first completing sample above the highest such timeout."""
+    if not s['t_above']:
+        return s['stable']
+    hi = max(s['t_above'])
+    return min((x for x in s['oks'] if x > hi), default=None)
+
+def h3(sp, sd):
+    if sp['stable'] is None or sd['stable'] is None: return 'unresolved'
+    wp, wd = worst_stable(sp), worst_stable(sd)
+    if wp is not None and wp <= sd['stable']: return 'pass'
+    if wd is not None and sp['stable'] > wd: return 'fail'
+    return 'unresolved'
+
+def table(last, policies, title, frozen=True):
+    print(f'## {title}\n')
+    print('| Trace | Policy | Samples | First ok | Failed budgets above first ok (OOM / thrashed) | Sample-supported failure regions | Stable-from | Timeouts (≥ stable-from) | Geo vs DTR (n; worst) | H1 | H2 | H3 |')
+    print('|---|---|---|---|---|---|---|---|---|---|---|---|')
+    passes = defaultdict(int)
+    for tr in TR:
+        sd = struct(last, tr, 'DTR')
+        for p in policies:
+            s = struct(last, tr, p)
+            g, n, w = geo(last, tr, p) if p != 'DTR' else (None, 0, None)
+            if p == 'DTR':
+                h1 = h2 = hh3 = '–'
+            else:
+                h1 = 'pass' if len(s['failed']) <= len(sd['failed']) else 'fail'
+                h2 = ('pass' if g <= 1.05 else 'fail') if g else 'n/a'
+                hh3 = h3(s, sd)
+                if h1 == 'pass' and h2 == 'pass': passes[p] += 1
+            gs = f'{g:.4f} ({n}; {w:.2f}×)' if g else '–'
+            print(f"| {NAMES[tr]} | {p} | {s['n']} | {s['first']} | {len(s['oom'])} / {len(s['thr'])} | {s['regions']} | {s['stable']} | {len(s['tout'])} ({len(s['t_above'])}) | {gs} | {h1} | {h2} | {hh3} |")
+    print()
+    for p in policies:
+        if p != 'DTR':
+            if frozen:
+                print(f'- {p}: H1 and H2 both pass on {passes[p]} of 6 traces '
+                      f'({"generalises" if passes[p] >= 5 else "does not generalise"} under the protocol rule).')
+            else:
+                print(f'- {p}: H1 and H2 both pass on {passes[p]} of 6 traces on the 0.01 grid. Descriptive only: '
+                      'the generalisation rule was frozen for NbhdPenalty (and TwoPhase), not for these baselines, '
+                      'and on this grid DTR itself shows no failure region on any trace, so the grid cannot test '
+                      'whether a policy removes DTR\'s holes.')
+    print()
+
+print('# Final protocol tables (generated by final_tables.py)\n')
+print('Three frozen policies: Stage A + C + B samples, repeat 0. Added baselines: Stage A grid only '
+      '(not comparable at fine resolution). Timeouts excluded from every column except the count. '
+      '"Failed budgets above first ok" is the frozen H1 count; "regions" counts maximal runs of '
+      'failing resolved samples entered from a success. H3 uses the sampled stable-from; it is unresolved only when treating timeouts at or above a stable-from as failures could change the verdict.\n')
+table(load(['protocol_A.jsonl', 'protocol_C.jsonl', 'protocol_B.jsonl']),
+      ['DTR', 'NbhdPenalty@b=0.25', 'TwoPhase@k=8'], 'Frozen policies (A + C + B)')
+base = load(['protocol_A.jsonl', 'protocol_A_baselines.jsonl', 'protocol_A_tcontrol.jsonl'])
+table(base, ['DTR', 'HEStar', 'CostStale', 'TControlInspired@alpha=0.3,floor=0.01'], 'Added baselines (Stage A grid only)', frozen=False)
+print('TControlInspired is a simplified betweenness-locking policy inspired by T-Control, not the published '
+      'implementation. The 29 September confirmation batch confirmed its own InceptionV4 failure region: ok at '
+      '0.20 and 0.23, OOM at 0.21 and 0.22 (3 repeats each; confirmation_20260929/AUDIT.md).')

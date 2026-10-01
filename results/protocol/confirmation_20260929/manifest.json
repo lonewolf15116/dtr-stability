@@ -1,0 +1,35 @@
+{
+  "source_sha256": {
+    "bc.py": "91f189a2f576546a2091df603520faa2ff7b37c6dff6b97dff587d22b1dff957",
+    "harness.py": "a2280cfa8a1a7d282efa22f16de99932e1febedf4e240adcfcc8540ee6fd39c7",
+    "lstm_complete.py": "b4dd5674b40dab7c93f0264e1101323af90856d1b4f2f8f12c83dace741ea2de",
+    "run_protocol.py": "906380a8f12faa4ef0f2f37a461e5d5661b0159062d621efedef7b8589abbc98",
+    "summarise.py": "f991a116c3d4db124377d9a54a081f0be7caf41a3cf0374cd877b7edb100592e",
+    "variants.py": "65de8828ba7d44124a8dffad874e445468d2821b30a36ec706705c2ce7646653"
+  },
+  "host": "LAPTOP-T1JBL1VC",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Mahesh Reddy\\Projects\\dtr-stability\\.venv\\Scripts\\python.exe",
+  "networkx": "3.7",
+  "repo_commit": {
+    "returncode": 0,
+    "stdout": "4bc152e6c0daa060b5f4f14aa8e1ad63b665c3e9",
+    "stderr": ""
+  },
+  "repo_status": {
+    "returncode": 0,
+    "stdout": "M PROTOCOL.md\n M harness.py\n M results/protocol/protocol_A.jsonl\n M results/protocol/protocol_A_baselines.jsonl\n M results/protocol/protocol_A_baselines.log\n M run_protocol.py\n M run_windows.bat\n?? confirmation_20260929/\n?? dtr-confirmation-20260929.zip\n?? dtr_audit_20260929_152758.zip\n?? results/protocol/confirmation_20260929/\n?? results/protocol/lstm_complete.jsonl\n?? results/protocol/lstm_complete.log\n?? results/protocol/protocol_A.log\n?? results/protocol/protocol_A_tcontrol.jsonl\n?? results/protocol/protocol_A_tcontrol.log\n?? results/protocol/protocol_B.jsonl\n?? results/protocol/protocol_B.log\n?? results/protocol/protocol_C.jsonl\n?? results/protocol/protocol_C.log\n?? results/protocol/protocol_D.jsonl\n?? results/protocol/protocol_D.log\n?? results/protocol/recovery_20260929_151630/\n?? workers.txt",
+    "stderr": ""
+  },
+  "simulator_commit": {
+    "returncode": 0,
+    "stdout": "4bc152e6c0daa060b5f4f14aa8e1ad63b665c3e9",
+    "stderr": ""
+  },
+  "simulator_status": {
+    "returncode": 0,
+    "stdout": "M ../../PROTOCOL.md\n M ../../harness.py\n M ../../results/protocol/protocol_A.jsonl\n M ../../results/protocol/protocol_A_baselines.jsonl\n M ../../results/protocol/protocol_A_baselines.log\n M ../../run_protocol.py\n M ../../run_windows.bat\n?? ../../confirmation_20260929/\n?? ../../dtr-confirmation-20260929.zip\n?? ../../dtr_audit_20260929_152758.zip\n?? ../../results/protocol/confirmation_20260929/\n?? ../../results/protocol/lstm_complete.jsonl\n?? ../../results/protocol/lstm_complete.log\n?? ../../results/protocol/protocol_A.log\n?? ../../results/protocol/protocol_A_tcontrol.jsonl\n?? ../../results/protocol/protocol_A_tcontrol.log\n?? ../../results/protocol/protocol_B.jsonl\n?? ../../results/protocol/protocol_B.log\n?? ../../results/protocol/protocol_C.jsonl\n?? ../../results/protocol/protocol_C.log\n?? ../../results/protocol/protocol_D.jsonl\n?? ../../results/protocol/protocol_D.log\n?? ../../results/protocol/recovery_20260929_151630/\n?? ../../workers.txt",
+    "stderr": ""
+  }
+}

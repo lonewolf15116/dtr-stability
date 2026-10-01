@@ -1,5 +1,7 @@
 # Stage C verdict — Stage A + C combined (complete 2026-09-27 18:55 UTC)
 
+> Superseded for final numbers by FINAL_TABLES.md (A + C + B, generated 2026-10-01). Kept as the interim record.
+
 1,440 of 1,440 Stage C points valid (interruption artefacts rerun). Combined with Stage A:
 ~136 budgets per trace and policy (0.01 grid + 2 seeded interior samples per interval below
 0.30, 1 above). Stage B (0.001 refinement, 1,566 points) is running; this table is

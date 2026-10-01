@@ -43,9 +43,11 @@ allocation cannot be satisfied after the evictable pool is empty; *thrashed*, wh
 rematerialization compute exceeds the 60× compute cap; *recursion*, when the simulator's
 call stack is exhausted; or *timeout*, when a run exceeds 20 minutes of wall time. Only OOM
 is evidence that execution does not fit in memory. Thrashed and recursion are compute or
-implementation cutoffs, not memory infeasibility; no valid run in this study ended in
-either (all 1,182 failures are OOM), but a timeout could hide a run that would have
-thrashed. Timeouts are unresolved and are counted neither as successes nor as failures.
+implementation cutoffs, not memory infeasibility. In the final evidence table (5,583 valid
+executions), no run ended in *recursion*. 24 ended *thrashed*, all under the added baselines
+(HEStar 12, CostStale 7, TControlInspired 5). Every failure of DTR, NbhdPenalty and TwoPhase
+is OOM. A timeout could also hide a run that would have thrashed. [Counts to be refrozen at
+the final evidence build.] Timeouts are unresolved and are counted neither as successes nor as failures.
 
 *Compute overhead* is (model compute + rematerialization compute) / model compute, where
 model compute is the summed cost of every operator executed once, as counted by simrd's
@@ -98,7 +100,8 @@ completed runs:
   count of sampled budgets, not of regions. Our stage summaries labelled the column "bands";
   it has always meant this count, and the paper reports it under its operational name. As
   frozen, "failed" means any non-ok resolved outcome, so H1 is a protocol-defined composite
-  of OOM, thrashed and recursion. In this data it equals the OOM count.
+  of OOM, thrashed and recursion. For DTR, NbhdPenalty and TwoPhase it equals the OOM count. For the
+  added baselines, thrashed budgets are reported separately and not counted as holes.
 - **H2:** the geometric mean over matched budgets (both runs completed) of the per-budget
   overhead ratio, policy / DTR, is at most 1.05.
 - **H3:** the policy's *stable-from* is no higher than DTR's. Stable-from is the lowest
