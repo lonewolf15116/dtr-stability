@@ -121,8 +121,9 @@ generalise, under a written protocol on traces not used during development.
 \texttt{eff53cc4}. For the cloud runs this is a recorded git checkout. The laptop's copy
 has no git metadata, and one batch's manifest recorded the wrong commit. A content check
 showed that all 19 simulator source files and all trace files on the laptop are
-byte-identical to that commit, and unmodified since before the laptop runs
-(\texttt{SIMRD\_PROVENANCE.md}). The runs use the \texttt{RuntimeV2Eager\-Optimized} runtime and the public traces
+byte-identical to that commit, with modification times that predate the laptop runs
+(\texttt{SIMRD\_PROVENANCE.md}). This is a retrospective check: timestamps support, but do
+not prove, that the same files were used at run time. The runs use the \texttt{RuntimeV2Eager\-Optimized} runtime and the public traces
 released with DTR. simrd models tensor sizes, operator compute costs, eviction and
 rematerialization; it has no allocator or fragmentation model. ResNet-32 is the development
 trace: all exploratory tuning used it. The six confirmatory traces are DenseNet,

@@ -11,8 +11,10 @@ This file replaces that field with a content check.
 - No file under the laptop's simrd/ or logs/ has a modification time after 2026-09-25 22:25 (the newest are .pyc caches),
   i.e. before the batch ran on 29 September.
 
-Conclusion: the batch ran on simulator sources and traces byte-identical to commit eff53cc4. This is a content
-check made after the batch, not a value recorded by the batch itself.
+Conclusion: the files present now are byte-identical to commit eff53cc4, and their modification times predate the
+batch. That supports, but does not prove, that the batch used them: timestamps can be preserved or altered, and this is
+a retrospective check, not a value recorded at run time. A rerun would not change this; it would only establish
+provenance for the new runs.
 
 ## Source hashes (identical on both hosts)
 ```
