@@ -6,7 +6,9 @@ in Dynamic Tensor Rematerialization". Not part of that preprint.
 ## Start here
 
 1. [Reproduce the finding](REPRODUCE.md).
-2. [Read the latest evidence audit and outstanding checks](EVIDENCE_STATUS.md).
+2. [Read the latest evidence audit and outstanding checks](EVIDENCE_STATUS.md), then the
+   [final tables](results/protocol/FINAL_TABLES.md) and the
+   [confirmation-batch audit](results/protocol/confirmation_20260929/AUDIT.md).
 3. [Inspect the protocol](PROTOCOL.md) and [paper outline](PAPER_OUTLINE.md).
 
 Raw laptop imports are preserved separately under `results/imports/`; existing

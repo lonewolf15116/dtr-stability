@@ -1,4 +1,38 @@
-# Evidence status — 29 September 2026
+# Evidence status
+
+## Current status — 1 October 2026 (supersedes the 29 September section below)
+
+Source of truth for numbers: `results/EVIDENCE_runs.csv` (one row per execution, rebuilt by
+`build_evidence.py`) and `results/protocol/FINAL_TABLES.md` (rebuilt by `final_tables.py`).
+Stage reports written earlier (STAGE_A/C/D/E.md) are kept as dated records.
+
+- Raw files in `results/protocol/` are byte-identical to the 29 September laptop imports in
+  `results/imports/2026-09-29-laptop/` for stages A, B, C and D, the baselines and LSTM. The
+  only exception is `protocol_A_tcontrol.jsonl`: the live file is identical to the
+  recovered file (816 lines: 408 dependency errors + 408 valid records), and the import
+  folder's 461-line copy is an earlier partial snapshot. The evidence tables read only
+  `results/protocol/`, never `results/imports/`.
+- Evidence table: 6,243 executions, 5,583 valid (3,377 ok, 1,765 OOM, 417 timeout,
+  24 compute-cap: HEStar 12, CostStale 7, TControlInspired 5), 660 excluded with reasons
+  (interrupted, void, superseded, deferred). No point has completed runs that disagree.
+- 29 September confirmation batch: executed; audited in
+  `results/protocol/confirmation_20260929/AUDIT.md`. Both U-Net DTR triples confirmed
+  (3/3 repeats + stock simrd). Unrolled GAN not confirmed (four sleep-interrupted runs, two
+  genuine timeouts at 0.238). TControlInspired InceptionV4 region confirmed for that
+  simplified policy. The plan and point list are kept both at `confirmation_20260929/`
+  (with prepare.py) and with the results; the copies are identical.
+- Confirmed DTR feasibility holes (repeats + stock simrd): ResNet-32 (development trace),
+  InceptionV4, U-Net. Simulator only; real-GPU behaviour untested.
+- Methods draft carries the corrected compute-cap count (24) and the clarified H3 rule
+  (unresolved only when timeouts could change the verdict).
+
+Open: rerun the four interrupted Unrolled GAN keys if wanted; the batch manifest records the
+repo commit instead of the simrd commit (provenance gap, noted in AUDIT.md); independent
+reproduction; real-hardware pilot as a separate study.
+
+---
+
+## Historical: 29 September 2026
 
 This report audits the supplied laptop snapshot, not a live laptop connection.
 
