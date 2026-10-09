@@ -55,8 +55,8 @@ h_{\mathrm{DTR}}(t) = \frac{c(e^*(t))}{m(t)\cdot s(t)},
 where $c(e^*(t))$ is the compute of $t$ and of its evicted neighbourhood, $m(t)$ its size
 and $s(t)$ its staleness. DTR is evaluated, like most rematerialization systems, by sweeping
 the budget on a coarse grid and reporting overhead and the smallest budget that works
-\cite{kirisame2021dtr,zhang2023coop,wang2026tcontrol}. Implicitly, such sweeps treat
-feasibility as a threshold: below it training fails, above it training succeeds.
+\cite{kirisame2021dtr,zhang2023coop,wang2026tcontrol}. Such coarse sweeps can fail to
+reveal non-monotone feasibility; our results show that this is not merely hypothetical.
 
 This paper reports that, in DTR's reference simulator, feasibility is not a threshold. At
 some budgets DTR runs out of memory while slightly smaller and slightly larger budgets
@@ -206,7 +206,9 @@ success, so its absence of holes is weaker evidence.
 \centering\small
 \caption{DTR failure regions supported by samples (Stages A, B and C plus confirmation runs).
 Brackets give the last completing and first failing sample on each side. ``Confirmed'' means
-three agreeing repeats plus agreeing unmodified simrd at the listed points.}
+three agreeing repeats plus agreeing unmodified simrd at the listed points, except where noted:
+0.2423 has two completed, agreeing repeats and one timeout (see note $^a$); the region remains
+supported by the confirmed point at 0.235.}
 \label{tab:regions}
 \begin{tabularx}{\linewidth}{@{}l>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}Xl@{}}
 \toprule
@@ -358,14 +360,16 @@ regimes: 10.10$\times$ at 0.266, 1.38$\times$ at 0.265, 8.78$\times$ at 0.264 an
 \begin{itemize}
 \item \textbf{Simulation only.} simrd models no allocator, fragmentation, alignment,
 streams or framework memory. A budget here is an exact limit on simulated tensor bytes. We
-have not run DTR or any other runtime on hardware, so whether feasibility holes occur there,
-and how often, is untested. Fragmentation alone makes physical feasibility differ from the
+have not run DTR or any other runtime on hardware as part of this study, so whether these
+feasibility holes transfer to hardware, and how often, is untested here. Fragmentation alone makes physical feasibility differ from the
 logical budget in real DTR runtimes \cite{zhang2023coop,hu2022megtaichi}.
 \item \textbf{Traces.} Each trace is a single recorded configuration from the DTR prototype.
 Results say nothing about other models, batch sizes or frameworks.
-\item \textbf{Sampling.} Holes are observed at samples; widths are not measured. Stage C
-bounds rather than rules out narrow regions (a region of width 0.005 inside one interval is
-sampled with probability 75\% below 0.30 and 50\% above).
+\item \textbf{Sampling.} Holes are observed at samples; widths are not measured. Under
+Stage C's sampling density and assuming holes are detected whenever a sample falls inside them,
+a region of width 0.005 inside one interval has a 75\% detection probability below 0.30 and 50\%
+above; these are detection probabilities under that assumption, not bounds on what remains
+undiscovered.
 \item \textbf{Unresolved runs.} 417 valid runs timed out. Some are probably failures, but we
 do not assume so, and a timeout can also hide a run that would have hit the compute cap.
 \item \textbf{Shared-defect risk.} All completed repeats agreed, and unmodified simrd
